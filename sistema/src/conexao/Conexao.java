@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Conexao {
 	private static Connection conn;
 
@@ -14,11 +16,19 @@ public class Conexao {
 	public synchronized static Connection getInstance() {
 		if (conn == null) {
 			try {
-				conn = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl", "B9763050", "tantufas");
-				//conn = DriverManager.getConnection("jdbc:oracle:thin:@" + host + ":" + port + ":orcl", user, password);
-				System.out.println("conectou");
+				Scanner s = new Scanner(System.in);
+				System.out.print("Host: ");
+				String host = s.nextLine();
+				System.out.print("Port: ");
+				String port = s.nextLine();
+				System.out.print("User: ");
+				String user = s.nextLine();
+				System.out.print("Password: ");
+				String password = s.nextLine();
+				conn = DriverManager.getConnection("jdbc:oracle:thin:@" + host + ":" + port + ":orcl", user, password);
+				System.out.println("Conexao estabelecida");
 			} catch (Exception e) {
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Nao foi possivel conectar");
 			}
 		}
 		return conn;
