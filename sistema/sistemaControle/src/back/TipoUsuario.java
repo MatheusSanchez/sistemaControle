@@ -13,8 +13,8 @@ public class TipoUsuario {
 	 * 
 	 *  posições do array
 	 *  
-	 *  [0] CPF_USUARIO
-	 *  [1] TIPO
+	 *  [0] CPF_USUARIO 111.111.111-11 
+	 *  [1] TIPO ("O","F","A")
 	 *  
 	 *  
 	 *  // tipo tem que ser 'A'(adm) ou 'O'(outros) ou 'F'(funcionarios)

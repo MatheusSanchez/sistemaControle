@@ -31,7 +31,7 @@ public class Main {
 		
 		/*	CADASTRO DE USUARIO COM TIPO*/
 		 
-		
+	/*	
 		String[] usuario = new String[5];
 		usuario[0] = "123.078.148-11";
 		usuario[1] = "46.040.675-9";
@@ -39,7 +39,7 @@ public class Main {
 		usuario[3] = "matheus.sanchez@usp.br";
 		usuario[4] = "tantufaz";
 		
-		Usuario.cadastro(usuario,"A");
+		Usuario.cadastro(usuario,"A");*/
 
 		
 		/*CADASTRO DE REPOSICAO*/
@@ -53,5 +53,20 @@ public class Main {
 		
 		Reposicao.cadastro(reposicao);
 		*/	
+		
+		
+		String[] usuario = new String[5];
+		usuario[0] = "123.123.148-11";
+		usuario[1] = "46.050.675-9";
+		usuario[2] = "Pedro Sanchez";
+		usuario[3] = "mateus.sanchekz@usp.br";
+		usuario[4] = "oi";
+		
+		
+		Usuario.cadastro(usuario,"O");
+		//Usuario.cadastro(usuario);
+	
+		
+		//Usuario.cadastro(usuario,"A");
 	}
 }
