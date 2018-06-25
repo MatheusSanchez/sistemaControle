@@ -67,6 +67,8 @@ public class Home {
 		lblTodosOsDireitos.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
+		
+		//Panel de produto
 		JPanel cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
 		cadastroProduto.setBounds(200, 121, 690, 289);
@@ -92,11 +94,14 @@ public class Home {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String [] form = new String[3];
-				form[0] = textNomeProduto.getText();
-				form[1] = textFieldDescricaoProduto.getText();
-				form[2] = textFieldLucroProduto.getText();
-				System.out.println(form[0] + form[1] +form[2]);
-				Produto.cadastro(form);
+				if(tipo == 1){
+					form[0] = textNomeProduto.getText();
+					form[1] = textFieldDescricaoProduto.getText();
+					form[2] = textFieldLucroProduto.getText();
+					System.out.println(form[0] + form[1] +form[2]);
+					Produto.cadastro(form);
+				}
+				
 				
 			}
 		});
@@ -147,9 +152,10 @@ public class Home {
 		btnAlteracao.setBounds(25, 307, 89, 23);
 		frame.getContentPane().add(btnAlteracao);
 		
+		
+		//Botão de produto
 		JButton btnProduto = new JButton("Produto");
 		btnProduto.setForeground(Color.BLACK);
-		btnProduto.setBackground(Color.BLUE);
 		btnProduto.setBounds(55, 55, 159, 55);
 		frame.getContentPane().add(btnProduto);
 		btnProduto.addActionListener(new ActionListener() {
@@ -162,13 +168,15 @@ public class Home {
 			}
 		});
 		
+		
+		//Botão de vendas
 		JButton btnVendas = new JButton("Vendas");
 		btnVendas.setForeground(Color.BLACK);
-		btnVendas.setBackground(Color.BLUE);
 		btnVendas.setBounds(282, 55, 159, 55);
 		frame.getContentPane().add(btnVendas);
 		btnVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				tipo = 2;
 				btnCadastro.setVisible(true);
 				btnConsulta.setVisible(true);
 				btnRemocao.setVisible(true);
@@ -176,13 +184,15 @@ public class Home {
 			}
 		});
 		
+		
+		//Botão de estoque
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.setForeground(Color.BLACK);
-		btnEstoque.setBackground(Color.BLUE);
 		btnEstoque.setBounds(529, 55, 159, 55);
 		frame.getContentPane().add(btnEstoque);
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				tipo = 3;
 				btnCadastro.setVisible(true);
 				btnConsulta.setVisible(true);
 				btnRemocao.setVisible(true);
@@ -190,16 +200,15 @@ public class Home {
 			}
 		});
 		
+		
+		//Botão de usuarios
 		JButton btnUsuarios = new JButton("Usuarios");
 		btnUsuarios.setForeground(Color.BLACK);
-		btnUsuarios.setBackground(Color.BLUE);
 		btnUsuarios.setBounds(760, 55, 159, 55);
 		frame.getContentPane().add(btnUsuarios);
-		
-		
-
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				tipo = 4;
 				btnCadastro.setVisible(true);
 				btnConsulta.setVisible(true);
 				btnRemocao.setVisible(true);
