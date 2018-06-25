@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import back.Produto;
 import back.Usuario;
 
 import javax.swing.JPasswordField;
@@ -27,7 +28,10 @@ public class Home {
 
 	JFrame frame;
 	private static Container container;
-
+	int tipo;
+	private JTextField textNomeProduto;
+	private JTextField textFieldDescricaoProduto;
+	private JTextField textFieldLucroProduto;
 	
 	
 	public Home(Container c, JFrame j) {
@@ -40,17 +44,13 @@ public class Home {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(Container c,JFrame j) {
-		frame = j;
+		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
 
 		frame.setBounds(100, 100, 973, 520);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lblResultado = new JLabel("resultado");
-		lblResultado.setBounds(753, 118, 95, 45);
-		frame.getContentPane().add(lblResultado);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 973, 30);
@@ -67,21 +67,145 @@ public class Home {
 		lblTodosOsDireitos.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
+		JPanel cadastroProduto = new JPanel();
+		cadastroProduto.setVisible(false);
+		cadastroProduto.setBounds(200, 121, 690, 289);
+		frame.getContentPane().add(cadastroProduto);
+		cadastroProduto.setLayout(null);
 		
-		JButton btnCrieUmConta = new JButton("Crie um Conta");
-		btnCrieUmConta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		textNomeProduto = new JTextField();
+		textNomeProduto.setBounds(179, 44, 86, 20);
+		cadastroProduto.add(textNomeProduto);
+		textNomeProduto.setColumns(10);
+		
+		textFieldDescricaoProduto = new JTextField();
+		textFieldDescricaoProduto.setColumns(10);
+		textFieldDescricaoProduto.setBounds(179, 79, 86, 20);
+		cadastroProduto.add(textFieldDescricaoProduto);
+		
+		textFieldLucroProduto = new JTextField();
+		textFieldLucroProduto.setColumns(10);
+		textFieldLucroProduto.setBounds(179, 122, 86, 20);
+		cadastroProduto.add(textFieldLucroProduto);
+		
+		JButton btnCadastrar = new JButton("cadastrar !");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] form = new String[3];
+				form[0] = textNomeProduto.getText();
+				form[1] = textFieldDescricaoProduto.getText();
+				form[2] = textFieldLucroProduto.getText();
+				System.out.println(form[0] + form[1] +form[2]);
+				Produto.cadastro(form);
+				
 			}
 		});
-		btnCrieUmConta.setForeground(Color.BLACK);
-		btnCrieUmConta.setBackground(Color.BLUE);
-		btnCrieUmConta.setBounds(788, 355, 159, 55);
-		frame.getContentPane().add(btnCrieUmConta);
+		btnCadastrar.setBounds(335, 43, 89, 23);
+		cadastroProduto.add(btnCadastrar);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(69, 47, 46, 14);
+		cadastroProduto.add(lblNome);
+		
+		JLabel lblDescricao = new JLabel("Descricao");
+		lblDescricao.setBounds(69, 82, 46, 14);
+		cadastroProduto.add(lblDescricao);
+		
+		JLabel lblLucroEsperado = new JLabel("Lucro Esperado");
+		lblLucroEsperado.setBounds(69, 125, 74, 14);
+		cadastroProduto.add(lblLucroEsperado);
+		
+		
+		JButton btnCadastro = new JButton("Cadastro");
+		btnCadastro.setVisible(false);
+		btnCadastro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tipo == 1) {
+					cadastroProduto.setVisible(true);
+				}
+			}
+		});
+		btnCadastro.setBounds(25, 193, 89, 23);
+		frame.getContentPane().add(btnCadastro);
+		
+		JButton btnConsulta = new JButton("Consulta");
+		btnConsulta.setVisible(false);
+		btnConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnConsulta.setBounds(25, 227, 89, 23);
+		frame.getContentPane().add(btnConsulta);
+		
+		JButton btnRemocao = new JButton("Remo\u00E7\u00E3o");
+		btnRemocao.setVisible(false);
+		btnRemocao.setBounds(25, 266, 89, 23);
+		frame.getContentPane().add(btnRemocao);
+		
+		JButton btnAlteracao = new JButton("Alteracao");
+		btnAlteracao.setVisible(false);
+		btnAlteracao.setBounds(25, 307, 89, 23);
+		frame.getContentPane().add(btnAlteracao);
+		
+		JButton btnProduto = new JButton("Produto");
+		btnProduto.setForeground(Color.BLACK);
+		btnProduto.setBackground(Color.BLUE);
+		btnProduto.setBounds(55, 55, 159, 55);
+		frame.getContentPane().add(btnProduto);
+		btnProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tipo = 1;
+				btnCadastro.setVisible(true);
+				btnConsulta.setVisible(true);
+				btnRemocao.setVisible(true);
+				btnAlteracao.setVisible(true);
+			}
+		});
+		
+		JButton btnVendas = new JButton("Vendas");
+		btnVendas.setForeground(Color.BLACK);
+		btnVendas.setBackground(Color.BLUE);
+		btnVendas.setBounds(282, 55, 159, 55);
+		frame.getContentPane().add(btnVendas);
+		btnVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnCadastro.setVisible(true);
+				btnConsulta.setVisible(true);
+				btnRemocao.setVisible(true);
+				btnAlteracao.setVisible(true);
+			}
+		});
+		
+		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque.setForeground(Color.BLACK);
+		btnEstoque.setBackground(Color.BLUE);
+		btnEstoque.setBounds(529, 55, 159, 55);
+		frame.getContentPane().add(btnEstoque);
+		btnEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnCadastro.setVisible(true);
+				btnConsulta.setVisible(true);
+				btnRemocao.setVisible(true);
+				btnAlteracao.setVisible(true);
+			}
+		});
+		
+		JButton btnUsuarios = new JButton("Usuarios");
+		btnUsuarios.setForeground(Color.BLACK);
+		btnUsuarios.setBackground(Color.BLUE);
+		btnUsuarios.setBounds(760, 55, 159, 55);
+		frame.getContentPane().add(btnUsuarios);
+		
 		
 
-		
-		
-		
+		btnUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnCadastro.setVisible(true);
+				btnConsulta.setVisible(true);
+				btnRemocao.setVisible(true);
+				btnAlteracao.setVisible(true);
+			}
+		});
 	
 		
 	}
