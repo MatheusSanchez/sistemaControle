@@ -23,27 +23,26 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
 
-public class TelaLogin {
+public class Home {
 
 	JFrame frame;
-	private JTextField userField;
-	private JPasswordField passwordField;
 	private static Container container;
 
 	
 	
-	public TelaLogin() {
+	public Home(Container c, JFrame j) {
 		
-		initialize();
+		initialize(c,j);
+		this.frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
+	private void initialize(Container c,JFrame j) {
+		frame = j;
 		frame.getContentPane().setBackground(new Color(145,170,157));
-		container = frame.getContentPane();
+		container = c;
 
 		frame.setBounds(100, 100, 973, 520);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,36 +68,6 @@ public class TelaLogin {
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(UIManager.getBorder("Button.border"));
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(62, 96, 111));
-		panel_2.setBounds(292, 154, 320, 175);
-		frame.getContentPane().add(panel_2);
-		
-		JLabel lblLogin = new JLabel("LOGIN");
-		lblLogin.setBounds(75, 47, 46, 14);
-		panel_2.add(lblLogin);
-		
-		userField = new JTextField();
-		userField.setBounds(158, 44, 89, 20);
-		panel_2.add(userField);
-		userField.setColumns(10);
-		
-		JLabel lblSenha = new JLabel("SENHA");
-		lblSenha.setBounds(75, 89, 46, 14);
-		panel_2.add(lblSenha);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(158, 86, 89, 20);
-		panel_2.add(passwordField);
-		
-		JButton btnLogin = new JButton("LOGIN");
-		btnLogin.setBounds(207, 141, 89, 23);
-		panel_2.add(btnLogin);
-		btnLogin.setBackground(new Color(0, 0, 255));
-		btnLogin.setForeground(new Color(0, 0, 0));
-		
 		JButton btnCrieUmConta = new JButton("Crie um Conta");
 		btnCrieUmConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -108,28 +77,6 @@ public class TelaLogin {
 		btnCrieUmConta.setBackground(Color.BLUE);
 		btnCrieUmConta.setBounds(788, 355, 159, 55);
 		frame.getContentPane().add(btnCrieUmConta);
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String user,pass;
-				user="";
-				pass="";
-				
-				user = userField.getText();
-				pass = passwordField.getText();
-				
-				if(user != "" && pass != "") {
-					if(Usuario.login(user, pass)) {
-						Main.novaTela(container);
-						Home h = new Home(container,frame);
-						
-					}else {
-						lblResultado.setText("Login Incorreto !!!");
-					}
-				}
-				
-				
-			}
-		});
 		
 
 		
