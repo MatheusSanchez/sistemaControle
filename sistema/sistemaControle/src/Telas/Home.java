@@ -303,9 +303,9 @@ public class Home {
 			public void actionPerformed(ActionEvent e){
 				String [] form_U = new String[7];
 				if(tipo == 4){
-					form_U[0] = textFieldNomeUsuario.getText();
+					form_U[0] = textFieldCPFUsuario.getText();
 					form_U[1] = textFieldRGUsuario.getText();
-					form_U[2] = textFieldCPFUsuario.getText();
+					form_U[2] = textFieldNomeUsuario.getText();
 					form_U[3] = textFieldEmailUsuario.getText();
 					form_U[4] = textFieldSenhaUsuario.getText();
 					form_U[5] = textFieldConfirmacaoUsuario.getText();
