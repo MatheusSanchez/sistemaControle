@@ -76,8 +76,8 @@ public class Home {
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
 		
-		//Panel de produto
-		/*JPanel cadastroProduto = new JPanel();
+		//-----Panel de cadastro de produto-----
+		JPanel cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
 		cadastroProduto.setBounds(282, 121, 637, 289);
 		frame.getContentPane().add(cadastroProduto);
@@ -98,16 +98,17 @@ public class Home {
 		textFieldLucroProduto.setBounds(179, 140, 192, 20);
 		cadastroProduto.add(textFieldLucroProduto);
 		
+		//Botão responsável pelo cadastro de um produto
 		JButton btnCadastrarProduto = new JButton("Cadastrar");
 		btnCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String [] form = new String[3];
+				String [] form_P = new String[3];
 				if(tipo == 1){
-					form[0] = textNomeProduto.getText();
-					form[1] = textFieldDescricaoProduto.getText();
-					form[2] = textFieldLucroProduto.getText();
-					System.out.println(form[0] + form[1] +form[2]);
-					Produto.cadastro(form);
+					form_P[0] = textNomeProduto.getText();
+					form_P[1] = textFieldDescricaoProduto.getText();
+					form_P[2] = textFieldLucroProduto.getText();
+					System.out.println(form_P[0] + form_P[1] +form_P[2]);
+					Produto.cadastro(form_P);
 				}
 				
 				
@@ -116,9 +117,9 @@ public class Home {
 		btnCadastrarProduto.setBounds(504, 139, 89, 23);
 		cadastroProduto.add(btnCadastrarProduto);
 		
-		JLabel lblNome = new JLabel("Nome :");
-		lblNome.setBounds(69, 47, 89, 14);
-		cadastroProduto.add(lblNome);
+		JLabel lblNome_P = new JLabel("Nome :");
+		lblNome_P.setBounds(69, 47, 89, 14);
+		cadastroProduto.add(lblNome_P);
 		
 		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o : ");
 		lblDescricao.setBounds(69, 95, 89, 14);
@@ -126,9 +127,9 @@ public class Home {
 		
 		JLabel lblLucroEsperado = new JLabel("Lucro esperado :");
 		lblLucroEsperado.setBounds(69, 143, 89, 14);
-		cadastroProduto.add(lblLucroEsperado);*/
+		cadastroProduto.add(lblLucroEsperado);
 		
-		//Panel de cadastro de usuario
+		//-----Panel de cadastro de usuario-----
 		JPanel cadastroUsuario = new JPanel();
 		cadastroUsuario.setVisible(false);
 		cadastroUsuario.setBounds(282, 121, 637, 289);
@@ -170,9 +171,9 @@ public class Home {
 		cadastroUsuario.add(textFieldTipoUsuario);
 		textFieldTipoUsuario.setColumns(10);
 		
-		JLabel lblNome = new JLabel("Nome :");
-		lblNome.setBounds(72, 36, 46, 14);
-		cadastroUsuario.add(lblNome);
+		JLabel lblNome_U = new JLabel("Nome :");
+		lblNome_U.setBounds(72, 36, 46, 14);
+		cadastroUsuario.add(lblNome_U);
 		
 		JLabel lblNewLabel = new JLabel("RG :");
 		lblNewLabel.setBounds(72, 67, 46, 14);
@@ -198,22 +199,48 @@ public class Home {
 		lblTipoDeFuncionrio.setBounds(72, 232, 122, 14);
 		cadastroUsuario.add(lblTipoDeFuncionrio);
 		
+		//Botão responsavel pelo cadastro de usuario
+		JButton btnCadastrarUsuario = new JButton("Cadastrar");
+		btnCadastrarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				String [] form_U = new String[7];
+				if(tipo == 4){
+					form_U[0] = textFieldNomeUsuario.getText();
+					form_U[1] = textFieldRGUsuario.getText();
+					form_U[2] = textFieldCPFUsuario.getText();
+					form_U[3] = textFieldEmailUsuario.getText();
+					form_U[4] = textFieldSenhaUsuario.getText();
+					form_U[5] = textFieldConfirmacaoUsuario.getText();
+					form_U[6] = textFieldTipoUsuario.getText();
+					System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6]);
+					if(form_U[4].equals(form_U[5])){
+						Usuario.cadastro(form_U, form_U[6]);
+					}
+				}
+				
+				
+			}
+		});
+		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
+		cadastroUsuario.add(btnCadastrarUsuario);
+		
 		//Botão de Cadastro
-		JButton btnCadastro_P = new JButton("Cadastro");
-		btnCadastro_P.setVisible(false);
-		btnCadastro_P.addActionListener(new ActionListener() {
+		JButton btnInserir_P = new JButton("Inserir");
+		btnInserir_P.setVisible(false);
+		btnInserir_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
-					//cadastroProduto.setVisible(true);
+					cadastroProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
 					cadastroUsuario.setVisible(true);
 				}
 			}
 		});
-		btnCadastro_P.setBounds(99, 149, 89, 23);
-		frame.getContentPane().add(btnCadastro_P);
+		btnInserir_P.setBounds(99, 149, 89, 23);
+		frame.getContentPane().add(btnInserir_P);
 		
+		//Botão de Consulta
 		JButton btnConsulta_P = new JButton("Consulta");
 		btnConsulta_P.setVisible(false);
 		btnConsulta_P.addActionListener(new ActionListener() {
@@ -223,11 +250,13 @@ public class Home {
 		btnConsulta_P.setBounds(99, 213, 89, 23);
 		frame.getContentPane().add(btnConsulta_P);
 		
+		//Botão de Remoção
 		JButton btnRemocao_P = new JButton("Remo\u00E7\u00E3o");
 		btnRemocao_P.setVisible(false);
 		btnRemocao_P.setBounds(99, 282, 89, 23);
 		frame.getContentPane().add(btnRemocao_P);
 		
+		//Botão de Remoção
 		JButton btnAlteracao_P = new JButton("Altera\u00E7\u00E3o");
 		btnAlteracao_P.setVisible(false);
 		btnAlteracao_P.setBounds(99, 353, 89, 23);
@@ -242,7 +271,7 @@ public class Home {
 		btnProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tipo = 1;
-				btnCadastro_P.setVisible(true);
+				btnInserir_P.setVisible(true);
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
@@ -290,7 +319,7 @@ public class Home {
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tipo = 4;
-				btnCadastro_P.setVisible(true);
+				btnInserir_P.setVisible(true);
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
