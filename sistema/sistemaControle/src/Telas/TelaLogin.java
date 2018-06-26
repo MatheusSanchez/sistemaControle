@@ -73,39 +73,39 @@ public class TelaLogin {
 		panel_2.setBorder(UIManager.getBorder("Button.border"));
 		panel_2.setLayout(null);
 		panel_2.setBackground(new Color(62, 96, 111));
-		panel_2.setBounds(292, 154, 320, 175);
+		panel_2.setBounds(290, 144, 322, 198);
 		frame.getContentPane().add(panel_2);
 		
-		JLabel lblLogin = new JLabel("LOGIN");
-		lblLogin.setBounds(75, 47, 46, 14);
+		JLabel lblLogin = new JLabel("Login :");
+		lblLogin.setBounds(46, 47, 46, 14);
 		panel_2.add(lblLogin);
 		
 		userField = new JTextField();
-		userField.setBounds(158, 44, 89, 20);
+		userField.setBounds(116, 44, 164, 20);
 		panel_2.add(userField);
 		userField.setColumns(10);
 		
-		JLabel lblSenha = new JLabel("SENHA");
-		lblSenha.setBounds(75, 89, 46, 14);
+		JLabel lblSenha = new JLabel("Senha :");
+		lblSenha.setBounds(46, 89, 46, 14);
 		panel_2.add(lblSenha);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(158, 86, 89, 20);
+		passwordField.setBounds(116, 86, 164, 20);
 		panel_2.add(passwordField);
 		
 		JButton btnLogin = new JButton("LOGIN");
-		btnLogin.setBounds(207, 141, 89, 23);
+		btnLogin.setBounds(191, 140, 89, 23);
 		panel_2.add(btnLogin);
-		btnLogin.setBackground(new Color(0, 0, 255));
+		btnLogin.setBackground(Color.WHITE);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		
-		JButton btnCrieUmConta = new JButton("Crie um Conta");
+		JButton btnCrieUmConta = new JButton("Crie uma conta");
 		btnCrieUmConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		btnCrieUmConta.setForeground(Color.BLACK);
-		btnCrieUmConta.setBackground(Color.BLUE);
+		btnCrieUmConta.setBackground(Color.WHITE);
 		btnCrieUmConta.setBounds(788, 355, 159, 55);
 		frame.getContentPane().add(btnCrieUmConta);
 		btnLogin.addActionListener(new ActionListener() {
