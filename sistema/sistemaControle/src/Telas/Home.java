@@ -24,7 +24,15 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
 import javax.swing.SwingConstants;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
+/**
+ * Classe da janela pos login, onde existe a tela inicial com todas as funcionalidades
+ *
+ */
 public class Home {
 
 	JFrame frame;
@@ -42,6 +50,7 @@ public class Home {
 	private JTextField textFieldTipoUsuario;
 	private JTextField textFieldProduto;
 	private JTextField textFieldConfirmacaoProduto;
+	private JTable table;
 	
 	
 	public Home(Container c, JFrame j) {
@@ -51,10 +60,12 @@ public class Home {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * inicializa o conteúdo do Frame e do Container
+	 * @param c Container da janela
+	 * @param j Frame da aplicação
 	 */
 	private void initialize(Container c,JFrame j) {
-		frame = new JFrame();
+		frame = j;
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
 
@@ -78,7 +89,11 @@ public class Home {
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
 		
-		/*//-----Panel de cadastro de produto-----
+		
+		//PAINEIS
+		
+		//De Produtos:
+		//-----Panel de cadastro de produto-----
 		JPanel cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
 		cadastroProduto.setBounds(282, 121, 637, 289);
@@ -116,7 +131,7 @@ public class Home {
 				
 			}
 		});
-		btnCadastrarProduto.setBounds(504, 139, 89, 23);
+		btnCadastrarProduto.setBounds(425, 115, 118, 45);
 		cadastroProduto.add(btnCadastrarProduto);
 		
 		JLabel lblNome_P = new JLabel("Nome :");
@@ -128,8 +143,8 @@ public class Home {
 		cadastroProduto.add(lblDescricao);
 		
 		JLabel lblLucroEsperado = new JLabel("Lucro esperado :");
-		lblLucroEsperado.setBounds(69, 143, 89, 14);
-		cadastroProduto.add(lblLucroEsperado);*/
+		lblLucroEsperado.setBounds(69, 143, 100, 14);
+		cadastroProduto.add(lblLucroEsperado);
 		
 		//-----Panel de remoção de um produto-----
 		JPanel remocaoProduto = new JPanel();
@@ -173,8 +188,46 @@ public class Home {
 		lblNewLabel.setBounds(38, 88, 280, 14);
 		remocaoProduto.add(lblNewLabel);
 		
+		//Panel de Consulta de Produto
+		JScrollPane consultaProduto = new JScrollPane();
+		consultaProduto.setVisible(false);
+		consultaProduto.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(consultaProduto);
 		
-		/*//-----Panel de cadastro de usuario-----
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"C\u00F3digo", "Nome", "Descri\u00E7\u00E3o", "Quantidade", "Lucro"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(51);
+		table.getColumnModel().getColumn(1).setPreferredWidth(83);
+		table.getColumnModel().getColumn(2).setPreferredWidth(136);
+		table.getColumnModel().getColumn(4).setPreferredWidth(82);
+		consultaProduto.setViewportView(table);
+		
+		
+		//De Usuário
+		//-----Panel de cadastro de usuario-----
 		JPanel cadastroUsuario = new JPanel();
 		cadastroUsuario.setVisible(false);
 		cadastroUsuario.setBounds(282, 121, 637, 289);
@@ -267,7 +320,10 @@ public class Home {
 			}
 		});
 		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
-		cadastroUsuario.add(btnCadastrarUsuario);*/
+		cadastroUsuario.add(btnCadastrarUsuario);
+		
+		
+		//BOTOES LATERAIS
 		
 		//Botão de Inserção
 		JButton btnInserir_P = new JButton("Inserir");
@@ -275,10 +331,10 @@ public class Home {
 		btnInserir_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
-					//cadastroProduto.setVisible(true);
+					cadastroProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
-					//cadastroUsuario.setVisible(true);
+					cadastroUsuario.setVisible(true);
 				}
 			}
 		});
@@ -291,6 +347,10 @@ public class Home {
 		btnConsulta_P.setVisible(false);
 		btnConsulta_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(tipo == 1) {
+					System.out.println("Consultando produtos cadastrados");
+					consultaProduto.setVisible(true);
+				}
 			}
 		});
 		btnConsulta_P.setBounds(99, 213, 89, 23);
@@ -305,7 +365,7 @@ public class Home {
 					remocaoProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
-					//cadastroUsuario.setVisible(true);
+					cadastroUsuario.setVisible(true);
 				}
 			}
 		});
@@ -318,6 +378,8 @@ public class Home {
 		btnAlteracao_P.setBounds(99, 353, 89, 23);
 		frame.getContentPane().add(btnAlteracao_P);
 		
+		
+		//BOTOES DE CIMA
 		
 		//Botão de produto
 		JButton btnProduto = new JButton("Produto");
@@ -340,15 +402,15 @@ public class Home {
 		btnVendas.setForeground(Color.BLACK);
 		btnVendas.setBounds(282, 55, 159, 55);
 		frame.getContentPane().add(btnVendas);
-		/*btnVendas.addActionListener(new ActionListener() {
+		btnVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tipo = 2;
-				btnCadastro_P.setVisible(true);
+				btnInserir_P.setVisible(true);
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
 			}
-		});*/
+		});
 		
 		
 		//Botão de estoque
@@ -356,15 +418,15 @@ public class Home {
 		btnEstoque.setForeground(Color.BLACK);
 		btnEstoque.setBounds(529, 55, 159, 55);
 		frame.getContentPane().add(btnEstoque);
-		/*btnEstoque.addActionListener(new ActionListener() {
+		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tipo = 3;
-				btnCadastro_P.setVisible(true);
+				btnInserir_P.setVisible(true);
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
 			}
-		});*/
+		});
 				
 	
 		//Botão de usuarios

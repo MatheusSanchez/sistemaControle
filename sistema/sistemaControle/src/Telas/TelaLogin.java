@@ -23,6 +23,10 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
 
+/**
+ * Classe que possui a tela de Login
+ *
+ */
 public class TelaLogin {
 
 	JFrame frame;
@@ -31,14 +35,16 @@ public class TelaLogin {
 	private static Container container;
 
 	
-	
+	/**
+	 * Construtor da classe que inicializa a tela
+	 */
 	public TelaLogin() {
 		
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Metodo que inicializa a janela de login
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -49,8 +55,9 @@ public class TelaLogin {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblResultado = new JLabel("resultado");
-		lblResultado.setBounds(753, 118, 95, 45);
+		JLabel lblResultado = new JLabel("");
+		lblResultado.setForeground(Color.RED);
+		lblResultado.setBounds(622, 178, 123, 45);
 		frame.getContentPane().add(lblResultado);
 		
 		JPanel panel = new JPanel();
