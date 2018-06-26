@@ -148,7 +148,20 @@ public class Home {
 		remocaoProduto.add(textFieldConfirmacaoProduto);
 		textFieldConfirmacaoProduto.setColumns(10);
 		
+		//Botão que faz a ação de remover um produto
 		JButton btnRemover_P = new JButton("Remover");
+		btnRemover_P.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] form_P = new String[2];
+				if(tipo == 1){
+					form_P[0] = textFieldProduto.getText();
+					form_P[1] = textFieldConfirmacaoProduto.getText();
+					if(form_P[0].equals(form_P[1])) System.out.println(form_P[0] + " " +  form_P[1]);
+				}
+				
+				
+			}
+		});
 		btnRemover_P.setBounds(417, 84, 115, 46);
 		remocaoProduto.add(btnRemover_P);
 		
