@@ -40,6 +40,8 @@ public class Home {
 	private JTextField textFieldSenhaUsuario;
 	private JTextField textFieldConfirmacaoUsuario;
 	private JTextField textFieldTipoUsuario;
+	private JTextField textFieldProduto;
+	private JTextField textFieldConfirmacaoProduto;
 	
 	
 	public Home(Container c, JFrame j) {
@@ -76,7 +78,7 @@ public class Home {
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
 		
-		//-----Panel de cadastro de produto-----
+		/*//-----Panel de cadastro de produto-----
 		JPanel cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
 		cadastroProduto.setBounds(282, 121, 637, 289);
@@ -127,9 +129,39 @@ public class Home {
 		
 		JLabel lblLucroEsperado = new JLabel("Lucro esperado :");
 		lblLucroEsperado.setBounds(69, 143, 89, 14);
-		cadastroProduto.add(lblLucroEsperado);
+		cadastroProduto.add(lblLucroEsperado);*/
 		
-		//-----Panel de cadastro de usuario-----
+		//-----Panel de remoção de um produto-----
+		JPanel remocaoProduto = new JPanel();
+		remocaoProduto.setVisible(false);
+		remocaoProduto.setBounds(282, 149, 636, 227);
+		frame.getContentPane().add(remocaoProduto);
+		remocaoProduto.setLayout(null);
+		
+		textFieldProduto = new JTextField();
+		textFieldProduto.setBounds(38, 49, 280, 28);
+		remocaoProduto.add(textFieldProduto);
+		textFieldProduto.setColumns(10);
+		
+		textFieldConfirmacaoProduto = new JTextField();
+		textFieldConfirmacaoProduto.setBounds(38, 102, 280, 28);
+		remocaoProduto.add(textFieldConfirmacaoProduto);
+		textFieldConfirmacaoProduto.setColumns(10);
+		
+		JButton btnRemover_P = new JButton("Remover");
+		btnRemover_P.setBounds(417, 84, 115, 46);
+		remocaoProduto.add(btnRemover_P);
+		
+		JLabel lblNomeDoProduto = new JLabel("Nome do produto a ser removido :");
+		lblNomeDoProduto.setBounds(38, 34, 280, 14);
+		remocaoProduto.add(lblNomeDoProduto);
+		
+		JLabel lblNewLabel = new JLabel("Confirme o nome do produto a ser removido:");
+		lblNewLabel.setBounds(38, 88, 280, 14);
+		remocaoProduto.add(lblNewLabel);
+		
+		
+		/*//-----Panel de cadastro de usuario-----
 		JPanel cadastroUsuario = new JPanel();
 		cadastroUsuario.setVisible(false);
 		cadastroUsuario.setBounds(282, 121, 637, 289);
@@ -175,9 +207,9 @@ public class Home {
 		lblNome_U.setBounds(72, 36, 46, 14);
 		cadastroUsuario.add(lblNome_U);
 		
-		JLabel lblNewLabel = new JLabel("RG :");
-		lblNewLabel.setBounds(72, 67, 46, 14);
-		cadastroUsuario.add(lblNewLabel);
+		JLabel lblRG = new JLabel("RG :");
+		lblRG.setBounds(72, 67, 46, 14);
+		cadastroUsuario.add(lblRG);
 		
 		JLabel lblCpf = new JLabel("CPF :");
 		lblCpf.setBounds(72, 98, 46, 14);
@@ -222,23 +254,24 @@ public class Home {
 			}
 		});
 		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
-		cadastroUsuario.add(btnCadastrarUsuario);
+		cadastroUsuario.add(btnCadastrarUsuario);*/
 		
-		//Botão de Cadastro
+		//Botão de Inserção
 		JButton btnInserir_P = new JButton("Inserir");
 		btnInserir_P.setVisible(false);
 		btnInserir_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
-					cadastroProduto.setVisible(true);
+					//cadastroProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
-					cadastroUsuario.setVisible(true);
+					//cadastroUsuario.setVisible(true);
 				}
 			}
 		});
 		btnInserir_P.setBounds(99, 149, 89, 23);
 		frame.getContentPane().add(btnInserir_P);
+		
 		
 		//Botão de Consulta
 		JButton btnConsulta_P = new JButton("Consulta");
@@ -253,10 +286,20 @@ public class Home {
 		//Botão de Remoção
 		JButton btnRemocao_P = new JButton("Remo\u00E7\u00E3o");
 		btnRemocao_P.setVisible(false);
+		btnRemocao_P.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tipo == 1) {
+					remocaoProduto.setVisible(true);
+				}
+				else if(tipo == 4) {
+					//cadastroUsuario.setVisible(true);
+				}
+			}
+		});
 		btnRemocao_P.setBounds(99, 282, 89, 23);
 		frame.getContentPane().add(btnRemocao_P);
 		
-		//Botão de Remoção
+		//Botão de Alteracao
 		JButton btnAlteracao_P = new JButton("Altera\u00E7\u00E3o");
 		btnAlteracao_P.setVisible(false);
 		btnAlteracao_P.setBounds(99, 353, 89, 23);
