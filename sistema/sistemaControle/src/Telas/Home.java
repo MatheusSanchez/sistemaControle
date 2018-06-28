@@ -28,6 +28,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  * Classe da janela pos login, onde existe a tela inicial com todas as funcionalidades
@@ -38,9 +41,12 @@ public class Home {
 	JFrame frame;
 	private static Container container;
 	int tipo;
-	private JTextField textNomeProduto;
-	private JTextField textFieldDescricaoProduto;
-	private JTextField textFieldLucroProduto;
+	private JTextField textNomeProduto_A;
+	private JTextField textFieldDescricaoProduto_A;
+	private JTextField textFieldLucroProduto_A;
+	private JTextField textNomeProduto_C;
+	private JTextField textFieldDescricaoProduto_C;
+	private JTextField textFieldLucroProduto_C;
 	private JTextField textFieldNomeUsuario;
 	private JTextField textFieldRGUsuario;
 	private JTextField textFieldCPFUsuario;
@@ -65,7 +71,7 @@ public class Home {
 	 * @param j Frame da aplicação
 	 */
 	private void initialize(Container c,JFrame j) {
-		frame = j;
+		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
 
@@ -93,27 +99,93 @@ public class Home {
 		//PAINEIS
 		
 		//De Produtos:
+		//-----Panel de alteracao de produto-----
+		JPanel alteracaoProduto = new JPanel();
+		alteracaoProduto.setVisible(false);
+		alteracaoProduto.setBounds(282, 121, 637, 255);
+		frame.getContentPane().add(alteracaoProduto);
+		alteracaoProduto.setLayout(null);
+		
+		textNomeProduto_A = new JTextField();
+		textNomeProduto_A.setBounds(179, 109, 192, 20);
+		alteracaoProduto.add(textNomeProduto_A);
+		textNomeProduto_A.setColumns(10);
+		
+		textFieldDescricaoProduto_A = new JTextField();
+		textFieldDescricaoProduto_A.setColumns(10);
+		textFieldDescricaoProduto_A.setBounds(179, 152, 192, 20);
+		alteracaoProduto.add(textFieldDescricaoProduto_A);
+		
+		textFieldLucroProduto_A = new JTextField();
+		textFieldLucroProduto_A.setColumns(10);
+		textFieldLucroProduto_A.setBounds(179, 194, 192, 20);
+		alteracaoProduto.add(textFieldLucroProduto_A);
+		
+		//Botão responsável pela alteracao de um produto
+		JButton btnAlterarProduto = new JButton("Alterar");
+		btnAlterarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] form_P = new String[3];
+				if(tipo == 1){
+					form_P[0] = textNomeProduto_A.getText();
+					form_P[1] = textFieldDescricaoProduto_A.getText();
+					form_P[2] = textFieldLucroProduto_A.getText();
+					System.out.println(form_P[0] + form_P[1] +form_P[2]);
+					//Produto.cadastro(form_P);
+				}
+			}
+		});
+		btnAlterarProduto.setBounds(438, 152, 118, 45);
+		alteracaoProduto.add(btnAlterarProduto);
+		
+		JLabel lblNome_P = new JLabel("Nome do produto a ser alterado :");
+		lblNome_P.setBounds(10, 68, 159, 14);
+		alteracaoProduto.add(lblNome_P);
+		
+		JLabel lblDescricao = new JLabel("Nova descri\u00E7\u00E3o : ");
+		lblDescricao.setBounds(78, 154, 79, 14);
+		alteracaoProduto.add(lblDescricao);
+		
+		JLabel lblLucroEsperado = new JLabel("Novo lucro esperado :");
+		lblLucroEsperado.setBounds(57, 196, 112, 14);
+		alteracaoProduto.add(lblLucroEsperado);
+		
+		JLabel lblTitulo_AlteracaoProduto = new JLabel("ALTERA\u00C7\u00C3O - PRODUTO");
+		lblTitulo_AlteracaoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_AlteracaoProduto.setBounds(209, 10, 257, 45);
+		alteracaoProduto.add(lblTitulo_AlteracaoProduto);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A", "B", "C"}));
+		comboBox.setBounds(177, 65, 194, 21);
+		alteracaoProduto.add(comboBox);
+		
+		JLabel lblNovoNome = new JLabel("Novo nome :");
+		lblNovoNome.setBounds(96, 112, 61, 13);
+		alteracaoProduto.add(lblNovoNome);
+		
+		
 		//-----Panel de cadastro de produto-----
 		JPanel cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
-		cadastroProduto.setBounds(282, 121, 637, 289);
+		cadastroProduto.setBounds(282, 121, 637, 255);
 		frame.getContentPane().add(cadastroProduto);
 		cadastroProduto.setLayout(null);
 		
-		textNomeProduto = new JTextField();
-		textNomeProduto.setBounds(179, 44, 192, 20);
-		cadastroProduto.add(textNomeProduto);
-		textNomeProduto.setColumns(10);
+		textNomeProduto_C = new JTextField();
+		textNomeProduto_C.setBounds(179, 76, 192, 20);
+		cadastroProduto.add(textNomeProduto_C);
+		textNomeProduto_C.setColumns(10);
 		
-		textFieldDescricaoProduto = new JTextField();
-		textFieldDescricaoProduto.setColumns(10);
-		textFieldDescricaoProduto.setBounds(179, 92, 192, 20);
-		cadastroProduto.add(textFieldDescricaoProduto);
+		textFieldDescricaoProduto_C = new JTextField();
+		textFieldDescricaoProduto_C.setColumns(10);
+		textFieldDescricaoProduto_C.setBounds(179, 128, 192, 20);
+		cadastroProduto.add(textFieldDescricaoProduto_C);
 		
-		textFieldLucroProduto = new JTextField();
-		textFieldLucroProduto.setColumns(10);
-		textFieldLucroProduto.setBounds(179, 140, 192, 20);
-		cadastroProduto.add(textFieldLucroProduto);
+		textFieldLucroProduto_C = new JTextField();
+		textFieldLucroProduto_C.setColumns(10);
+		textFieldLucroProduto_C.setBounds(179, 177, 192, 20);
+		cadastroProduto.add(textFieldLucroProduto_C);
 		
 		//Botão responsável pelo cadastro de um produto
 		JButton btnCadastrarProduto = new JButton("Cadastrar");
@@ -121,9 +193,9 @@ public class Home {
 			public void actionPerformed(ActionEvent e) {
 				String [] form_P = new String[3];
 				if(tipo == 1){
-					form_P[0] = textNomeProduto.getText();
-					form_P[1] = textFieldDescricaoProduto.getText();
-					form_P[2] = textFieldLucroProduto.getText();
+					form_P[0] = textNomeProduto_C.getText();
+					form_P[1] = textFieldDescricaoProduto_C.getText();
+					form_P[2] = textFieldLucroProduto_C.getText();
 					System.out.println(form_P[0] + form_P[1] +form_P[2]);
 					Produto.cadastro(form_P);
 				}
@@ -131,22 +203,27 @@ public class Home {
 				
 			}
 		});
-		btnCadastrarProduto.setBounds(425, 115, 118, 45);
+		btnCadastrarProduto.setBounds(438, 152, 118, 45);
 		cadastroProduto.add(btnCadastrarProduto);
 		
-		JLabel lblNome_P = new JLabel("Nome :");
-		lblNome_P.setBounds(69, 47, 89, 14);
-		cadastroProduto.add(lblNome_P);
+		JLabel lblNomeProd_I = new JLabel("Nome :");
+		lblNomeProd_I.setBounds(80, 78, 89, 14);
+		cadastroProduto.add(lblNomeProd_I);
 		
-		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o : ");
-		lblDescricao.setBounds(69, 95, 89, 14);
-		cadastroProduto.add(lblDescricao);
+		JLabel lblDescricao_I = new JLabel("Descri\u00E7\u00E3o : ");
+		lblDescricao_I.setBounds(80, 130, 89, 14);
+		cadastroProduto.add(lblDescricao_I);
 		
-		JLabel lblLucroEsperado = new JLabel("Lucro esperado :");
-		lblLucroEsperado.setBounds(69, 143, 100, 14);
-		cadastroProduto.add(lblLucroEsperado);
+		JLabel lblLucroEsperado_I = new JLabel("Lucro esperado :");
+		lblLucroEsperado_I.setBounds(69, 179, 100, 14);
+		cadastroProduto.add(lblLucroEsperado_I);
 		
-		//-----Panel de remoção de um produto-----
+		JLabel lblTitulo_CadastroProduto = new JLabel("CADASTRO - PRODUTO");
+		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_CadastroProduto);
+		
+		/*//-----Panel de remoção de um produto-----
 		JPanel remocaoProduto = new JPanel();
 		remocaoProduto.setVisible(false);
 		remocaoProduto.setBounds(282, 149, 636, 227);
@@ -188,6 +265,11 @@ public class Home {
 		lblNewLabel.setBounds(38, 88, 280, 14);
 		remocaoProduto.add(lblNewLabel);
 		
+		JLabel lblTitulo_RemoçãoProduto = new JLabel("REMOÇÃO - PRODUTO");
+		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_CadastroProduto);
+		
 		//Panel de Consulta de Produto
 		JScrollPane consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
@@ -224,6 +306,11 @@ public class Home {
 		table.getColumnModel().getColumn(2).setPreferredWidth(136);
 		table.getColumnModel().getColumn(4).setPreferredWidth(82);
 		consultaProduto.setViewportView(table);
+		
+		JLabel lblTitulo_ConsulaProduto = new JLabel("CONSULTA - PRODUTO");
+		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_CadastroProduto);
 		
 		
 		//De Usuário
@@ -297,6 +384,11 @@ public class Home {
 		lblTipoDeFuncionrio.setBounds(72, 232, 122, 14);
 		cadastroUsuario.add(lblTipoDeFuncionrio);
 		
+		JLabel lblTitulo_CadastroUsuario = new JLabel("CADASTRO - USUARIO");
+		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_CadastroProduto);
+		
 		//Botão responsavel pelo cadastro de usuario
 		JButton btnCadastrarUsuario = new JButton("Cadastrar");
 		btnCadastrarUsuario.addActionListener(new ActionListener() {
@@ -320,7 +412,7 @@ public class Home {
 			}
 		});
 		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
-		cadastroUsuario.add(btnCadastrarUsuario);
+		cadastroUsuario.add(btnCadastrarUsuario);*/
 		
 		
 		//BOTOES LATERAIS
@@ -334,7 +426,7 @@ public class Home {
 					cadastroProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
-					cadastroUsuario.setVisible(true);
+					//cadastroUsuario.setVisible(true);
 				}
 			}
 		});
@@ -349,7 +441,7 @@ public class Home {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo == 1) {
 					System.out.println("Consultando produtos cadastrados");
-					consultaProduto.setVisible(true);
+					//consultaProduto.setVisible(true);
 				}
 			}
 		});
@@ -362,10 +454,10 @@ public class Home {
 		btnRemocao_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
-					remocaoProduto.setVisible(true);
+					//remocaoProduto.setVisible(true);
 				}
 				else if(tipo == 4) {
-					cadastroUsuario.setVisible(true);
+					//removeUsuario.setVisible(true);
 				}
 			}
 		});
@@ -375,6 +467,16 @@ public class Home {
 		//Botão de Alteracao
 		JButton btnAlteracao_P = new JButton("Altera\u00E7\u00E3o");
 		btnAlteracao_P.setVisible(false);
+		btnAlteracao_P.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tipo == 1) {
+					alteracaoProduto.setVisible(true);
+				}
+				else if(tipo == 4) {
+					//alteraUsuario.setVisible(true);
+				}
+			}
+		});
 		btnAlteracao_P.setBounds(99, 353, 89, 23);
 		frame.getContentPane().add(btnAlteracao_P);
 		
