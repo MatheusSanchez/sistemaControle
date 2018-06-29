@@ -116,6 +116,16 @@ public class Home {
 		
 		lblLogoIcmc.setIcon(new ImageIcon(img));
 		panel.add(lblLogoIcmc);
+		
+		//adicionando o logo
+
+		JLabel lblLogoMemps = 	new JLabel("");
+		lblLogoMemps.setBounds(560, 0, 274, 79);
+		ImageIcon empresa = new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\Memps2.png");
+		Image img2 = empresa.getImage().getScaledInstance(lblLogoMemps.getWidth(), lblLogoMemps.getHeight(), Image.SCALE_DEFAULT);
+		
+		lblLogoMemps.setIcon(new ImageIcon(img2));
+		panel.add(lblLogoMemps);
 	}
 	
 	/**
