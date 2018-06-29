@@ -215,18 +215,22 @@ public class Home {
 		textFieldLucroProduto_A.setBounds(179, 194, 192, 20);
 		alteracaoProduto.add(textFieldLucroProduto_A);
 		
+		JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
+		comboBoxProduto.setBounds(177, 65, 194, 21);
+		alteracaoProduto.add(comboBoxProduto);
+		
 		//Botão responsável pela alteracao de um produto
 		JButton btnAlterarProduto = new JButton("Alterar");
 		btnAlterarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String [] form_P = new String[3];
-				if(tipo == 1){
+				
 					form_P[0] = textNomeProduto_A.getText();
 					form_P[1] = textFieldDescricaoProduto_A.getText();
 					form_P[2] = textFieldLucroProduto_A.getText();
-					System.out.println(form_P[0] + form_P[1] +form_P[2]);
-					Produto.cadastro(form_P);
-				}
+				
+					Produto.update(form_P,(String)comboBoxProduto.getSelectedItem());
+				
 			}
 		});
 		btnAlterarProduto.setBounds(438, 152, 118, 45);
@@ -249,9 +253,7 @@ public class Home {
 		lblTitulo_AlteracaoProduto.setBounds(209, 10, 257, 45);
 		alteracaoProduto.add(lblTitulo_AlteracaoProduto);
 		
-		JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
-		comboBoxProduto.setBounds(177, 65, 194, 21);
-		alteracaoProduto.add(comboBoxProduto);
+		
 		
 		
 		JLabel lblNovoNome = new JLabel("Novo nome :");
@@ -261,8 +263,13 @@ public class Home {
 		JButton btnConsultaBox = new JButton("Consulta");
 		btnConsultaBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 String petName = (String)comboBoxProduto.getSelectedItem(); // pega o item selecionado no comboBox
-				  System.out.println(petName);
+				 String nomeSelecionado = (String)comboBoxProduto.getSelectedItem(); // pega o item selecionado no comboBox
+				 String [] result =  Produto.getInfos(nomeSelecionado);
+				 if(result != null){
+					 textNomeProduto_A.setText(result[0]);
+					 textFieldDescricaoProduto_A.setText(result[1]);
+					 textFieldLucroProduto_A.setText(result[2]);
+				 }
 			}
 		});
 		btnConsultaBox.setBounds(422, 64, 89, 23);
