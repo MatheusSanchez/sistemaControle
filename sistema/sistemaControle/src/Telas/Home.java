@@ -57,12 +57,36 @@ public class Home {
 	private JTextField textFieldProduto;
 	private JTextField textFieldConfirmacaoProduto;
 	private JTable table;
+	private JPanel cadastroProduto;
+	private JScrollPane consultaProduto;
+	private JPanel alteracaoProduto;
+	private JPanel remocaoProduto;
+	private JPanel cadastroVenda;
+	private JPanel consultaVenda;
+	private JPanel remocaoVenda;
+	private JPanel cadastroUsuario;
+	private JPanel alteracaoVenda;
+	private JPanel cadastroEstoque;
 	
 	
 	public Home(Container c, JFrame j) {
 		
 		initialize(c,j);
 		this.frame.setVisible(true);
+	}
+	
+	private void tiraTelas() {
+		alteracaoProduto.setVisible(false);
+		cadastroProduto.setVisible(false);
+		remocaoProduto.setVisible(false);
+		alteracaoProduto.setVisible(false);
+		consultaProduto.setVisible(false);
+		cadastroUsuario.setVisible(false);
+		cadastroVenda.setVisible(false);
+		consultaVenda.setVisible(false);
+		remocaoVenda.setVisible(false);
+		alteracaoVenda.setVisible(false);
+		cadastroEstoque.setVisible(false);
 	}
 
 	/**
@@ -71,7 +95,7 @@ public class Home {
 	 * @param j Frame da aplicação
 	 */
 	private void initialize(Container c,JFrame j) {
-		frame = j;
+		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
 
@@ -112,7 +136,7 @@ public class Home {
 		
 		//De Produtos:
 		//-----Panel de alteracao de produto-----
-		JPanel alteracaoProduto = new JPanel();
+		alteracaoProduto = new JPanel();
 		alteracaoProduto.setVisible(false);
 		alteracaoProduto.setBounds(282, 121, 637, 255);
 		frame.getContentPane().add(alteracaoProduto);
@@ -143,7 +167,7 @@ public class Home {
 					form_P[1] = textFieldDescricaoProduto_A.getText();
 					form_P[2] = textFieldLucroProduto_A.getText();
 					System.out.println(form_P[0] + form_P[1] +form_P[2]);
-					//Produto.cadastro(form_P);
+					Produto.cadastro(form_P);
 				}
 			}
 		});
@@ -178,7 +202,7 @@ public class Home {
 		
 		
 		//-----Panel de cadastro de produto-----
-		JPanel cadastroProduto = new JPanel();
+		cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
 		cadastroProduto.setBounds(282, 121, 637, 255);
 		frame.getContentPane().add(cadastroProduto);
@@ -235,8 +259,8 @@ public class Home {
 		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
 		cadastroProduto.add(lblTitulo_CadastroProduto);
 		
-		/*//-----Panel de remoção de um produto-----
-		JPanel remocaoProduto = new JPanel();
+		//-----Panel de remoção de um produto-----
+		remocaoProduto = new JPanel();
 		remocaoProduto.setVisible(false);
 		remocaoProduto.setBounds(282, 149, 636, 227);
 		frame.getContentPane().add(remocaoProduto);
@@ -283,7 +307,7 @@ public class Home {
 		cadastroProduto.add(lblTitulo_CadastroProduto);
 		
 		//Panel de Consulta de Produto
-		JScrollPane consultaProduto = new JScrollPane();
+		consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
 		consultaProduto.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaProduto);
@@ -325,9 +349,109 @@ public class Home {
 		cadastroProduto.add(lblTitulo_CadastroProduto);
 		
 		
+		//De Venda
+		//-----Panel de cadastro de venda-----
+		cadastroVenda = new JPanel();
+		cadastroVenda.setVisible(false);
+		cadastroVenda.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(cadastroVenda);
+		cadastroVenda.setLayout(null);
+		
+		JLabel lblCadastroVenda = new JLabel("CADASTRO - VENDA");
+		lblCadastroVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblCadastroVenda.setBounds(232, 11, 283, 14);
+		cadastroVenda.add(lblCadastroVenda);
+		
+		//-----Panel de consulta de venda-----
+		consultaVenda = new JPanel();
+		consultaVenda.setVisible(false);
+		consultaVenda.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(consultaVenda);
+		consultaVenda.setLayout(null);
+		
+		JLabel lblConsultaVenda = new JLabel("CONSULTA - VENDAS");
+		lblConsultaVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblConsultaVenda.setBounds(253, 11, 171, 14);
+		consultaVenda.add(lblConsultaVenda);
+		
+		//-----Panel de remocao de venda-----
+		remocaoVenda = new JPanel();
+		remocaoVenda.setVisible(false);
+		remocaoVenda.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(remocaoVenda);
+		remocaoVenda.setLayout(null);
+		
+		JLabel lblRemocaoVendas = new JLabel("REMO\u00C7\u00C3O - VENDAS");
+		lblRemocaoVendas.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRemocaoVendas.setBounds(228, 11, 219, 14);
+		remocaoVenda.add(lblRemocaoVendas);
+		
+		//-----Panel de alteracao de venda-----
+		alteracaoVenda = new JPanel();
+		alteracaoVenda.setVisible(false);
+		alteracaoVenda.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(alteracaoVenda);
+		alteracaoVenda.setLayout(null);
+		
+		JLabel lblAlteraoVenda = new JLabel("ALTERA\u00C7\u00C3O - VENDA");
+		lblAlteraoVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAlteraoVenda.setBounds(249, 11, 213, 14);
+		alteracaoVenda.add(lblAlteraoVenda);
+		
+		
+		//De Estoque
+		//-----Panel de cadastro de estoque-----
+		cadastroEstoque = new JPanel();
+		cadastroEstoque.setVisible(false);
+		cadastroEstoque.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(cadastroEstoque);
+		cadastroEstoque.setLayout(null);
+		
+		JLabel lblCadastroEstoque = new JLabel("CADASTRO - ESTOQUE");
+		lblCadastroEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblCadastroEstoque.setBounds(218, 11, 254, 14);
+		cadastroEstoque.add(lblCadastroEstoque);
+		
+		//-----Panel de consulta de estoque-----	
+		JPanel consultaEstoque = new JPanel();
+		consultaEstoque.setVisible(false);
+		consultaEstoque.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(consultaEstoque);
+		consultaEstoque.setLayout(null);
+		
+		JLabel lblConsultaEstoque = new JLabel("CONSULTA - ESTOQUE");
+		lblConsultaEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblConsultaEstoque.setBounds(193, 11, 230, 14);
+		consultaEstoque.add(lblConsultaEstoque);
+		 
+		//-----Panel de remocao de estoque-----
+		JPanel remocaoEstoque = new JPanel();
+		remocaoEstoque.setVisible(false);
+		remocaoEstoque.setBounds(282, 143, 637, 233);
+		frame.getContentPane().add(remocaoEstoque);
+		remocaoEstoque.setLayout(null);
+		
+		JLabel lblRemooEstoque = new JLabel("REMO\u00C7\u00C3O - ESTOQUE");
+		lblRemooEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRemooEstoque.setBounds(213, 11, 215, 14);
+		remocaoEstoque.add(lblRemooEstoque);
+		
+		//-----Panel de alteracao de estoque-----
+		JPanel alteracaoEstoque = new JPanel();
+		alteracaoEstoque.setVisible(false);
+		alteracaoEstoque.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(alteracaoEstoque);
+		alteracaoEstoque.setLayout(null);
+		
+		JLabel lblAlteraoEstoque = new JLabel("ALTERA\u00C7\u00C3O - ESTOQUE");
+		lblAlteraoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAlteraoEstoque.setBounds(214, 11, 255, 14);
+		alteracaoEstoque.add(lblAlteraoEstoque);
+		
+		
 		//De Usuário
 		//-----Panel de cadastro de usuario-----
-		JPanel cadastroUsuario = new JPanel();
+		cadastroUsuario = new JPanel();
 		cadastroUsuario.setVisible(false);
 		cadastroUsuario.setBounds(282, 121, 637, 289);
 		frame.getContentPane().add(cadastroUsuario);
@@ -424,7 +548,43 @@ public class Home {
 			}
 		});
 		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
-		cadastroUsuario.add(btnCadastrarUsuario);*/
+		cadastroUsuario.add(btnCadastrarUsuario);
+		
+		//-----Panel de consulta de usuario-----	
+		JPanel consultaUsuario = new JPanel();
+		consultaUsuario.setVisible(false);
+		consultaUsuario.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(consultaUsuario);
+		consultaUsuario.setLayout(null);
+		
+		JLabel lblConsultaUsuarios = new JLabel("CONSULTA - USUARIOS");
+		lblConsultaUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblConsultaUsuarios.setBounds(232, 11, 233, 14);
+		consultaUsuario.add(lblConsultaUsuarios);
+		 
+		//-----Panel de remocao de usuario-----
+		JPanel remocaoUsuario = new JPanel();
+		remocaoUsuario.setVisible(false);
+		remocaoUsuario.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(remocaoUsuario);
+		remocaoUsuario.setLayout(null);
+		
+		JLabel lblRemooUsuarios = new JLabel("REMO\u00C7\u00C3O - USUARIOS");
+		lblRemooUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRemooUsuarios.setBounds(208, 11, 264, 14);
+		remocaoUsuario.add(lblRemooUsuarios);
+		
+		//-----Panel de alteracao de usuario-----
+		JPanel alteracaoUsuario = new JPanel();
+		alteracaoUsuario.setVisible(false);
+		alteracaoUsuario.setBounds(282, 149, 637, 227);
+		frame.getContentPane().add(alteracaoUsuario);
+		alteracaoUsuario.setLayout(null);
+		
+		JLabel lblAlteraoUsuarios = new JLabel("ALTERA\u00C7\u00C3O - USUARIOS");
+		lblAlteraoUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAlteraoUsuarios.setBounds(220, 11, 289, 14);
+		alteracaoUsuario.add(lblAlteraoUsuarios);
 		
 		
 		//BOTOES LATERAIS
@@ -435,16 +595,25 @@ public class Home {
 		btnInserir_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
+					tiraTelas();
 					cadastroProduto.setVisible(true);
 				}
+				else if(tipo == 2) {
+					tiraTelas();
+					cadastroVenda.setVisible(true);
+				}
+				else if(tipo == 3) {
+					tiraTelas();
+					cadastroEstoque.setVisible(true);
+				}
 				else if(tipo == 4) {
-					//cadastroUsuario.setVisible(true);
+					tiraTelas();
+					cadastroUsuario.setVisible(true);
 				}
 			}
 		});
 		btnInserir_P.setBounds(99, 149, 89, 23);
 		frame.getContentPane().add(btnInserir_P);
-		
 		
 		//Botão de Consulta
 		JButton btnConsulta_P = new JButton("Consulta");
@@ -453,7 +622,20 @@ public class Home {
 			public void actionPerformed(ActionEvent e) {
 				if(tipo == 1) {
 					System.out.println("Consultando produtos cadastrados");
-					//consultaProduto.setVisible(true);
+					tiraTelas();
+					consultaProduto.setVisible(true);
+				}
+				else if(tipo == 2) {
+					tiraTelas();
+					consultaVenda.setVisible(true);
+				}
+				else if(tipo == 3) {
+					tiraTelas();
+					consultaEstoque.setVisible(true);
+				}
+				else if(tipo == 4) {
+					tiraTelas();
+					consultaUsuario.setVisible(true);
 				}
 			}
 		});
@@ -466,10 +648,20 @@ public class Home {
 		btnRemocao_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
-					//remocaoProduto.setVisible(true);
+					tiraTelas();
+					remocaoProduto.setVisible(true);
+				}
+				else if(tipo == 2) {
+					tiraTelas();
+					remocaoVenda.setVisible(true);
+				}
+				else if(tipo == 3) {
+					tiraTelas();
+					remocaoEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					//removeUsuario.setVisible(true);
+					tiraTelas();
+					remocaoUsuario.setVisible(true);
 				}
 			}
 		});
@@ -482,10 +674,20 @@ public class Home {
 		btnAlteracao_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(tipo == 1) {
+					tiraTelas();
 					alteracaoProduto.setVisible(true);
 				}
+				else if(tipo == 2) {
+					tiraTelas();
+					alteracaoVenda.setVisible(true);
+				}
+				else if(tipo == 3) {
+					tiraTelas();
+					alteracaoEstoque.setVisible(true);
+				}
 				else if(tipo == 4) {
-					//alteraUsuario.setVisible(true);
+					tiraTelas();
+					alteracaoUsuario.setVisible(true);
 				}
 			}
 		});
