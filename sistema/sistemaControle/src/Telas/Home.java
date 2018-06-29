@@ -12,6 +12,8 @@ import back.Usuario;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -363,7 +365,13 @@ public class Home {
 				if(tipo == 1){
 					form_P[0] = textFieldProduto.getText();
 					form_P[1] = textFieldConfirmacaoProduto.getText();
-					if(form_P[0].equals(form_P[1])) System.out.println(form_P[0] + " " +  form_P[1]);
+					if(form_P[1].equals(form_P[0])){
+						Produto.delete(form_P[1]);	
+					}else{
+						JOptionPane.showMessageDialog(null, "Campos Diferentes !");
+					}
+					
+					//if(form_P[0].equals(form_P[1])) System.out.println(form_P[0] + " " +  form_P[1]);
 				}
 				
 				

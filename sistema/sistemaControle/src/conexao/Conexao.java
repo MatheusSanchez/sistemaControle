@@ -24,7 +24,7 @@ public class Conexao {
 	public synchronized static Connection getInstance(String conexao) {
 		if (conn == null) {
 			
-			if(conexao.equals("pc")){
+			if(conexao.equals("lab")){
 				try {
 					/*Scanner s = new Scanner(System.in);	// trocar para pedir user e senha
 					System.out.print("Host: ");
@@ -38,7 +38,7 @@ public class Conexao {
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@" + "192.168.183.15" + ":" + "1521" + ":orcl", "m9081453", "matxd96114974!!!");
 					System.out.println("Conexao estabelecida");
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Nao foi possivel conectar ao banco");
+					JOptionPane.showMessageDialog(null, "Nao foi possivel conectar ao banco 123");
 				}
 			}else{
 				try {

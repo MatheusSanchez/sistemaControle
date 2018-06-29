@@ -123,33 +123,29 @@ public class Produto {
 	
 	/*deleta o produto do nome digitado*/
 	
-	/*static public void delete(String nome){
+	static public void delete(String nome){
 		Connection c = Conexao.getInstance();
 		
-		String sql = "DELETE FROM PRODUTOS WHERE NOME LIKE (?)";
+		String sql = "DELETE FROM PRODUTO WHERE NOME LIKE (?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
 			System.out.println("preparando");
 			
-		
-			for (int i = 0; i < 3; i++) {
-				pstm.setString(i + 1, form[i]);
-			}
-			pstm.setString(4, nomeAntigo);
+			pstm.setString(1, nome);
 			
 			System.out.println("Executanto a query " + sql);
 			pstm.execute();
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso");
+			JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto");
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Produto");
 		}
 		
-	}*/
+	}
 	
 	static public Vector getNames(){
 		Connection c = Conexao.getInstance();
