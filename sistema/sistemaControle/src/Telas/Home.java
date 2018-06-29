@@ -64,11 +64,11 @@ public class Home {
 	private JPanel alteracaoProduto;
 	private JPanel remocaoProduto;
 	private JPanel cadastroVenda;
-	private JPanel consultaVenda;
+	private JScrollPane consultaVenda;
 	private JPanel remocaoVenda;
 	private JPanel alteracaoVenda;
 	private JPanel cadastroEstoque;
-	private JPanel consultaEstoque;
+	private JScrollPane consultaEstoque;
 	private JPanel remocaoEstoque;
 	private JPanel alteracaoEstoque;
 	private JPanel cadastroUsuario;
@@ -129,6 +129,7 @@ public class Home {
 	 * @param j Frame da aplicação
 	 */
 	private void initialize(Container c,JFrame j) {
+		j.setVisible(false);
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
@@ -146,7 +147,7 @@ public class Home {
 		JButton btnLogout = new JButton("LOGOUT");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.novaTela(frame.getContentPane());
+				frame.setVisible(false);
 				TelaLogin window = new TelaLogin();
 				window.frame.setVisible(true);
 			}
@@ -397,16 +398,25 @@ public class Home {
 		cadastroVenda.add(lblCadastroVenda);
 		
 		//-----Panel de consulta de venda-----
-		consultaVenda = new JPanel();
+		consultaVenda = new JScrollPane();
 		consultaVenda.setVisible(false);
 		consultaVenda.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaVenda);
-		consultaVenda.setLayout(null);
 		
-		JLabel lblConsultaVenda = new JLabel("CONSULTA - VENDAS");
-		lblConsultaVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblConsultaVenda.setBounds(253, 11, 171, 14);
-		consultaVenda.add(lblConsultaVenda);
+		JTable tableVenda = new JTable();
+		tableVenda.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Data", "CPF", "C\u00F3digo Venda", "C\u00F3digo Prod.", "Pre\u00E7o", "Pre\u00E7o Venda", "Lucro"
+			}
+		));
+		consultaVenda.setViewportView(tableVenda);
 		
 		//-----Panel de remocao de venda-----
 		remocaoVenda = new JPanel();
@@ -447,16 +457,13 @@ public class Home {
 		cadastroEstoque.add(lblCadastroEstoque);
 		
 		//-----Panel de consulta de estoque-----	
-		consultaEstoque = new JPanel();
+		consultaEstoque = new JScrollPane();
 		consultaEstoque.setVisible(false);
 		consultaEstoque.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaEstoque);
-		consultaEstoque.setLayout(null);
 		
-		JLabel lblConsultaEstoque = new JLabel("CONSULTA - ESTOQUE");
-		lblConsultaEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblConsultaEstoque.setBounds(193, 11, 230, 14);
-		consultaEstoque.add(lblConsultaEstoque);
+		JTable tableEstoque = new JTable();
+		consultaEstoque.setViewportView(tableEstoque);
 		 
 		//-----Panel de remocao de estoque-----
 		remocaoEstoque = new JPanel();
@@ -487,7 +494,7 @@ public class Home {
 		//-----Panel de cadastro de usuario-----
 		cadastroUsuario = new JPanel();
 		cadastroUsuario.setVisible(false);
-		cadastroUsuario.setBounds(282, 121, 637, 289);
+		cadastroUsuario.setBounds(282, 121, 637, 255);
 		frame.getContentPane().add(cadastroUsuario);
 		cadastroUsuario.setLayout(null);
 		
