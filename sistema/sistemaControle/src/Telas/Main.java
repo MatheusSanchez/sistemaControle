@@ -36,7 +36,7 @@ public class Main {
 	 * método main que comecara o programa
 	 */
 	public static void main(String[] args) {
-		Conexao.getInstance();
+		Conexao.getInstance("lab");
 		
 				try {
 					TelaLogin window = new TelaLogin();
