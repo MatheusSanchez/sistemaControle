@@ -79,6 +79,10 @@ public class Home {
 	private JButton btnConsulta_P;
 	private JButton btnRemocao_P;
 	private JButton btnAlteracao_P;
+	private JButton btnProduto;
+	private JButton btnVendas;
+	private JButton btnEstoque;	
+	private JButton btnUsuarios;
 	
 	public Home(Container c, JFrame j) {
 		
@@ -110,6 +114,13 @@ public class Home {
 		btnConsulta_P.setBackground(new Color(240, 240, 240));
 		btnRemocao_P.setBackground(new Color(240, 240, 240));
 		btnAlteracao_P.setBackground(new Color(240, 240, 240));
+	}
+	
+	private void resetaBotoesCima() {
+		btnProduto.setBackground(new Color(240, 240, 240));
+		btnVendas.setBackground(new Color(240, 240, 240));
+		btnEstoque.setBackground(new Color(240, 240, 240));
+		btnUsuarios.setBackground(new Color(240, 240, 240));
 	}
 
 	/**
@@ -713,7 +724,7 @@ public class Home {
 		//BOTOES DE CIMA
 		
 		//Botão de produto
-		JButton btnProduto = new JButton("Produto");
+		btnProduto = new JButton("Produto");
 		btnProduto.setForeground(Color.BLACK);
 		btnProduto.setBounds(55, 55, 159, 55);
 		frame.getContentPane().add(btnProduto);
@@ -724,12 +735,15 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				resetaTudo();
+				resetaBotoesCima();
+				btnProduto.setBackground(SystemColor.activeCaption);
 			}
 		});
 		
 		
 		//Botão de vendas
-		JButton btnVendas = new JButton("Vendas");
+		btnVendas = new JButton("Vendas");
 		btnVendas.setForeground(Color.BLACK);
 		btnVendas.setBounds(282, 55, 159, 55);
 		frame.getContentPane().add(btnVendas);
@@ -740,12 +754,15 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				resetaTudo();
+				resetaBotoesCima();
+				btnVendas.setBackground(SystemColor.activeCaption);
 			}
 		});
 		
 		
 		//Botão de estoque
-		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque = new JButton("Estoque");
 		btnEstoque.setForeground(Color.BLACK);
 		btnEstoque.setBounds(529, 55, 159, 55);
 		frame.getContentPane().add(btnEstoque);
@@ -756,12 +773,15 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				resetaTudo();
+				resetaBotoesCima();
+				btnEstoque.setBackground(SystemColor.activeCaption);
 			}
 		});
 				
 	
 		//Botão de usuarios
-		JButton btnUsuarios = new JButton("Usu\u00E1rios");
+		btnUsuarios = new JButton("Usu\u00E1rios");
 		btnUsuarios.setForeground(Color.BLACK);
 		btnUsuarios.setBounds(760, 55, 159, 55);
 		frame.getContentPane().add(btnUsuarios);
@@ -772,6 +792,9 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				resetaTudo();
+				resetaBotoesCima();
+				btnUsuarios.setBackground(SystemColor.activeCaption);
 			}
 		});
 	}
