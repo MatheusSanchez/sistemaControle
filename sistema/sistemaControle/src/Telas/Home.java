@@ -64,8 +64,8 @@ public class Home {
 	private JPanel cadastroVenda;
 	private JPanel consultaVenda;
 	private JPanel remocaoVenda;
-	private JPanel cadastroUsuario;
 	private JPanel alteracaoVenda;
+	private JPanel cadastroUsuario;
 	private JPanel cadastroEstoque;
 	
 	
