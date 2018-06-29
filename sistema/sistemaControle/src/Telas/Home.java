@@ -20,6 +20,8 @@ import java.awt.Container;
 import javax.swing.JPanel;
 import java.awt.Font;
 import java.awt.ImageCapabilities;
+import java.awt.SystemColor;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
@@ -73,7 +75,10 @@ public class Home {
 	private JPanel remocaoUsuario;
 	private JPanel consultaUsuario;
 	private JPanel alteracaoUsuario;
-	
+	private JButton btnInserir_P;
+	private JButton btnConsulta_P;
+	private JButton btnRemocao_P;
+	private JButton btnAlteracao_P;
 	
 	public Home(Container c, JFrame j) {
 		
@@ -84,7 +89,7 @@ public class Home {
 	/**
 	 * Função que seta todas os panels de informacao como false, para que quando novos panels forem clicados não fiquem sobrepostos
 	 */
-	private void tiraTelas() {
+	private void resetaTudo() {
 		cadastroProduto.setVisible(false);
 		remocaoProduto.setVisible(false);
 		alteracaoProduto.setVisible(false);
@@ -101,6 +106,10 @@ public class Home {
 		remocaoEstoque.setVisible(false);
 		consultaEstoque.setVisible(false);
 		alteracaoEstoque.setVisible(false);
+		btnInserir_P.setBackground(new Color(240, 240, 240));
+		btnConsulta_P.setBackground(new Color(240, 240, 240));
+		btnRemocao_P.setBackground(new Color(240, 240, 240));
+		btnAlteracao_P.setBackground(new Color(240, 240, 240));
 	}
 
 	/**
@@ -604,24 +613,22 @@ public class Home {
 		//BOTOES LATERAIS
 		
 		//Botão de Inserção
-		JButton btnInserir_P = new JButton("Inserir");
+		btnInserir_P = new JButton("Inserir");
 		btnInserir_P.setVisible(false);
 		btnInserir_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				resetaTudo();
+				btnInserir_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					tiraTelas();
 					cadastroProduto.setVisible(true);
 				}
 				else if(tipo == 2) {
-					tiraTelas();
 					cadastroVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
-					tiraTelas();
 					cadastroEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					tiraTelas();
 					cadastroUsuario.setVisible(true);
 				}
 			}
@@ -630,25 +637,23 @@ public class Home {
 		frame.getContentPane().add(btnInserir_P);
 		
 		//Botão de Consulta
-		JButton btnConsulta_P = new JButton("Consulta");
+		btnConsulta_P = new JButton("Consulta");
 		btnConsulta_P.setVisible(false);
 		btnConsulta_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				resetaTudo();
+				btnConsulta_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
 					System.out.println("Consultando produtos cadastrados");
-					tiraTelas();
 					consultaProduto.setVisible(true);
 				}
 				else if(tipo == 2) {
-					tiraTelas();
 					consultaVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
-					tiraTelas();
 					consultaEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					tiraTelas();
 					consultaUsuario.setVisible(true);
 				}
 			}
@@ -657,24 +662,22 @@ public class Home {
 		frame.getContentPane().add(btnConsulta_P);
 		
 		//Botão de Remoção
-		JButton btnRemocao_P = new JButton("Remo\u00E7\u00E3o");
+		btnRemocao_P = new JButton("Remo\u00E7\u00E3o");
 		btnRemocao_P.setVisible(false);
 		btnRemocao_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				resetaTudo();
+				btnRemocao_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					tiraTelas();
 					remocaoProduto.setVisible(true);
 				}
 				else if(tipo == 2) {
-					tiraTelas();
 					remocaoVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
-					tiraTelas();
 					remocaoEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					tiraTelas();
 					remocaoUsuario.setVisible(true);
 				}
 			}
@@ -683,24 +686,22 @@ public class Home {
 		frame.getContentPane().add(btnRemocao_P);
 		
 		//Botão de Alteracao
-		JButton btnAlteracao_P = new JButton("Altera\u00E7\u00E3o");
+		btnAlteracao_P = new JButton("Altera\u00E7\u00E3o");
 		btnAlteracao_P.setVisible(false);
 		btnAlteracao_P.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				resetaTudo();
+				btnAlteracao_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					tiraTelas();
 					alteracaoProduto.setVisible(true);
 				}
 				else if(tipo == 2) {
-					tiraTelas();
 					alteracaoVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
-					tiraTelas();
 					alteracaoEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					tiraTelas();
 					alteracaoUsuario.setVisible(true);
 				}
 			}
