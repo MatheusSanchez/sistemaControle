@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import back.Produto;
 import back.Usuario;
+import Telas.TelaConsulta;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -413,20 +414,9 @@ public class Home {
 		consultaProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaProduto);
 		
-		table = new JTable();
+		/*table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null},
@@ -442,7 +432,7 @@ public class Home {
 		table.getColumnModel().getColumn(1).setPreferredWidth(83);
 		table.getColumnModel().getColumn(2).setPreferredWidth(136);
 		table.getColumnModel().getColumn(4).setPreferredWidth(82);
-		consultaProduto.setViewportView(table);
+		consultaProduto.setViewportView(table);*/
 		
 		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
 		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -877,6 +867,15 @@ public class Home {
 				if(tipo == 1) {
 					System.out.println("Consultando produtos cadastrados");
 					consultaProduto.setVisible(true);
+					String[] col = new String[10];
+					col[0] = "COD_PRODUTO";
+					col[1] = "NOME";
+					col[2] = "DESCRICAO";
+					col[3] = "LUCRO_ESPERADO";
+					col[4] = "QNTD_ESTOQUE";
+					String sql = "SELECT*FROM PRODUTO";
+					
+					new TelaConsulta(consultaProduto, null, "Produtos",sql,col);
 				}
 				else if(tipo == 2) {
 					consultaVenda.setVisible(true);
