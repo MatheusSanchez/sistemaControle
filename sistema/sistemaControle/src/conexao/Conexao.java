@@ -24,7 +24,7 @@ public class Conexao {
 	public synchronized static Connection getInstance(String conexao) {
 		if (conn == null) {
 			
-			if(conexao.equals("lab")){
+			if(conexao.equals("pc")){
 				try {
 					/*Scanner s = new Scanner(System.in);	// trocar para pedir user e senha
 					System.out.print("Host: ");

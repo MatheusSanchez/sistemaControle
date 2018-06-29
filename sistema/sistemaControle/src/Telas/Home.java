@@ -95,6 +95,10 @@ public class Home {
 	private JLabel lblPrecoDeVenda;
 	private JLabel lblNewLabel_1;
 	private JLabel lblCodigoDeVenda;
+	private JTextField textNomeUsuario_A;
+	private JTextField textEmailUsuario_A;
+	private JTextField textSenhaUsuario_A;
+	private JTextField textConfirmacao_A;
 	
 	public Home(Container c, JFrame j) {
 		
@@ -509,6 +513,10 @@ public class Home {
 		lblCodigoDeVenda.setBounds(376, 106, 142, 13);
 		cadastroVenda.add(lblCodigoDeVenda);
 		
+		JButton btnNewButton = new JButton("Adicionar");
+		btnNewButton.setBounds(376, 156, 142, 43);
+		cadastroVenda.add(btnNewButton);
+		
 		//-----Panel de consulta de venda-----
 		consultaVenda = new JScrollPane();
 		consultaVenda.setVisible(false);
@@ -753,6 +761,62 @@ public class Home {
 		lblAlteraoUsuarios.setBounds(220, 11, 289, 14);
 		alteracaoUsuario.add(lblAlteraoUsuarios);
 		
+		JComboBox comboBoxUsuario_A = new JComboBox();
+		comboBoxUsuario_A.setModel(new DefaultComboBoxModel(new String[] {"Aurik - Administrador", "Simone - Administrador", "Kleber - Funcionario"}));
+		comboBoxUsuario_A.setBounds(69, 47, 209, 14);
+		alteracaoUsuario.add(comboBoxUsuario_A);
+		
+		JButton btnAlterarUsuario = new JButton("Alterar");
+		btnAlterarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAlterarUsuario.setBounds(69, 161, 85, 21);
+		alteracaoUsuario.add(btnAlterarUsuario);
+		
+		textNomeUsuario_A = new JTextField();
+		textNomeUsuario_A.setBounds(372, 47, 209, 19);
+		alteracaoUsuario.add(textNomeUsuario_A);
+		textNomeUsuario_A.setColumns(10);
+		
+		textEmailUsuario_A = new JTextField();
+		textEmailUsuario_A.setBounds(372, 93, 209, 19);
+		alteracaoUsuario.add(textEmailUsuario_A);
+		textEmailUsuario_A.setColumns(10);
+		
+		textSenhaUsuario_A = new JTextField();
+		textSenhaUsuario_A.setBounds(372, 133, 209, 19);
+		alteracaoUsuario.add(textSenhaUsuario_A);
+		textSenhaUsuario_A.setColumns(10);
+		
+		textConfirmacao_A = new JTextField();
+		textConfirmacao_A.setBounds(372, 177, 209, 19);
+		alteracaoUsuario.add(textConfirmacao_A);
+		textConfirmacao_A.setColumns(10);
+		
+		JComboBox comboBoxTipoUsuario_A = new JComboBox();
+		comboBoxTipoUsuario_A.setBounds(372, 211, 209, 14);
+		alteracaoUsuario.add(comboBoxTipoUsuario_A);
+		
+		JLabel lblNome_A = new JLabel("Nome :");
+		lblNome_A.setBounds(372, 35, 209, 13);
+		alteracaoUsuario.add(lblNome_A);
+		
+		JLabel lblEmail_A = new JLabel("Email :");
+		lblEmail_A.setBounds(372, 76, 209, 13);
+		alteracaoUsuario.add(lblEmail_A);
+		
+		JLabel lblSenha_A = new JLabel("Senha :");
+		lblSenha_A.setBounds(372, 122, 45, 13);
+		alteracaoUsuario.add(lblSenha_A);
+		
+		JLabel lblConfirmeASenha_A = new JLabel("Confirme a Senha :");
+		lblConfirmeASenha_A.setBounds(372, 162, 209, 13);
+		alteracaoUsuario.add(lblConfirmeASenha_A);
+		
+		JLabel lblTipo_A = new JLabel("Tipo :");
+		lblTipo_A.setBounds(372, 200, 45, 13);
+		alteracaoUsuario.add(lblTipo_A);
 		
 		//BOTOES LATERAIS
 		
