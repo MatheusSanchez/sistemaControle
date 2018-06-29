@@ -249,14 +249,24 @@ public class Home {
 		lblTitulo_AlteracaoProduto.setBounds(209, 10, 257, 45);
 		alteracaoProduto.add(lblTitulo_AlteracaoProduto);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A", "B", "C"}));
-		comboBox.setBounds(177, 65, 194, 21);
-		alteracaoProduto.add(comboBox);
+		JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
+		comboBoxProduto.setBounds(177, 65, 194, 21);
+		alteracaoProduto.add(comboBoxProduto);
+		
 		
 		JLabel lblNovoNome = new JLabel("Novo nome :");
 		lblNovoNome.setBounds(96, 112, 61, 13);
 		alteracaoProduto.add(lblNovoNome);
+		
+		JButton btnConsultaBox = new JButton("Consulta");
+		btnConsultaBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 String petName = (String)comboBoxProduto.getSelectedItem(); // pega o item selecionado no comboBox
+				  System.out.println(petName);
+			}
+		});
+		btnConsultaBox.setBounds(422, 64, 89, 23);
+		alteracaoProduto.add(btnConsultaBox);
 		
 		
 		//-----Panel de cadastro de produto-----

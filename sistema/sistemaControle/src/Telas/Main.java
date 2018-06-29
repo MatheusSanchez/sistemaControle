@@ -2,9 +2,13 @@ package Telas;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 
+import back.Produto;
 import conexao.Conexao;
 
 /**
@@ -37,6 +41,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		Conexao.getInstance("lab");
+		
 		
 				try {
 					TelaLogin window = new TelaLogin();
