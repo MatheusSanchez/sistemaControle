@@ -71,7 +71,7 @@ public class Home {
 	 * @param j Frame da aplicação
 	 */
 	private void initialize(Container c,JFrame j) {
-		frame = new JFrame();
+		frame = j;
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = c;
 
@@ -83,6 +83,18 @@ public class Home {
 		panel.setBounds(0, 0, 973, 30);
 		panel.setBackground(new Color(25,52,65));
 		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JButton btnLogout = new JButton("LOGOUT");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Main.novaTela(frame.getContentPane());
+				TelaLogin window = new TelaLogin();
+				window.frame.setVisible(true);
+			}
+		});
+		btnLogout.setBounds(836, 5, 85, 21);
+		panel.add(btnLogout);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(62,96,111));
