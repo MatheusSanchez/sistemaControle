@@ -19,6 +19,7 @@ import java.awt.Container;
 
 import javax.swing.JPanel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.ImageCapabilities;
 import java.awt.SystemColor;
 
@@ -55,7 +56,6 @@ public class Home {
 	private JTextField textFieldEmailUsuario;
 	private JTextField textFieldSenhaUsuario;
 	private JTextField textFieldConfirmacaoUsuario;
-	private JTextField textFieldTipoUsuario;
 	private JTextField textFieldProduto;
 	private JTextField textFieldConfirmacaoProduto;
 	private JTable table;
@@ -83,11 +83,33 @@ public class Home {
 	private JButton btnVendas;
 	private JButton btnEstoque;	
 	private JButton btnUsuarios;
+	private JComboBox boxTipoFuncionario;
+	private JTextField textFieldCPF_V;
+	private JTextField textData_V;
+	private JTextField textCodigoProduto;
+	private JTextField textPrecoOriginal;
+	private JTextField textDescontoDado;
+	private JTextField textPrecoVenda;
+	private JTextField textLucro;
+	private JTextField textCodigoVenda;
+	private JLabel lblPrecoDeVenda;
+	private JLabel lblNewLabel_1;
+	private JLabel lblCodigoDeVenda;
 	
 	public Home(Container c, JFrame j) {
 		
 		initialize(c,j);
 		this.frame.setVisible(true);
+	}
+	
+	public void img(JPanel panel) {
+		JLabel lblLogoIcmc = new JLabel("");
+		lblLogoIcmc.setBounds(816, 10, 131, 49);
+		ImageIcon plano= new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\LogoIcmc.png");
+		Image img = plano.getImage().getScaledInstance(lblLogoIcmc.getWidth(), lblLogoIcmc.getHeight(), Image.SCALE_DEFAULT);
+		
+		lblLogoIcmc.setIcon(new ImageIcon(img));
+		panel.add(lblLogoIcmc);
 	}
 	
 	/**
@@ -152,7 +174,7 @@ public class Home {
 				window.frame.setVisible(true);
 			}
 		});
-		btnLogout.setBounds(836, 5, 85, 21);
+		btnLogout.setBounds(827, 5, 94, 21);
 		panel.add(btnLogout);
 		
 		JPanel panel_1 = new JPanel();
@@ -160,6 +182,7 @@ public class Home {
 		panel_1.setBounds(0, 421, 957, 60);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
+		img(panel_1);
 		
 		JLabel lblTodosOsDireitos = new JLabel("TODOS OS DIREITOS RESERVADOS.");
 		lblTodosOsDireitos.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -291,7 +314,7 @@ public class Home {
 		
 		JLabel lblTitulo_CadastroProduto = new JLabel("CADASTRO - PRODUTO");
 		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
+		lblTitulo_CadastroProduto.setBounds(205, 0, 257, 45);
 		cadastroProduto.add(lblTitulo_CadastroProduto);
 		
 		//-----Panel de remoção de um produto-----
@@ -337,9 +360,9 @@ public class Home {
 		remocaoProduto.add(lblNewLabel);
 		
 		JLabel lblTitulo_RemoçãoProduto = new JLabel("REMOÇÃO - PRODUTO");
-		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
-		cadastroProduto.add(lblTitulo_CadastroProduto);
+		lblTitulo_RemoçãoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_RemoçãoProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_RemoçãoProduto);
 		
 		//Panel de Consulta de Produto
 		consultaProduto = new JScrollPane();
@@ -378,10 +401,10 @@ public class Home {
 		table.getColumnModel().getColumn(4).setPreferredWidth(82);
 		consultaProduto.setViewportView(table);
 		
-		JLabel lblTitulo_ConsulaProduto = new JLabel("CONSULTA - PRODUTO");
-		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
-		cadastroProduto.add(lblTitulo_CadastroProduto);
+		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
+		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_ConsultaProduto.setBounds(209, 10, 257, 45);
+		cadastroProduto.add(lblTitulo_ConsultaProduto);
 		
 		
 		//De Venda
@@ -394,8 +417,80 @@ public class Home {
 		
 		JLabel lblCadastroVenda = new JLabel("CADASTRO - VENDA");
 		lblCadastroVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblCadastroVenda.setBounds(232, 11, 283, 14);
+		lblCadastroVenda.setBounds(235, 0, 283, 14);
 		cadastroVenda.add(lblCadastroVenda);
+		
+		textFieldCPF_V = new JTextField();
+		textFieldCPF_V.setBounds(49, 34, 207, 19);
+		cadastroVenda.add(textFieldCPF_V);
+		textFieldCPF_V.setColumns(10);
+		
+		textData_V = new JTextField();
+		textData_V.setBounds(49, 77, 207, 19);
+		cadastroVenda.add(textData_V);
+		textData_V.setColumns(10);
+		
+		textCodigoProduto = new JTextField();
+		textCodigoProduto.setBounds(49, 117, 207, 19);
+		cadastroVenda.add(textCodigoProduto);
+		textCodigoProduto.setColumns(10);
+		
+		textPrecoOriginal = new JTextField();
+		textPrecoOriginal.setBounds(49, 157, 207, 19);
+		cadastroVenda.add(textPrecoOriginal);
+		textPrecoOriginal.setColumns(10);
+		
+		textDescontoDado = new JTextField();
+		textDescontoDado.setBounds(49, 198, 207, 19);
+		cadastroVenda.add(textDescontoDado);
+		textDescontoDado.setColumns(10);
+		
+		textPrecoVenda = new JTextField();
+		textPrecoVenda.setBounds(376, 34, 207, 19);
+		cadastroVenda.add(textPrecoVenda);
+		textPrecoVenda.setColumns(10);
+		
+		textLucro = new JTextField();
+		textLucro.setBounds(376, 77, 207, 19);
+		cadastroVenda.add(textLucro);
+		textLucro.setColumns(10);
+		
+		textCodigoVenda = new JTextField();
+		textCodigoVenda.setBounds(376, 117, 207, 19);
+		cadastroVenda.add(textCodigoVenda);
+		textCodigoVenda.setColumns(10);
+		
+		JLabel lblCPF_V = new JLabel("CPF :");
+		lblCPF_V.setBounds(49, 20, 45, 13);
+		cadastroVenda.add(lblCPF_V);
+		
+		JLabel lblData = new JLabel("Data :");
+		lblData.setBounds(49, 64, 45, 13);
+		cadastroVenda.add(lblData);
+		
+		JLabel lblCodigoDoProduto = new JLabel("C\u00F3digo do produto :");
+		lblCodigoDoProduto.setBounds(49, 106, 154, 13);
+		cadastroVenda.add(lblCodigoDoProduto);
+		
+		JLabel lblPrecoOriginal = new JLabel("Pre\u00E7o original :");
+		lblPrecoOriginal.setBounds(49, 144, 84, 13);
+		cadastroVenda.add(lblPrecoOriginal);
+		
+		JLabel lblDescontoDado = new JLabel("Desconto dado :");
+		lblDescontoDado.setBounds(49, 186, 84, 13);
+		cadastroVenda.add(lblDescontoDado);
+		
+		lblPrecoDeVenda = new JLabel("Pre\u00E7o de venda :");
+		lblPrecoDeVenda.setBounds(376, 20, 142, 13);
+		cadastroVenda.add(lblPrecoDeVenda);
+		
+		lblNewLabel_1 = new JLabel("Lucro :");
+		lblNewLabel_1.setBounds(376, 63, 45, 13);
+		cadastroVenda.add(lblNewLabel_1);
+		
+		lblCodigoDeVenda = new JLabel("C\u00F3digo de venda :");
+		lblCodigoDeVenda.setBounds(376, 106, 142, 13);
+		cadastroVenda.add(lblCodigoDeVenda);
 		
 		//-----Panel de consulta de venda-----
 		consultaVenda = new JScrollPane();
@@ -528,11 +623,6 @@ public class Home {
 		cadastroUsuario.add(textFieldConfirmacaoUsuario);
 		textFieldConfirmacaoUsuario.setColumns(10);
 		
-		textFieldTipoUsuario = new JTextField();
-		textFieldTipoUsuario.setBounds(204, 229, 288, 20);
-		cadastroUsuario.add(textFieldTipoUsuario);
-		textFieldTipoUsuario.setColumns(10);
-		
 		JLabel lblNome_U = new JLabel("Nome :");
 		lblNome_U.setBounds(72, 36, 46, 14);
 		cadastroUsuario.add(lblNome_U);
@@ -562,15 +652,23 @@ public class Home {
 		cadastroUsuario.add(lblTipoDeFuncionrio);
 		
 		JLabel lblTitulo_CadastroUsuario = new JLabel("CADASTRO - USUARIO");
-		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroProduto.setBounds(209, 10, 257, 45);
-		cadastroProduto.add(lblTitulo_CadastroProduto);
+		lblTitulo_CadastroUsuario.setVerticalAlignment(SwingConstants.TOP);
+		lblTitulo_CadastroUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTitulo_CadastroUsuario.setBounds(209, 0, 257, 45);
+		cadastroUsuario.add(lblTitulo_CadastroUsuario);
+		
+		boxTipoFuncionario = new JComboBox();
+		boxTipoFuncionario.setModel(new DefaultComboBoxModel(new String[] {"Administrador", "Funcionario", "Outro"}));
+		boxTipoFuncionario.setToolTipText("");
+		boxTipoFuncionario.setBounds(204, 229, 288, 17);
+		cadastroUsuario.add(boxTipoFuncionario);
 		
 		//Botão responsavel pelo cadastro de usuario
 		JButton btnCadastrarUsuario = new JButton("Cadastrar");
 		btnCadastrarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				String [] form_U = new String[7];
+				String aux = new String();
 				if(tipo == 4){
 					form_U[0] = textFieldCPFUsuario.getText();
 					form_U[1] = textFieldRGUsuario.getText();
@@ -578,10 +676,19 @@ public class Home {
 					form_U[3] = textFieldEmailUsuario.getText();
 					form_U[4] = textFieldSenhaUsuario.getText();
 					form_U[5] = textFieldConfirmacaoUsuario.getText();
-					form_U[6] = textFieldTipoUsuario.getText();
-					System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6]);
+					form_U[6] = boxTipoFuncionario.getToolTipText();
+					if(form_U[6].equals("Administrador")) {
+						aux = "A";
+					}
+					if(form_U[6].equals("Funcionario")) {
+						aux = "F";
+					}
+					if(form_U[6].equals("Outro")) {
+						aux = "O";
+					}
+					System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6] + " " + aux);
 					if(form_U[4].equals(form_U[5])){
-						Usuario.cadastro(form_U, form_U[6]);
+						//Usuario.cadastro(form_U, form_U[6]);
 					}
 				}
 				
@@ -590,6 +697,8 @@ public class Home {
 		});
 		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
 		cadastroUsuario.add(btnCadastrarUsuario);
+		
+
 		
 		//-----Panel de consulta de usuario-----	
 		consultaUsuario = new JPanel();

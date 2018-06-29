@@ -18,6 +18,7 @@ import java.awt.Container;
 
 import javax.swing.JPanel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.ImageCapabilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
@@ -41,6 +42,26 @@ public class TelaLogin {
 	public TelaLogin() {
 		
 		initialize();
+	}
+	
+	public void img(JPanel panel, Container c) {
+		//Logo Icmc
+		JLabel lblLogoIcmc = 	new JLabel("");
+		lblLogoIcmc.setBounds(816, 10, 131, 49);
+		ImageIcon instituicao= new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\LogoIcmc.png");
+		Image img1 = instituicao.getImage().getScaledInstance(lblLogoIcmc.getWidth(), lblLogoIcmc.getHeight(), Image.SCALE_DEFAULT);
+		
+		lblLogoIcmc.setIcon(new ImageIcon(img1));
+		panel.add(lblLogoIcmc);
+		
+		//Logo Memp's
+		JLabel lblLogoMemps = 	new JLabel("");
+		lblLogoMemps.setBounds(285, 31, 333, 114);
+		ImageIcon empresa = new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\Memps.png");
+		Image img2 = empresa.getImage().getScaledInstance(lblLogoMemps.getWidth(), lblLogoMemps.getHeight(), Image.SCALE_DEFAULT);
+		
+		lblLogoMemps.setIcon(new ImageIcon(img2));
+		c.add(lblLogoMemps);
 	}
 
 	/**
@@ -70,6 +91,7 @@ public class TelaLogin {
 		panel_1.setBounds(0, 421, 957, 60);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
+		img(panel_1,container);
 		
 		JLabel lblTodosOsDireitos = new JLabel("TODOS OS DIREITOS RESERVADOS.");
 		lblTodosOsDireitos.setFont(new Font("Arial", Font.PLAIN, 12));
