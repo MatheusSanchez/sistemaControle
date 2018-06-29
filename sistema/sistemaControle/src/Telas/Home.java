@@ -155,10 +155,10 @@ public class Home {
 	}
 	
 	private void resetaBotoesCima() {
-		btnProduto.setBackground(new Color(240, 240, 240));
-		btnVendas.setBackground(new Color(240, 240, 240));
-		btnEstoque.setBackground(new Color(240, 240, 240));
-		btnUsuarios.setBackground(new Color(240, 240, 240));
+		btnProduto.setBackground(SystemColor.menu);
+		btnVendas.setBackground(SystemColor.menu);
+		btnEstoque.setBackground(SystemColor.menu);
+		btnUsuarios.setBackground(SystemColor.menu);
 	}
 
 	/**
@@ -212,27 +212,31 @@ public class Home {
 		//-----Panel de alteracao de produto-----
 		alteracaoProduto = new JPanel();
 		alteracaoProduto.setVisible(false);
-		alteracaoProduto.setBounds(282, 121, 637, 255);
+		alteracaoProduto.setForeground(new Color(0, 128, 128));
+		alteracaoProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(alteracaoProduto);
 		alteracaoProduto.setLayout(null);
 		
 		textNomeProduto_A = new JTextField();
-		textNomeProduto_A.setBounds(179, 109, 192, 20);
+		textNomeProduto_A.setToolTipText("Ex: HD Samsung 1TB");
+		textNomeProduto_A.setBounds(198, 145, 192, 20);
 		alteracaoProduto.add(textNomeProduto_A);
 		textNomeProduto_A.setColumns(10);
 		
 		textFieldDescricaoProduto_A = new JTextField();
+		textFieldDescricaoProduto_A.setToolTipText("Ex: HD externo Samsung, 1TB, 2 anos de garantia");
 		textFieldDescricaoProduto_A.setColumns(10);
-		textFieldDescricaoProduto_A.setBounds(179, 152, 192, 20);
+		textFieldDescricaoProduto_A.setBounds(198, 191, 192, 20);
 		alteracaoProduto.add(textFieldDescricaoProduto_A);
 		
 		textFieldLucroProduto_A = new JTextField();
+		textFieldLucroProduto_A.setToolTipText("Ex: 100,00");
 		textFieldLucroProduto_A.setColumns(10);
-		textFieldLucroProduto_A.setBounds(179, 194, 192, 20);
+		textFieldLucroProduto_A.setBounds(198, 237, 192, 20);
 		alteracaoProduto.add(textFieldLucroProduto_A);
 		
 		JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
-		comboBoxProduto.setBounds(177, 65, 194, 21);
+		comboBoxProduto.setBounds(196, 100, 194, 21);
 		alteracaoProduto.add(comboBoxProduto);
 		
 		//Botão responsável pela alteracao de um produto
@@ -249,31 +253,28 @@ public class Home {
 				
 			}
 		});
-		btnAlterarProduto.setBounds(438, 152, 118, 45);
+		btnAlterarProduto.setBounds(453, 166, 118, 45);
 		alteracaoProduto.add(btnAlterarProduto);
 		
 		JLabel lblNome_P = new JLabel("Nome do produto a ser alterado :");
-		lblNome_P.setBounds(10, 68, 159, 14);
+		lblNome_P.setBounds(211, 83, 176, 14);
 		alteracaoProduto.add(lblNome_P);
 		
 		JLabel lblDescricao = new JLabel("Nova descri\u00E7\u00E3o : ");
-		lblDescricao.setBounds(78, 154, 79, 14);
+		lblDescricao.setBounds(254, 176, 91, 14);
 		alteracaoProduto.add(lblDescricao);
 		
-		JLabel lblLucroEsperado = new JLabel("Novo lucro esperado :");
-		lblLucroEsperado.setBounds(57, 196, 112, 14);
+		JLabel lblLucroEsperado = new JLabel("Novo lucro esperado (R$):");
+		lblLucroEsperado.setBounds(233, 222, 127, 14);
 		alteracaoProduto.add(lblLucroEsperado);
 		
 		JLabel lblTitulo_AlteracaoProduto = new JLabel("ALTERA\u00C7\u00C3O - PRODUTO");
 		lblTitulo_AlteracaoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_AlteracaoProduto.setBounds(209, 10, 257, 45);
+		lblTitulo_AlteracaoProduto.setBounds(198, 11, 257, 45);
 		alteracaoProduto.add(lblTitulo_AlteracaoProduto);
 		
-		
-		
-		
 		JLabel lblNovoNome = new JLabel("Novo nome :");
-		lblNovoNome.setBounds(96, 112, 61, 13);
+		lblNovoNome.setBounds(264, 131, 61, 13);
 		alteracaoProduto.add(lblNovoNome);
 		
 		JButton btnConsultaBox = new JButton("Consulta");
@@ -288,30 +289,33 @@ public class Home {
 				 }
 			}
 		});
-		btnConsultaBox.setBounds(422, 64, 89, 23);
+		btnConsultaBox.setBounds(464, 99, 89, 23);
 		alteracaoProduto.add(btnConsultaBox);
 		
 		
 		//-----Panel de cadastro de produto-----
 		cadastroProduto = new JPanel();
 		cadastroProduto.setVisible(false);
-		cadastroProduto.setBounds(282, 121, 637, 255);
+		cadastroProduto.setBounds(282, 129, 638, 284);
 		frame.getContentPane().add(cadastroProduto);
 		cadastroProduto.setLayout(null);
 		
 		textNomeProduto_C = new JTextField();
-		textNomeProduto_C.setBounds(179, 76, 192, 20);
+		textNomeProduto_C.setToolTipText("Ex: HD Samsung 1TB");
+		textNomeProduto_C.setBounds(207, 69, 192, 20);
 		cadastroProduto.add(textNomeProduto_C);
 		textNomeProduto_C.setColumns(10);
 		
 		textFieldDescricaoProduto_C = new JTextField();
+		textFieldDescricaoProduto_C.setToolTipText("Ex: HD externo Samsung 1TB, 2 anos de garantia");
 		textFieldDescricaoProduto_C.setColumns(10);
-		textFieldDescricaoProduto_C.setBounds(179, 128, 192, 20);
+		textFieldDescricaoProduto_C.setBounds(207, 114, 192, 20);
 		cadastroProduto.add(textFieldDescricaoProduto_C);
 		
 		textFieldLucroProduto_C = new JTextField();
+		textFieldLucroProduto_C.setToolTipText("Ex: 120,00");
 		textFieldLucroProduto_C.setColumns(10);
-		textFieldLucroProduto_C.setBounds(179, 177, 192, 20);
+		textFieldLucroProduto_C.setBounds(207, 158, 192, 20);
 		cadastroProduto.add(textFieldLucroProduto_C);
 		
 		//Botão responsável pelo cadastro de um produto
@@ -330,19 +334,19 @@ public class Home {
 				
 			}
 		});
-		btnCadastrarProduto.setBounds(438, 152, 118, 45);
+		btnCadastrarProduto.setBounds(246, 198, 118, 45);
 		cadastroProduto.add(btnCadastrarProduto);
 		
 		JLabel lblNomeProd_I = new JLabel("Nome :");
-		lblNomeProd_I.setBounds(80, 78, 89, 14);
+		lblNomeProd_I.setBounds(286, 56, 78, 14);
 		cadastroProduto.add(lblNomeProd_I);
 		
 		JLabel lblDescricao_I = new JLabel("Descri\u00E7\u00E3o : ");
-		lblDescricao_I.setBounds(80, 130, 89, 14);
+		lblDescricao_I.setBounds(277, 100, 93, 14);
 		cadastroProduto.add(lblDescricao_I);
 		
-		JLabel lblLucroEsperado_I = new JLabel("Lucro esperado :");
-		lblLucroEsperado_I.setBounds(69, 179, 100, 14);
+		JLabel lblLucroEsperado_I = new JLabel("Lucro esperado (R$):");
+		lblLucroEsperado_I.setBounds(252, 145, 147, 14);
 		cadastroProduto.add(lblLucroEsperado_I);
 		
 		JLabel lblTitulo_CadastroProduto = new JLabel("CADASTRO - PRODUTO");
@@ -353,17 +357,17 @@ public class Home {
 		//-----Panel de remoção de um produto-----
 		remocaoProduto = new JPanel();
 		remocaoProduto.setVisible(false);
-		remocaoProduto.setBounds(282, 149, 636, 227);
+		remocaoProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(remocaoProduto);
 		remocaoProduto.setLayout(null);
 		
 		textFieldProduto = new JTextField();
-		textFieldProduto.setBounds(38, 49, 280, 28);
+		textFieldProduto.setBounds(38, 102, 280, 28);
 		remocaoProduto.add(textFieldProduto);
 		textFieldProduto.setColumns(10);
 		
 		textFieldConfirmacaoProduto = new JTextField();
-		textFieldConfirmacaoProduto.setBounds(38, 102, 280, 28);
+		textFieldConfirmacaoProduto.setBounds(38, 163, 280, 28);
 		remocaoProduto.add(textFieldConfirmacaoProduto);
 		textFieldConfirmacaoProduto.setColumns(10);
 		
@@ -387,26 +391,26 @@ public class Home {
 				
 			}
 		});
-		btnRemover_P.setBounds(417, 84, 115, 46);
+		btnRemover_P.setBounds(428, 114, 115, 46);
 		remocaoProduto.add(btnRemover_P);
 		
 		JLabel lblNomeDoProduto = new JLabel("Nome do produto a ser removido :");
-		lblNomeDoProduto.setBounds(38, 34, 280, 14);
+		lblNomeDoProduto.setBounds(38, 84, 280, 14);
 		remocaoProduto.add(lblNomeDoProduto);
 		
 		JLabel lblNewLabel = new JLabel("Confirme o nome do produto a ser removido:");
-		lblNewLabel.setBounds(38, 88, 280, 14);
+		lblNewLabel.setBounds(38, 146, 280, 14);
 		remocaoProduto.add(lblNewLabel);
 		
 		JLabel lblTitulo_RemoçãoProduto = new JLabel("REMOÇÃO - PRODUTO");
 		lblTitulo_RemoçãoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblTitulo_RemoçãoProduto.setBounds(209, 10, 257, 45);
-		cadastroProduto.add(lblTitulo_RemoçãoProduto);
+		remocaoProduto.add(lblTitulo_RemoçãoProduto);
 		
 		//Panel de Consulta de Produto
 		consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
-		consultaProduto.setBounds(282, 149, 637, 227);
+		consultaProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaProduto);
 		
 		table = new JTable();
@@ -443,7 +447,7 @@ public class Home {
 		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
 		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblTitulo_ConsultaProduto.setBounds(209, 10, 257, 45);
-		cadastroProduto.add(lblTitulo_ConsultaProduto);
+		consultaProduto.add(lblTitulo_ConsultaProduto);
 		
 		
 		//De Venda
@@ -859,7 +863,8 @@ public class Home {
 				}
 			}
 		});
-		btnInserir_P.setBounds(99, 149, 89, 23);
+		btnInserir_P.setBackground(new Color(218, 232, 252));
+		btnInserir_P.setBounds(86, 143, 117, 46);
 		frame.getContentPane().add(btnInserir_P);
 		
 		//Botão de Consulta
@@ -884,7 +889,8 @@ public class Home {
 				}
 			}
 		});
-		btnConsulta_P.setBounds(99, 213, 89, 23);
+		btnConsulta_P.setBackground(new Color(218, 232, 252));
+		btnConsulta_P.setBounds(86, 211, 117, 46);
 		frame.getContentPane().add(btnConsulta_P);
 		
 		//Botão de Remoção
@@ -908,7 +914,8 @@ public class Home {
 				}
 			}
 		});
-		btnRemocao_P.setBounds(99, 282, 89, 23);
+		btnRemocao_P.setBackground(new Color(218, 232, 252));
+		btnRemocao_P.setBounds(86, 275, 117, 46);
 		frame.getContentPane().add(btnRemocao_P);
 		
 		//Botão de Alteracao
@@ -932,7 +939,8 @@ public class Home {
 				}
 			}
 		});
-		btnAlteracao_P.setBounds(99, 353, 89, 23);
+		btnAlteracao_P.setBackground(new Color(218, 232, 252));
+		btnAlteracao_P.setBounds(86, 346, 117, 46);
 		frame.getContentPane().add(btnAlteracao_P);
 		
 		
@@ -940,8 +948,9 @@ public class Home {
 		
 		//Botão de produto
 		btnProduto = new JButton("Produto");
+		btnProduto.setBackground(SystemColor.menu);
 		btnProduto.setForeground(Color.BLACK);
-		btnProduto.setBounds(55, 55, 159, 55);
+		btnProduto.setBounds(64, 55, 159, 55);
 		frame.getContentPane().add(btnProduto);
 		btnProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -959,8 +968,9 @@ public class Home {
 		
 		//Botão de vendas
 		btnVendas = new JButton("Vendas");
+		btnVendas.setBackground(SystemColor.menu);
 		btnVendas.setForeground(Color.BLACK);
-		btnVendas.setBounds(282, 55, 159, 55);
+		btnVendas.setBounds(297, 55, 159, 55);
 		frame.getContentPane().add(btnVendas);
 		btnVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -978,6 +988,7 @@ public class Home {
 		
 		//Botão de estoque
 		btnEstoque = new JButton("Estoque");
+		btnEstoque.setBackground(SystemColor.menu);
 		btnEstoque.setForeground(Color.BLACK);
 		btnEstoque.setBounds(529, 55, 159, 55);
 		frame.getContentPane().add(btnEstoque);
@@ -997,8 +1008,9 @@ public class Home {
 	
 		//Botão de usuarios
 		btnUsuarios = new JButton("Usu\u00E1rios");
+		btnUsuarios.setBackground(SystemColor.menu);
 		btnUsuarios.setForeground(Color.BLACK);
-		btnUsuarios.setBounds(760, 55, 159, 55);
+		btnUsuarios.setBounds(760, 55, 160, 55);
 		frame.getContentPane().add(btnUsuarios);
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
