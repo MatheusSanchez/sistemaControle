@@ -65,8 +65,14 @@ public class Home {
 	private JPanel consultaVenda;
 	private JPanel remocaoVenda;
 	private JPanel alteracaoVenda;
-	private JPanel cadastroUsuario;
 	private JPanel cadastroEstoque;
+	private JPanel consultaEstoque;
+	private JPanel remocaoEstoque;
+	private JPanel alteracaoEstoque;
+	private JPanel cadastroUsuario;
+	private JPanel remocaoUsuario;
+	private JPanel consultaUsuario;
+	private JPanel alteracaoUsuario;
 	
 	
 	public Home(Container c, JFrame j) {
@@ -75,18 +81,26 @@ public class Home {
 		this.frame.setVisible(true);
 	}
 	
+	/**
+	 * Função que seta todas os panels de informacao como false, para que quando novos panels forem clicados não fiquem sobrepostos
+	 */
 	private void tiraTelas() {
-		alteracaoProduto.setVisible(false);
 		cadastroProduto.setVisible(false);
 		remocaoProduto.setVisible(false);
 		alteracaoProduto.setVisible(false);
 		consultaProduto.setVisible(false);
 		cadastroUsuario.setVisible(false);
+		remocaoUsuario.setVisible(false);
+		consultaUsuario.setVisible(false);
+		alteracaoUsuario.setVisible(false);
 		cadastroVenda.setVisible(false);
 		consultaVenda.setVisible(false);
 		remocaoVenda.setVisible(false);
 		alteracaoVenda.setVisible(false);
 		cadastroEstoque.setVisible(false);
+		remocaoEstoque.setVisible(false);
+		consultaEstoque.setVisible(false);
+		alteracaoEstoque.setVisible(false);
 	}
 
 	/**
@@ -413,7 +427,7 @@ public class Home {
 		cadastroEstoque.add(lblCadastroEstoque);
 		
 		//-----Panel de consulta de estoque-----	
-		JPanel consultaEstoque = new JPanel();
+		consultaEstoque = new JPanel();
 		consultaEstoque.setVisible(false);
 		consultaEstoque.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaEstoque);
@@ -425,7 +439,7 @@ public class Home {
 		consultaEstoque.add(lblConsultaEstoque);
 		 
 		//-----Panel de remocao de estoque-----
-		JPanel remocaoEstoque = new JPanel();
+		remocaoEstoque = new JPanel();
 		remocaoEstoque.setVisible(false);
 		remocaoEstoque.setBounds(282, 143, 637, 233);
 		frame.getContentPane().add(remocaoEstoque);
@@ -437,7 +451,7 @@ public class Home {
 		remocaoEstoque.add(lblRemooEstoque);
 		
 		//-----Panel de alteracao de estoque-----
-		JPanel alteracaoEstoque = new JPanel();
+		alteracaoEstoque = new JPanel();
 		alteracaoEstoque.setVisible(false);
 		alteracaoEstoque.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(alteracaoEstoque);
@@ -551,7 +565,7 @@ public class Home {
 		cadastroUsuario.add(btnCadastrarUsuario);
 		
 		//-----Panel de consulta de usuario-----	
-		JPanel consultaUsuario = new JPanel();
+		consultaUsuario = new JPanel();
 		consultaUsuario.setVisible(false);
 		consultaUsuario.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaUsuario);
@@ -563,7 +577,7 @@ public class Home {
 		consultaUsuario.add(lblConsultaUsuarios);
 		 
 		//-----Panel de remocao de usuario-----
-		JPanel remocaoUsuario = new JPanel();
+		remocaoUsuario = new JPanel();
 		remocaoUsuario.setVisible(false);
 		remocaoUsuario.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(remocaoUsuario);
@@ -575,7 +589,7 @@ public class Home {
 		remocaoUsuario.add(lblRemooUsuarios);
 		
 		//-----Panel de alteracao de usuario-----
-		JPanel alteracaoUsuario = new JPanel();
+		alteracaoUsuario = new JPanel();
 		alteracaoUsuario.setVisible(false);
 		alteracaoUsuario.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(alteracaoUsuario);
