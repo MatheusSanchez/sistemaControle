@@ -62,7 +62,7 @@ public class Usuario {
 	static public String  getTipo(String CPF){
 		
 		Connection c = Conexao.getInstance();	
-		String sql = "SELECT TIPO WHERE CPF LIKE (?) ";
+		String sql = "SELECT TIPO FROM TIPO_USUARIO WHERE CPF_USUARIO LIKE (?) ";
 		String result = null;
 		
 		try {
@@ -85,8 +85,6 @@ public class Usuario {
 			
 			System.out.println("Fim a query ");
 			pstm.close();
-
-			JOptionPane.showMessageDialog(null, "Get Tipo Suce Users");
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Get Tipo deu ruim Users");
