@@ -414,7 +414,7 @@ public class Home {
 		consultaProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaProduto);
 		
-		/*table = new JTable();
+		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
@@ -432,7 +432,7 @@ public class Home {
 		table.getColumnModel().getColumn(1).setPreferredWidth(83);
 		table.getColumnModel().getColumn(2).setPreferredWidth(136);
 		table.getColumnModel().getColumn(4).setPreferredWidth(82);
-		consultaProduto.setViewportView(table);*/
+		consultaProduto.setViewportView(table);
 		
 		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
 		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
