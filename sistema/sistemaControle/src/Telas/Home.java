@@ -258,15 +258,15 @@ public class Home {
 		alteracaoProduto.add(btnAlterarProduto);
 		
 		JLabel lblNome_P = new JLabel("Nome do produto a ser alterado :");
-		lblNome_P.setBounds(211, 83, 176, 14);
+		lblNome_P.setBounds(201, 83, 190, 14);
 		alteracaoProduto.add(lblNome_P);
 		
 		JLabel lblDescricao = new JLabel("Nova descri\u00E7\u00E3o : ");
-		lblDescricao.setBounds(254, 176, 91, 14);
+		lblDescricao.setBounds(260, 176, 127, 14);
 		alteracaoProduto.add(lblDescricao);
 		
 		JLabel lblLucroEsperado = new JLabel("Novo lucro esperado (R$):");
-		lblLucroEsperado.setBounds(233, 222, 127, 14);
+		lblLucroEsperado.setBounds(233, 222, 152, 14);
 		alteracaoProduto.add(lblLucroEsperado);
 		
 		JLabel lblTitulo_AlteracaoProduto = new JLabel("ALTERA\u00C7\u00C3O - PRODUTO");
@@ -275,7 +275,7 @@ public class Home {
 		alteracaoProduto.add(lblTitulo_AlteracaoProduto);
 		
 		JLabel lblNovoNome = new JLabel("Novo nome :");
-		lblNovoNome.setBounds(264, 131, 61, 13);
+		lblNovoNome.setBounds(263, 132, 91, 13);
 		alteracaoProduto.add(lblNovoNome);
 		
 		JButton btnConsultaBox = new JButton("Consulta");
@@ -748,6 +748,51 @@ public class Home {
 		lblConsultaUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblConsultaUsuarios.setBounds(232, 11, 233, 14);
 		consultaUsuario.add(lblConsultaUsuarios);
+		
+		JComboBox cBUsuarios = new JComboBox();
+		cBUsuarios.setBounds(39, 59, 248, 36);
+		consultaUsuario.add(cBUsuarios);
+		
+		JButton btnVisualizar = new JButton("Visualizar");
+		btnVisualizar.setBounds(90, 139, 133, 36);
+		consultaUsuario.add(btnVisualizar);
+		
+		JLabel lblNome = new JLabel("Nome :");
+		lblNome.setBounds(353, 46, 46, 14);
+		consultaUsuario.add(lblNome);
+		
+		JLabel label = new JLabel("Nome :");
+		label.setBounds(353, 81, 46, 14);
+		consultaUsuario.add(label);
+		
+		JLabel label_1 = new JLabel("Nome :");
+		label_1.setBounds(353, 121, 46, 14);
+		consultaUsuario.add(label_1);
+		
+		JLabel label_2 = new JLabel("Nome :");
+		label_2.setBounds(353, 161, 46, 14);
+		consultaUsuario.add(label_2);
+		
+		JLabel lblDadoAquiNo = new JLabel("Dado aqui no JLabel");
+		lblDadoAquiNo.setVerticalAlignment(SwingConstants.TOP);
+		lblDadoAquiNo.setBounds(423, 46, 156, 14);
+		consultaUsuario.add(lblDadoAquiNo);
+		
+		JLabel label_3 = new JLabel("Dado aqui no JLabel");
+		label_3.setVerticalAlignment(SwingConstants.TOP);
+		label_3.setBounds(423, 81, 156, 14);
+		consultaUsuario.add(label_3);
+		
+		JLabel label_4 = new JLabel("Dado aqui no JLabel");
+		label_4.setVerticalAlignment(SwingConstants.TOP);
+		label_4.setBounds(423, 121, 156, 14);
+		consultaUsuario.add(label_4);
+		
+		JLabel label_5 = new JLabel("Dado aqui no JLabel");
+		label_5.setVerticalAlignment(SwingConstants.TOP);
+		label_5.setBounds(423, 161, 156, 14);
+		consultaUsuario.add(label_5);
+
 		 
 		//-----Panel de remocao de usuario-----
 		remocaoUsuario = new JPanel();
@@ -986,6 +1031,8 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				btnRemocao_P.setEnabled(true);
+				btnAlteracao_P.setEnabled(true);
 				resetaTudo();
 				resetaBotoesCima();
 				btnProduto.setBackground(SystemColor.activeCaption);
@@ -1006,6 +1053,8 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				btnRemocao_P.setEnabled(false);
+				btnAlteracao_P.setEnabled(false);
 				resetaTudo();
 				resetaBotoesCima();
 				btnVendas.setBackground(SystemColor.activeCaption);
@@ -1026,6 +1075,8 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				btnRemocao_P.setEnabled(true);
+				btnAlteracao_P.setEnabled(true);
 				resetaTudo();
 				resetaBotoesCima();
 				btnEstoque.setBackground(SystemColor.activeCaption);
@@ -1046,6 +1097,8 @@ public class Home {
 				btnConsulta_P.setVisible(true);
 				btnRemocao_P.setVisible(true);
 				btnAlteracao_P.setVisible(true);
+				btnRemocao_P.setEnabled(true);
+				btnAlteracao_P.setEnabled(true);
 				resetaTudo();
 				resetaBotoesCima();
 				btnUsuarios.setBackground(SystemColor.activeCaption);

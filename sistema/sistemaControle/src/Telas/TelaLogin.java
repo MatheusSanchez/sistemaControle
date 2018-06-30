@@ -23,6 +23,7 @@ import java.awt.ImageCapabilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
+import javax.swing.SwingConstants;
 
 /**
  * Classe que possui a tela de Login
@@ -106,6 +107,7 @@ public class TelaLogin {
 		frame.getContentPane().add(panel_2);
 		
 		JLabel lblLogin = new JLabel("Login :");
+		lblLogin.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblLogin.setBounds(46, 47, 46, 14);
 		panel_2.add(lblLogin);
 		
@@ -115,6 +117,7 @@ public class TelaLogin {
 		userField.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha :");
+		lblSenha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSenha.setBounds(46, 89, 46, 14);
 		panel_2.add(lblSenha);
 		
