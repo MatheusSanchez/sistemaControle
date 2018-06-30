@@ -624,174 +624,191 @@ public class Home {
 		
 		//De Usuário
 		//-----Panel de cadastro de usuario-----
-		cadastroUsuario = new JPanel();
-		cadastroUsuario.setVisible(false);
-		cadastroUsuario.setBounds(282, 121, 637, 255);
-		frame.getContentPane().add(cadastroUsuario);
-		cadastroUsuario.setLayout(null);
-		
-		textFieldNomeUsuario = new JTextField();
-		textFieldNomeUsuario.setBounds(204, 33, 288, 20);
-		cadastroUsuario.add(textFieldNomeUsuario);
-		textFieldNomeUsuario.setColumns(10);
-		
-		textFieldRGUsuario = new JTextField();
-		textFieldRGUsuario.setBounds(204, 64, 288, 20);
-		cadastroUsuario.add(textFieldRGUsuario);
-		textFieldRGUsuario.setColumns(10);
-		
-		textFieldCPFUsuario = new JTextField();
-		textFieldCPFUsuario.setBounds(204, 95, 288, 20);
-		cadastroUsuario.add(textFieldCPFUsuario);
-		textFieldCPFUsuario.setColumns(10);
-		
-		textFieldEmailUsuario = new JTextField();
-		textFieldEmailUsuario.setBounds(204, 126, 288, 20);
-		cadastroUsuario.add(textFieldEmailUsuario);
-		textFieldEmailUsuario.setColumns(10);
-		
-		textFieldSenhaUsuario = new JTextField();
-		textFieldSenhaUsuario.setBounds(204, 157, 288, 20);
-		cadastroUsuario.add(textFieldSenhaUsuario);
-		textFieldSenhaUsuario.setColumns(10);
-		
-		textFieldConfirmacaoUsuario = new JTextField();
-		textFieldConfirmacaoUsuario.setBounds(204, 194, 288, 20);
-		cadastroUsuario.add(textFieldConfirmacaoUsuario);
-		textFieldConfirmacaoUsuario.setColumns(10);
-		
-		JLabel lblNome_U = new JLabel("Nome :");
-		lblNome_U.setBounds(72, 36, 46, 14);
-		cadastroUsuario.add(lblNome_U);
-		
-		JLabel lblRG = new JLabel("RG :");
-		lblRG.setBounds(72, 67, 46, 14);
-		cadastroUsuario.add(lblRG);
-		
-		JLabel lblCpf = new JLabel("CPF :");
-		lblCpf.setBounds(72, 98, 46, 14);
-		cadastroUsuario.add(lblCpf);
-		
-		JLabel lblEmail = new JLabel("Email :");
-		lblEmail.setBounds(72, 129, 46, 14);
-		cadastroUsuario.add(lblEmail);
-		
-		JLabel lblSenha = new JLabel("Senha :");
-		lblSenha.setBounds(72, 160, 46, 14);
-		cadastroUsuario.add(lblSenha);
-		
-		JLabel lblConfirmeASenha = new JLabel("Confirme a senha:");
-		lblConfirmeASenha.setBounds(72, 197, 122, 14);
-		cadastroUsuario.add(lblConfirmeASenha);
-		
-		JLabel lblTipoDeFuncionrio = new JLabel("Tipo de funcion\u00E1rio:");
-		lblTipoDeFuncionrio.setBounds(72, 232, 122, 14);
-		cadastroUsuario.add(lblTipoDeFuncionrio);
-		
-		JLabel lblTitulo_CadastroUsuario = new JLabel("CADASTRO - USUARIO");
-		lblTitulo_CadastroUsuario.setVerticalAlignment(SwingConstants.TOP);
-		lblTitulo_CadastroUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroUsuario.setBounds(209, 0, 257, 45);
-		cadastroUsuario.add(lblTitulo_CadastroUsuario);
-		
-		boxTipoFuncionario = new JComboBox();
-		boxTipoFuncionario.setModel(new DefaultComboBoxModel(new String[] {"Administrador", "Funcionario", "Outro"}));
-		boxTipoFuncionario.setToolTipText("");
-		boxTipoFuncionario.setBounds(204, 229, 288, 17);
-		cadastroUsuario.add(boxTipoFuncionario);
-		
-		//Botão responsavel pelo cadastro de usuario
-		JButton btnCadastrarUsuario = new JButton("Cadastrar");
-		btnCadastrarUsuario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				String [] form_U = new String[7];
-				String aux = new String();
-				if(tipo == 4){
-					form_U[0] = textFieldCPFUsuario.getText();
-					form_U[1] = textFieldRGUsuario.getText();
-					form_U[2] = textFieldNomeUsuario.getText();
-					form_U[3] = textFieldEmailUsuario.getText();
-					form_U[4] = textFieldSenhaUsuario.getText();
-					form_U[5] = textFieldConfirmacaoUsuario.getText();
-					form_U[6] = boxTipoFuncionario.getToolTipText();
-					if(form_U[6].equals("Administrador")) {
-						aux = "A";
+				cadastroUsuario = new JPanel();
+				cadastroUsuario.setVisible(false);
+				cadastroUsuario.setBounds(282, 121, 637, 255);
+				frame.getContentPane().add(cadastroUsuario);
+				cadastroUsuario.setLayout(null);
+				
+				textFieldNomeUsuario = new JTextField();
+				textFieldNomeUsuario.setToolTipText("Ex: Matheus Sanchez");
+				textFieldNomeUsuario.setBounds(204, 33, 288, 20);
+				cadastroUsuario.add(textFieldNomeUsuario);
+				textFieldNomeUsuario.setColumns(10);
+				
+				textFieldRGUsuario = new JTextField();
+				textFieldRGUsuario.setToolTipText("12.345.678");
+				textFieldRGUsuario.setBounds(204, 64, 288, 20);
+				cadastroUsuario.add(textFieldRGUsuario);
+				textFieldRGUsuario.setColumns(10);
+				
+				textFieldCPFUsuario = new JTextField();
+				textFieldCPFUsuario.setToolTipText("123.456.789-10");
+				textFieldCPFUsuario.setBounds(204, 95, 288, 20);
+				cadastroUsuario.add(textFieldCPFUsuario);
+				textFieldCPFUsuario.setColumns(10);
+				
+				textFieldEmailUsuario = new JTextField();
+				textFieldEmailUsuario.setToolTipText("matheussanchez.gmail.com");
+				textFieldEmailUsuario.setBounds(204, 126, 288, 20);
+				cadastroUsuario.add(textFieldEmailUsuario);
+				textFieldEmailUsuario.setColumns(10);
+				
+				textFieldSenhaUsuario = new JTextField();
+				textFieldSenhaUsuario.setBounds(204, 157, 288, 20);
+				cadastroUsuario.add(textFieldSenhaUsuario);
+				textFieldSenhaUsuario.setColumns(10);
+				
+				textFieldConfirmacaoUsuario = new JTextField();
+				textFieldConfirmacaoUsuario.setBounds(204, 194, 288, 20);
+				cadastroUsuario.add(textFieldConfirmacaoUsuario);
+				textFieldConfirmacaoUsuario.setColumns(10);
+				
+				JLabel lblNome_U = new JLabel("Nome :");
+				lblNome_U.setBounds(72, 36, 46, 14);
+				cadastroUsuario.add(lblNome_U);
+				
+				JLabel lblRG = new JLabel("RG :");
+				lblRG.setBounds(72, 67, 46, 14);
+				cadastroUsuario.add(lblRG);
+				
+				JLabel lblCpf = new JLabel("CPF :");
+				lblCpf.setBounds(72, 98, 46, 14);
+				cadastroUsuario.add(lblCpf);
+				
+				JLabel lblEmail = new JLabel("Email :");
+				lblEmail.setBounds(72, 129, 46, 14);
+				cadastroUsuario.add(lblEmail);
+				
+				JLabel lblSenha = new JLabel("Senha :");
+				lblSenha.setBounds(72, 160, 46, 14);
+				cadastroUsuario.add(lblSenha);
+				
+				JLabel lblConfirmeASenha = new JLabel("Confirme a senha:");
+				lblConfirmeASenha.setBounds(72, 197, 122, 14);
+				cadastroUsuario.add(lblConfirmeASenha);
+				
+				JLabel lblTipoDeFuncionrio = new JLabel("Tipo de funcion\u00E1rio:");
+				lblTipoDeFuncionrio.setBounds(72, 232, 122, 14);
+				cadastroUsuario.add(lblTipoDeFuncionrio);
+				
+				JLabel lblTitulo_CadastroUsuario = new JLabel("CADASTRO - USUARIO");
+				lblTitulo_CadastroUsuario.setVerticalAlignment(SwingConstants.TOP);
+				lblTitulo_CadastroUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblTitulo_CadastroUsuario.setBounds(209, 0, 257, 45);
+				cadastroUsuario.add(lblTitulo_CadastroUsuario);
+				
+				boxTipoFuncionario = new JComboBox();
+				boxTipoFuncionario.setModel(new DefaultComboBoxModel(new String[] {"Administrador", "Funcionario", "Outro"}));
+				boxTipoFuncionario.setToolTipText("");
+				boxTipoFuncionario.setBounds(204, 229, 288, 17);
+				cadastroUsuario.add(boxTipoFuncionario);
+				
+				//Botão responsavel pelo cadastro de usuario
+				JButton btnCadastrarUsuario = new JButton("Cadastrar");
+				btnCadastrarUsuario.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e){
+						String [] form_U = new String[7];
+						String aux = new String();
+						if(tipo == 4){
+							form_U[0] = textFieldCPFUsuario.getText();
+							form_U[1] = textFieldRGUsuario.getText();
+							form_U[2] = textFieldNomeUsuario.getText();
+							form_U[3] = textFieldEmailUsuario.getText();
+							form_U[4] = textFieldSenhaUsuario.getText();
+							form_U[5] = textFieldConfirmacaoUsuario.getText();
+							form_U[6] = boxTipoFuncionario.getToolTipText();
+							if(form_U[6].equals("Administrador")) {
+								aux = "A";
+							}
+							if(form_U[6].equals("Funcionario")) {
+								aux = "F";
+							}
+							if(form_U[6].equals("Outro")) {
+								aux = "O";
+							}
+							System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6] + " " + aux);
+							if(form_U[4].equals(form_U[5])){
+								Usuario.cadastro(form_U, form_U[6]);
+							}
+						}
+						
+						
 					}
-					if(form_U[6].equals("Funcionario")) {
-						aux = "F";
-					}
-					if(form_U[6].equals("Outro")) {
-						aux = "O";
-					}
-					System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6] + " " + aux);
-					if(form_U[4].equals(form_U[5])){
-						Usuario.cadastro(form_U, form_U[6]);
-					}
-				}
+				});
+				btnCadastrarUsuario.setBounds(527, 114, 89, 45);
+				cadastroUsuario.add(btnCadastrarUsuario);
 				
 				
-			}
-		});
-		btnCadastrarUsuario.setBounds(505, 228, 89, 23);
-		cadastroUsuario.add(btnCadastrarUsuario);
-		
+				//-----Panel de consulta de usuario-----	
+				consultaUsuario = new JPanel();
+				consultaUsuario.setVisible(false);
+				consultaUsuario.setBounds(282, 129, 638, 281);
+				frame.getContentPane().add(consultaUsuario);
+				consultaUsuario.setLayout(null);
+				
+				JLabel lblConsultaUsuarios = new JLabel("CONSULTA - USUARIOS");
+				lblConsultaUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblConsultaUsuarios.setBounds(232, 11, 233, 14);
+				consultaUsuario.add(lblConsultaUsuarios);
+				
+				JComboBox cBUsuarios = new JComboBox(Usuario.getNames());
+				cBUsuarios.setBounds(39, 123, 248, 20);
+				consultaUsuario.add(cBUsuarios);
+				
+				JButton btnVisualizar = new JButton("Visualizar");
+				btnVisualizar.setBounds(100, 154, 133, 36);
+				consultaUsuario.add(btnVisualizar);
+				
+				JLabel lblNome = new JLabel("Nome:");
+				lblNome.setBounds(356, 72, 46, 14);
+				consultaUsuario.add(lblNome);
+				
+				JLabel lblRg = new JLabel("RG:");
+				lblRg.setBounds(356, 104, 46, 14);
+				consultaUsuario.add(lblRg);
+				
+				JLabel lblCpf_C = new JLabel("CPF:");
+				lblCpf_C.setBounds(356, 139, 46, 14);
+				consultaUsuario.add(lblCpf_C);
+				
+				JLabel lblEmail_C = new JLabel("Email:");
+				lblEmail_C.setBounds(356, 176, 46, 14);
+				consultaUsuario.add(lblEmail_C);
+				
+				JLabel lblDadoAquiNo = new JLabel("Nome do usu\u00E1rio");
+				lblDadoAquiNo.setVerticalAlignment(SwingConstants.TOP);
+				lblDadoAquiNo.setBounds(426, 72, 156, 14);
+				consultaUsuario.add(lblDadoAquiNo);
+				
+				JLabel lblRgDoUsurio = new JLabel("RG do usu\u00E1rio");
+				lblRgDoUsurio.setVerticalAlignment(SwingConstants.TOP);
+				lblRgDoUsurio.setBounds(426, 104, 156, 14);
+				consultaUsuario.add(lblRgDoUsurio);
+				
+				JLabel lblCpfDoUsurio = new JLabel("CPF do usu\u00E1rio");
+				lblCpfDoUsurio.setVerticalAlignment(SwingConstants.TOP);
+				lblCpfDoUsurio.setBounds(426, 139, 156, 14);
+				consultaUsuario.add(lblCpfDoUsurio);
+				
+				JLabel lblEmailDoUsurio = new JLabel("Email do usu\u00E1rio");
+				lblEmailDoUsurio.setVerticalAlignment(SwingConstants.TOP);
+				lblEmailDoUsurio.setBounds(426, 176, 156, 14);
+				consultaUsuario.add(lblEmailDoUsurio);
+				
+				JLabel lblSelecioneOUsurio = new JLabel("Selecione o usu\u00E1rio que deseja consultar:");
+				lblSelecioneOUsurio.setBounds(40, 104, 248, 14);
+				consultaUsuario.add(lblSelecioneOUsurio);
+				
+				JLabel lblTipo = new JLabel("Tipo:");
+				lblTipo.setBounds(356, 209, 46, 14);
+				consultaUsuario.add(lblTipo);
+				
+				JLabel lblTipoDoUsurio = new JLabel("Tipo do usu\u00E1rio");
+				lblTipoDoUsurio.setVerticalAlignment(SwingConstants.TOP);
+				lblTipoDoUsurio.setBounds(426, 209, 156, 14);
+				consultaUsuario.add(lblTipoDoUsurio);
 
-		
-		//-----Panel de consulta de usuario-----	
-		consultaUsuario = new JPanel();
-		consultaUsuario.setVisible(false);
-		consultaUsuario.setBounds(282, 149, 637, 227);
-		frame.getContentPane().add(consultaUsuario);
-		consultaUsuario.setLayout(null);
-		
-		JLabel lblConsultaUsuarios = new JLabel("CONSULTA - USUARIOS");
-		lblConsultaUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblConsultaUsuarios.setBounds(232, 11, 233, 14);
-		consultaUsuario.add(lblConsultaUsuarios);
-		
-		JComboBox cBUsuarios = new JComboBox();
-		cBUsuarios.setBounds(39, 59, 248, 36);
-		consultaUsuario.add(cBUsuarios);
-		
-		JButton btnVisualizar = new JButton("Visualizar");
-		btnVisualizar.setBounds(90, 139, 133, 36);
-		consultaUsuario.add(btnVisualizar);
-		
-		JLabel lblNome = new JLabel("Nome :");
-		lblNome.setBounds(353, 46, 46, 14);
-		consultaUsuario.add(lblNome);
-		
-		JLabel label = new JLabel("Nome :");
-		label.setBounds(353, 81, 46, 14);
-		consultaUsuario.add(label);
-		
-		JLabel label_1 = new JLabel("Nome :");
-		label_1.setBounds(353, 121, 46, 14);
-		consultaUsuario.add(label_1);
-		
-		JLabel label_2 = new JLabel("Nome :");
-		label_2.setBounds(353, 161, 46, 14);
-		consultaUsuario.add(label_2);
-		
-		JLabel lblDadoAquiNo = new JLabel("Dado aqui no JLabel");
-		lblDadoAquiNo.setVerticalAlignment(SwingConstants.TOP);
-		lblDadoAquiNo.setBounds(423, 46, 156, 14);
-		consultaUsuario.add(lblDadoAquiNo);
-		
-		JLabel label_3 = new JLabel("Dado aqui no JLabel");
-		label_3.setVerticalAlignment(SwingConstants.TOP);
-		label_3.setBounds(423, 81, 156, 14);
-		consultaUsuario.add(label_3);
-		
-		JLabel label_4 = new JLabel("Dado aqui no JLabel");
-		label_4.setVerticalAlignment(SwingConstants.TOP);
-		label_4.setBounds(423, 121, 156, 14);
-		consultaUsuario.add(label_4);
-		
-		JLabel label_5 = new JLabel("Dado aqui no JLabel");
-		label_5.setVerticalAlignment(SwingConstants.TOP);
-		label_5.setBounds(423, 161, 156, 14);
-		consultaUsuario.add(label_5);
 
 		 
 		//-----Panel de remocao de usuario-----
