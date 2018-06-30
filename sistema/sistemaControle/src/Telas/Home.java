@@ -839,7 +839,7 @@ public class Home {
 				lblRemooUsuarios.setBounds(208, 11, 264, 14);
 				remocaoUsuario.add(lblRemooUsuarios);
 				
-				JComboBox comboBox = new JComboBox();
+				JComboBox comboBox = new JComboBox(Usuario.getNames());
 				comboBox.setBounds(185, 116, 264, 20);
 				remocaoUsuario.add(comboBox);
 				
@@ -850,6 +850,7 @@ public class Home {
 				JButton btnRemover = new JButton("Remover");
 				btnRemover.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						Usuario.delete((String)comboBox.getSelectedItem());
 					}
 				});
 				btnRemover.setBounds(250, 147, 119, 30);
@@ -948,9 +949,9 @@ public class Home {
 					public void actionPerformed(ActionEvent e) {
 						String nomeSelecionado = (String)comboBoxUsuario_A.getSelectedItem();
 						String []result = Usuario.getInfos(nomeSelecionado);
-						textNomeUsuario_A.setText(result[0]);
-						textEmailUsuario_A.setText(result[1]);
-						textSenhaUsuario_A.setText(result[2]);
+						textNomeUsuario_A.setText(result[2]);
+						textEmailUsuario_A.setText(result[3]);
+						textSenhaUsuario_A.setText(result[4]);
 						
 					}
 				});

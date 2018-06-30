@@ -291,6 +291,29 @@ static public String[]  getInfos(String nomeUsuario){
 		
 	}
 	
+	static public void delete(String nome){
+		Connection c = Conexao.getInstance();
+		
+		String sql = "DELETE FROM USUARIO WHERE NOME LIKE (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			
+			pstm.setString(1, nome);
+			
+			System.out.println("Executanto a query " + sql);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Usuario deletado com sucesso");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Usuario");
+		}
+		
+	}
 	
 
 }
