@@ -50,11 +50,58 @@ public class Usuario {
 		
 	}
 	
+	/*RETORNA AS INFOS DO USUARIO 
+	 * 
+	  	[0] cpf // 111.111.111-11 // unico
+	 *  [1] rg	// 11.111.111-1
+	 *  [2] nome (max 30 caracteres)
+	 *  [3] email (max 45 caracteres)
+	 *  [4] senha	(max 20 caracteres)
+	 * */
+	
+	static public String  getTipo(String CPF){
+		
+		Connection c = Conexao.getInstance();	
+		String sql = "SELECT TIPO WHERE CPF LIKE (?) ";
+		String result = null;
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			
+			pstm.setString(1, CPF);
+			ResultSet rs = pstm.executeQuery();
+			
+			if (rs.next()){
+				
+					result= (rs.getString(1));
+						
+			}else{
+				result = null;
+			}
+			
+			
+			
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Get Tipo Suce Users");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Get Tipo deu ruim Users");
+		}
+		
+		return result;
+		
+		
+	}
+	
 static public String[]  getInfos(String nomeUsuario){
 		
-		String[] result = new String[3];
+		String[] result = new String[5];
 		Connection c = Conexao.getInstance();	
-		String sql = "SELECT NOME,EMAIL,SENHA FROM USUARIO WHERE NOME LIKE (?) ";
+		String sql = "SELECT CPF,RG,NOME,EMAIL,SENHA FROM USUARIO WHERE NOME LIKE (?) ";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
@@ -65,7 +112,7 @@ static public String[]  getInfos(String nomeUsuario){
 			ResultSet rs = pstm.executeQuery();
 			
 			if (rs.next()){
-				for(int i = 0; i < 3 ; i++){
+				for(int i = 0; i < 5 ; i++){
 					result[i] = (rs.getString(i+1));
 				}			
 			}else{
@@ -76,8 +123,6 @@ static public String[]  getInfos(String nomeUsuario){
 			
 			System.out.println("Fim a query ");
 			pstm.close();
-
-			JOptionPane.showMessageDialog(null, "Get Infos Suce Users");
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Get Infos deu ruim Users");

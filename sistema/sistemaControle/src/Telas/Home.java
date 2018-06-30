@@ -756,17 +756,13 @@ public class Home {
 				cBUsuarios.setBounds(39, 123, 248, 20);
 				consultaUsuario.add(cBUsuarios);
 				
-				JButton btnVisualizar = new JButton("Visualizar");
-				btnVisualizar.setBounds(100, 154, 133, 36);
-				consultaUsuario.add(btnVisualizar);
+				JLabel lblNome_C = new JLabel("Nome:");
+				lblNome_C.setBounds(356, 72, 46, 14);
+				consultaUsuario.add(lblNome_C);
 				
-				JLabel lblNome = new JLabel("Nome:");
-				lblNome.setBounds(356, 72, 46, 14);
-				consultaUsuario.add(lblNome);
-				
-				JLabel lblRg = new JLabel("RG:");
-				lblRg.setBounds(356, 104, 46, 14);
-				consultaUsuario.add(lblRg);
+				JLabel lblRg_C = new JLabel("RG:");
+				lblRg_C.setBounds(356, 104, 46, 14);
+				consultaUsuario.add(lblRg_C);
 				
 				JLabel lblCpf_C = new JLabel("CPF:");
 				lblCpf_C.setBounds(356, 139, 46, 14);
@@ -808,7 +804,23 @@ public class Home {
 				lblTipoDoUsurio.setVerticalAlignment(SwingConstants.TOP);
 				lblTipoDoUsurio.setBounds(426, 209, 156, 14);
 				consultaUsuario.add(lblTipoDoUsurio);
-
+				
+				JButton btnVisualizar = new JButton("Visualizar");
+				btnVisualizar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						String nomeSelecionado = (String)cBUsuarios.getSelectedItem(); // pega o item selecionado no comboBox
+						 String [] result =  Usuario.getInfos(nomeSelecionado);
+						 if(result != null){
+							 lblCpfDoUsurio.setText(result[0]);
+							 lblRgDoUsurio.setText(result[1]);
+							 lblDadoAquiNo.setText(result[2]);
+							 lblEmailDoUsurio.setText(result[3]);
+							 lblTipoDoUsurio.setText(Usuario.getTipo(result[0]));
+						 }
+					}
+				});
+				btnVisualizar.setBounds(100, 154, 133, 36);
+				consultaUsuario.add(btnVisualizar);
 
 		 
 		//-----Panel de remocao de usuario-----
