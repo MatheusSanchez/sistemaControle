@@ -292,7 +292,7 @@ public class Home {
 		});
 		btnConsultaBox.setBounds(464, 99, 89, 23);
 		alteracaoProduto.add(btnConsultaBox);
-		
+
 		
 		//-----Panel de cadastro de produto-----
 		cadastroProduto = new JPanel();
@@ -414,7 +414,7 @@ public class Home {
 		consultaProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaProduto);
 		
-		/*table = new JTable();
+		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
@@ -432,7 +432,7 @@ public class Home {
 		table.getColumnModel().getColumn(1).setPreferredWidth(83);
 		table.getColumnModel().getColumn(2).setPreferredWidth(136);
 		table.getColumnModel().getColumn(4).setPreferredWidth(82);
-		consultaProduto.setViewportView(table);*/
+		consultaProduto.setViewportView(table);
 		
 		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
 		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -761,6 +761,7 @@ public class Home {
 		lblRemooUsuarios.setBounds(208, 11, 264, 14);
 		remocaoUsuario.add(lblRemooUsuarios);
 		
+	
 		//-----Panel de alteracao de usuario-----
 		alteracaoUsuario = new JPanel();
 		alteracaoUsuario.setVisible(false);
@@ -773,14 +774,27 @@ public class Home {
 		lblAlteraoUsuarios.setBounds(220, 11, 289, 14);
 		alteracaoUsuario.add(lblAlteraoUsuarios);
 		
-		JComboBox comboBoxUsuario_A = new JComboBox();
-		comboBoxUsuario_A.setModel(new DefaultComboBoxModel(new String[] {"Aurik - Administrador", "Simone - Administrador", "Kleber - Funcionario"}));
+		JComboBox comboBoxUsuario_A = new JComboBox(Usuario.getNames());
 		comboBoxUsuario_A.setBounds(69, 47, 209, 14);
 		alteracaoUsuario.add(comboBoxUsuario_A);
 		
 		JButton btnAlterarUsuario = new JButton("Alterar");
 		btnAlterarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String [] form = new String[4];
+				
+				form[0] = textNomeUsuario_A.getText();
+				form[1] = textEmailUsuario_A.getText();
+				form[2] = textSenhaUsuario_A.getText();
+				form[3] = textConfirmacao_A.getText();
+				
+				if(form[2].equals(form[3])){
+					Usuario.update(form,(String)comboBoxUsuario_A.getSelectedItem());	
+				}else{
+					JOptionPane.showMessageDialog(null, "As senhas estão diferetes !");
+				}
+			
+				
 			}
 		});
 		btnAlterarUsuario.setBounds(69, 161, 85, 21);
@@ -829,6 +843,20 @@ public class Home {
 		JLabel lblTipo_A = new JLabel("Tipo :");
 		lblTipo_A.setBounds(372, 200, 45, 13);
 		alteracaoUsuario.add(lblTipo_A);
+		
+		JButton btnConsultaAlteracao_U = new JButton("Consulta");
+		btnConsultaAlteracao_U.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nomeSelecionado = (String)comboBoxUsuario_A.getSelectedItem();
+				String []result = Usuario.getInfos(nomeSelecionado);
+				textNomeUsuario_A.setText(result[0]);
+				textEmailUsuario_A.setText(result[1]);
+				textSenhaUsuario_A.setText(result[2]);
+				
+			}
+		});
+		btnConsultaAlteracao_U.setBounds(65, 89, 89, 23);
+		alteracaoUsuario.add(btnConsultaAlteracao_U);
 		
 		//BOTOES LATERAIS
 		
