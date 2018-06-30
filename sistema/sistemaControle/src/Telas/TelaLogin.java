@@ -154,6 +154,9 @@ public class TelaLogin {
 		JButton btnCrieUmConta = new JButton("Crie uma conta");
 		btnCrieUmConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				TelaCadastroInicial window = new TelaCadastroInicial();
+				window.frame.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		btnCrieUmConta.setForeground(Color.BLACK);

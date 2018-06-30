@@ -30,8 +30,8 @@ public class TelaCadastroInicial extends JFrame {
 	private JTextField textFieldRG;
 	private JTextField textFieldCPF;
 	private JTextField textFieldEmail;
-	private JTextField textFieldSenha;
-	private JTextField textFieldConfirmacao;
+	private JPasswordField passwordFieldSenha;
+	private JPasswordField passwordFieldConfirmacao;
 	
 	/**
 	 * Create the frame.
@@ -133,10 +133,10 @@ public class TelaCadastroInicial extends JFrame {
 		lblSenha.setBounds(62, 263, 45, 13);
 		panel_2.add(lblSenha);
 		
-		JLabel lblConfirmeASenha = new JLabel("Confirme  a senha :");
+		JLabel lblConfirmeASenha = new JLabel("Confirme\r\n a senha :");
 		lblConfirmeASenha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblConfirmeASenha.setVerticalAlignment(SwingConstants.TOP);
-		lblConfirmeASenha.setBounds(10, 316, 97, 26);
+		lblConfirmeASenha.setBounds(10, 316, 97, 34);
 		panel_2.add(lblConfirmeASenha);
 		
 		textFieldNome = new JTextField();
@@ -159,18 +159,45 @@ public class TelaCadastroInicial extends JFrame {
 		textFieldEmail.setBounds(123, 210, 196, 19);
 		panel_2.add(textFieldEmail);
 		
-		textFieldSenha = new JTextField();
-		textFieldSenha.setColumns(10);
-		textFieldSenha.setBounds(123, 260, 196, 19);
-		panel_2.add(textFieldSenha);
+		passwordFieldSenha = new JPasswordField();
+		passwordFieldSenha.setBounds(123, 260, 193, 19);
+		panel_2.add(passwordFieldSenha);
 		
-		textFieldConfirmacao = new JTextField();
-		textFieldConfirmacao.setColumns(10);
-		textFieldConfirmacao.setBounds(123, 313, 196, 19);
-		panel_2.add(textFieldConfirmacao);
+		passwordFieldConfirmacao = new JPasswordField();
+		passwordFieldConfirmacao.setBounds(123, 313, 196, 19);
+		panel_2.add(passwordFieldConfirmacao);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(279, 351, 85, 21);
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String [] form = new String[7];
+				
+				form[0] = textFieldCPF.getText();
+				form[1] = textFieldRG.getText();
+				form[2] = textFieldNome.getText();
+				form[3] = textFieldEmail.getText();
+				form[4] = passwordFieldSenha.getText();
+				form[5] = passwordFieldConfirmacao.getText();
+				//System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4] + " " + form[5]);
+				if(form[4].equals(form[5])){
+					Usuario.cadastro(form);
+				}
+			}
+		});
+		btnCadastrar.setBounds(267, 351, 97, 21);
 		panel_2.add(btnCadastrar);
+		
+		JButton button = new JButton("<-- Voltar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaLogin window = new TelaLogin();
+				window.frame.setVisible(true);
+				frame.setVisible(false);
+			}
+		});
+		button.setBackground(new Color(62, 96, 111));
+		button.setBorderPainted(false);
+		button.setBounds(10, 15, 85, 21);
+		panel_2.add(button);
 	}
 }	
