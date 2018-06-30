@@ -806,6 +806,27 @@ public class Home {
 		lblRemooUsuarios.setBounds(208, 11, 264, 14);
 		remocaoUsuario.add(lblRemooUsuarios);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(81, 92, 264, 30);
+		remocaoUsuario.add(comboBox);
+		
+		JLabel lblEscolhaOUsurio = new JLabel("Escolha o usu\u00E1rio que deseja remover :");
+		lblEscolhaOUsurio.setBounds(21, 57, 197, 24);
+		remocaoUsuario.add(lblEscolhaOUsurio);
+		
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRemover.setBounds(420, 92, 119, 30);
+		remocaoUsuario.add(btnRemover);
+		
+		JLabel lblRemocaoUsuarios = new JLabel("REMO\u00C7\u00C3O - USUARIOS");
+		lblRemocaoUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRemocaoUsuarios.setBounds(208, 11, 264, 14);
+		remocaoUsuario.add(lblRemocaoUsuarios);
+		
 	
 		//-----Panel de alteracao de usuario-----
 		alteracaoUsuario = new JPanel();
