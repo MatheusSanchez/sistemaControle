@@ -128,15 +128,6 @@ public class TelaLogin {
 		btnLogin.setBackground(Color.WHITE);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		
-		JButton btnCrieUmConta = new JButton("Crie uma conta");
-		btnCrieUmConta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnCrieUmConta.setForeground(Color.BLACK);
-		btnCrieUmConta.setBackground(Color.WHITE);
-		btnCrieUmConta.setBounds(788, 355, 159, 55);
-		frame.getContentPane().add(btnCrieUmConta);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String user,pass;
@@ -160,11 +151,17 @@ public class TelaLogin {
 			}
 		});
 		
-
+		JButton btnCrieUmConta = new JButton("Crie uma conta");
+		btnCrieUmConta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCrieUmConta.setForeground(Color.BLACK);
+		btnCrieUmConta.setBackground(Color.WHITE);
+		btnCrieUmConta.setBounds(788, 355, 159, 55);
+		frame.getContentPane().add(btnCrieUmConta);
 		
 		
-		
-	
 		
 	}
 }
