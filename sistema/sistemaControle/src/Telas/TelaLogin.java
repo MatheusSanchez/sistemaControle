@@ -24,6 +24,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.UIManager;
 import javax.swing.SwingConstants;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * Classe que possui a tela de Login
@@ -130,6 +132,7 @@ public class TelaLogin {
 		panel_2.add(btnLogin);
 		btnLogin.setBackground(Color.WHITE);
 		btnLogin.setForeground(new Color(0, 0, 0));
+		btnLogin.setMnemonic(KeyEvent.VK_ENTER);
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,7 +156,14 @@ public class TelaLogin {
 				
 			}
 		});
-		
+		btnLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+					btnLogin.doClick();
+				}
+			}
+		});
 		JButton btnCrieUmConta = new JButton("Crie uma conta");
 		btnCrieUmConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

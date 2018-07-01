@@ -40,7 +40,7 @@ public class Main {
 	 * método main que comecara o programa
 	 */
 	public static void main(String[] args) {
-			Conexao.getInstance("lab");
+			Conexao.getInstance("pc");
 		
 		
 				try {

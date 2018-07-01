@@ -112,7 +112,7 @@ public class Home {
 	public void img(JPanel panel) {
 		JLabel lblLogoIcmc = new JLabel("");
 		lblLogoIcmc.setBounds(816, 10, 131, 49);
-		ImageIcon plano= new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\LogoIcmc.png");
+		ImageIcon plano= new ImageIcon("images/LogoIcmc.png");
 		Image img = plano.getImage().getScaledInstance(lblLogoIcmc.getWidth(), lblLogoIcmc.getHeight(), Image.SCALE_DEFAULT);
 		
 		lblLogoIcmc.setIcon(new ImageIcon(img));
@@ -122,7 +122,7 @@ public class Home {
 
 		JLabel lblLogoMemps = 	new JLabel("");
 		lblLogoMemps.setBounds(560, 0, 274, 79);
-		ImageIcon empresa = new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\Memps2.png");
+		ImageIcon empresa = new ImageIcon("images/Memps2.png");
 		Image img2 = empresa.getImage().getScaledInstance(lblLogoMemps.getWidth(), lblLogoMemps.getHeight(), Image.SCALE_DEFAULT);
 		
 		lblLogoMemps.setIcon(new ImageIcon(img2));
