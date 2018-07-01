@@ -207,6 +207,7 @@ public class Home {
 		panel_1.add(lblTodosOsDireitos);
 		
 		
+		
 		//PAINEIS
 		
 		//De Produtos:
@@ -677,7 +678,7 @@ public class Home {
 				remocaoEstoque.add(lblRemooEstoque);
 				
 				JComboBox comboBoxEstoque = new JComboBox();
-				comboBoxEstoque.setBounds(188, 97, 247, 20);
+				comboBoxEstoque.setBounds(188, 97, 301, 20);
 				remocaoEstoque.add(comboBoxEstoque);
 				
 				JLabel lblSelecioneOCdigo = new JLabel("Selecione o c\u00F3digo do produto que deseja remover:");
@@ -685,7 +686,7 @@ public class Home {
 				remocaoEstoque.add(lblSelecioneOCdigo);
 				
 				JButton btnNRemoverEstoque = new JButton("Remover");
-				btnNRemoverEstoque.setBounds(258, 135, 89, 39);
+				btnNRemoverEstoque.setBounds(288, 135, 89, 39);
 				remocaoEstoque.add(btnNRemoverEstoque);
 				
 				//-----Panel de alteracao de estoque-----
@@ -929,7 +930,10 @@ public class Home {
 				JButton btnRemover = new JButton("Remover");
 				btnRemover.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Usuario.delete((String)comboBox.getSelectedItem());
+						if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir ?") == JOptionPane.YES_OPTION) {
+							Usuario.delete((String)comboBox.getSelectedItem());
+						}
+							
 					}
 				});
 				btnRemover.setBounds(250, 147, 119, 30);
