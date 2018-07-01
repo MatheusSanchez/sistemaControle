@@ -149,10 +149,10 @@ public class Home {
 		remocaoEstoque.setVisible(false);
 		consultaEstoque.setVisible(false);
 		alteracaoEstoque.setVisible(false);
-		btnInserir_P.setBackground(new Color(240, 240, 240));
-		btnConsulta_P.setBackground(new Color(240, 240, 240));
-		btnRemocao_P.setBackground(new Color(240, 240, 240));
-		btnAlteracao_P.setBackground(new Color(240, 240, 240));
+		btnInserir_P.setBackground(new Color(218, 232, 252));
+		btnConsulta_P.setBackground(new Color(218, 232, 252));
+		btnRemocao_P.setBackground(new Color(218, 232, 252));
+		btnAlteracao_P.setBackground(new Color(218, 232, 252));
 	}
 	
 	private void resetaBotoesCima() {
@@ -575,51 +575,130 @@ public class Home {
 				alteracaoVenda.add(lblAlteraoVenda);
 		
 		
-		//De Estoque
-		//-----Panel de cadastro de estoque-----
-		cadastroEstoque = new JPanel();
-		cadastroEstoque.setVisible(false);
-		cadastroEstoque.setBounds(282, 149, 637, 227);
-		frame.getContentPane().add(cadastroEstoque);
-		cadastroEstoque.setLayout(null);
-		
-		JLabel lblCadastroEstoque = new JLabel("CADASTRO - ESTOQUE");
-		lblCadastroEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblCadastroEstoque.setBounds(218, 11, 254, 14);
-		cadastroEstoque.add(lblCadastroEstoque);
-		
-		//-----Panel de consulta de estoque-----	
-		consultaEstoque = new JScrollPane();
-		consultaEstoque.setVisible(false);
-		consultaEstoque.setBounds(282, 149, 637, 227);
-		frame.getContentPane().add(consultaEstoque);
-		
-		JTable tableEstoque = new JTable();
-		consultaEstoque.setViewportView(tableEstoque);
-		 
-		//-----Panel de remocao de estoque-----
-		remocaoEstoque = new JPanel();
-		remocaoEstoque.setVisible(false);
-		remocaoEstoque.setBounds(282, 143, 637, 233);
-		frame.getContentPane().add(remocaoEstoque);
-		remocaoEstoque.setLayout(null);
-		
-		JLabel lblRemooEstoque = new JLabel("REMO\u00C7\u00C3O - ESTOQUE");
-		lblRemooEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblRemooEstoque.setBounds(213, 11, 215, 14);
-		remocaoEstoque.add(lblRemooEstoque);
-		
-		//-----Panel de alteracao de estoque-----
-		alteracaoEstoque = new JPanel();
-		alteracaoEstoque.setVisible(false);
-		alteracaoEstoque.setBounds(282, 149, 637, 227);
-		frame.getContentPane().add(alteracaoEstoque);
-		alteracaoEstoque.setLayout(null);
-		
-		JLabel lblAlteraoEstoque = new JLabel("ALTERA\u00C7\u00C3O - ESTOQUE");
-		lblAlteraoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblAlteraoEstoque.setBounds(214, 11, 255, 14);
-		alteracaoEstoque.add(lblAlteraoEstoque);
+				//De Estoque
+				//-----Panel de cadastro de estoque-----
+				cadastroEstoque = new JPanel();
+				cadastroEstoque.setVisible(false);
+				cadastroEstoque.setBounds(282, 129, 638, 281);
+				frame.getContentPane().add(cadastroEstoque);
+				cadastroEstoque.setLayout(null);
+				
+				JLabel lblCadastroEstoque = new JLabel("CADASTRO - ESTOQUE");
+				lblCadastroEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblCadastroEstoque.setBounds(218, 11, 254, 14);
+				cadastroEstoque.add(lblCadastroEstoque);
+				
+				JTextField textField = new JTextField();
+				textField.setBounds(97, 74, 188, 20);
+				cadastroEstoque.add(textField);
+				textField.setColumns(10);
+				
+				JTextField textField_1 = new JTextField();
+				textField_1.setBounds(97, 119, 188, 20);
+				cadastroEstoque.add(textField_1);
+				textField_1.setColumns(10);
+				
+				JTextField textField_2 = new JTextField();
+				textField_2.setBounds(97, 162, 188, 20);
+				cadastroEstoque.add(textField_2);
+				textField_2.setColumns(10);
+				
+				JTextField textField_3 = new JTextField();
+				textField_3.setBounds(334, 74, 188, 20);
+				cadastroEstoque.add(textField_3);
+				textField_3.setColumns(10);
+				
+				JTextField textField_4 = new JTextField();
+				textField_4.setBounds(334, 119, 188, 20);
+				cadastroEstoque.add(textField_4);
+				textField_4.setColumns(10);
+				
+				JTextField textField_5 = new JTextField();
+				textField_5.setBounds(334, 162, 188, 20);
+				cadastroEstoque.add(textField_5);
+				textField_5.setColumns(10);
+				
+				JTextField textField_6 = new JTextField();
+				textField_6.setBounds(97, 208, 188, 20);
+				cadastroEstoque.add(textField_6);
+				textField_6.setColumns(10);
+				
+				JLabel lblNroPedidoE = new JLabel("Digite o n\u00FAmero do pedido:");
+				lblNroPedidoE.setBounds(117, 60, 178, 14);
+				cadastroEstoque.add(lblNroPedidoE);
+				
+				JLabel lblCodProdE = new JLabel("Digite o c\u00F3digo do produto:");
+				lblCodProdE.setBounds(117, 104, 178, 14);
+				cadastroEstoque.add(lblCodProdE);
+				
+				JLabel lblPrecoCompraE = new JLabel("Digite o pre\u00E7o de compra:");
+				lblPrecoCompraE.setBounds(119, 149, 166, 14);
+				cadastroEstoque.add(lblPrecoCompraE);
+				
+				JLabel lblPrecoVendaE = new JLabel("Digite o pre\u00E7o de venda:");
+				lblPrecoVendaE.setBounds(119, 192, 166, 14);
+				cadastroEstoque.add(lblPrecoVendaE);
+				
+				JLabel lblQtdRepoE = new JLabel("Digite a quantidade de reposi\u00E7\u00E3o:");
+				lblQtdRepoE.setBounds(334, 60, 220, 14);
+				cadastroEstoque.add(lblQtdRepoE);
+				
+				JLabel lblDataRepoE = new JLabel("Digite a data de reposi\u00E7\u00E3o:");
+				lblDataRepoE.setBounds(344, 104, 178, 14);
+				cadastroEstoque.add(lblDataRepoE);
+				
+				JLabel lblQtdDispE = new JLabel("Digite a quantidade dispon\u00EDvel:");
+				lblQtdDispE.setBounds(344, 149, 173, 14);
+				cadastroEstoque.add(lblQtdDispE);
+				
+				JButton btnAdicionarAoEstoque = new JButton("Inserir");
+				btnAdicionarAoEstoque.setBounds(366, 193, 108, 37);
+				cadastroEstoque.add(btnAdicionarAoEstoque);
+				
+				//-----Panel de consulta de estoque-----	
+				consultaEstoque = new JScrollPane();
+				consultaEstoque.setVisible(false);
+				consultaEstoque.setBounds(282, 149, 637, 227);
+				frame.getContentPane().add(consultaEstoque);
+				
+				JTable tableEstoque = new JTable();
+				consultaEstoque.setViewportView(tableEstoque);
+				 
+				//-----Panel de remocao de estoque-----
+				remocaoEstoque = new JPanel();
+				remocaoEstoque.setVisible(false);
+				remocaoEstoque.setBounds(282, 129, 638, 281);
+				frame.getContentPane().add(remocaoEstoque);
+				remocaoEstoque.setLayout(null);
+				
+				JLabel lblRemooEstoque = new JLabel("REMO\u00C7\u00C3O - ESTOQUE");
+				lblRemooEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblRemooEstoque.setBounds(220, 11, 215, 14);
+				remocaoEstoque.add(lblRemooEstoque);
+				
+				JComboBox comboBoxEstoque = new JComboBox();
+				comboBoxEstoque.setBounds(188, 97, 247, 20);
+				remocaoEstoque.add(comboBoxEstoque);
+				
+				JLabel lblSelecioneOCdigo = new JLabel("Selecione o c\u00F3digo do produto que deseja remover:");
+				lblSelecioneOCdigo.setBounds(188, 77, 301, 14);
+				remocaoEstoque.add(lblSelecioneOCdigo);
+				
+				JButton btnNRemoverEstoque = new JButton("Remover");
+				btnNRemoverEstoque.setBounds(258, 135, 89, 39);
+				remocaoEstoque.add(btnNRemoverEstoque);
+				
+				//-----Panel de alteracao de estoque-----
+				alteracaoEstoque = new JPanel();
+				alteracaoEstoque.setVisible(false);
+				alteracaoEstoque.setBounds(282, 149, 637, 227);
+				frame.getContentPane().add(alteracaoEstoque);
+				alteracaoEstoque.setLayout(null);
+				
+				JLabel lblAlteraoEstoque = new JLabel("ALTERA\u00C7\u00C3O - ESTOQUE");
+				lblAlteraoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblAlteraoEstoque.setBounds(214, 11, 255, 14);
+				alteracaoEstoque.add(lblAlteraoEstoque);
 		
 		
 		//De Usuário
@@ -962,6 +1041,8 @@ public class Home {
 				lblNewLabelA.setBounds(35, 112, 209, 14);
 				alteracaoUsuario.add(lblNewLabelA);
 		
+				
+				
 		//BOTOES LATERAIS
 		
 		//Botão de Inserção
