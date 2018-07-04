@@ -623,7 +623,7 @@ public class Home {
 					public void actionPerformed(ActionEvent arg0) {
 						String [] form = new String[5];
 						String nomeProduto = (String)comboBoxCodigoProduto.getSelectedItem();
-						System.out.println();
+						System.out.println("nomeProduto = " + nomeProduto);
 						
 						form[0] = Produto.getCod(nomeProduto);
 						form[1] = textFieldPrecoCompra.getText();
@@ -706,84 +706,66 @@ public class Home {
 				lblAlteraoEstoque.setBounds(214, 11, 255, 14);
 				alteracaoEstoque.add(lblAlteraoEstoque);
 				
-				JComboBox comboBox = new JComboBox();
-				comboBox.setBounds(32, 136, 191, 20);
-				alteracaoEstoque.add(comboBox);
+				JComboBox comboBoxAlteracaoEstoque = new JComboBox(Estoque.getNpedidos());
+				comboBoxAlteracaoEstoque.setBounds(32, 136, 191, 20);
+				alteracaoEstoque.add(comboBoxAlteracaoEstoque);
 				
 				JButton btnConsultar = new JButton("Consultar");
 				btnConsultar.setBounds(85, 166, 89, 23);
 				alteracaoEstoque.add(btnConsultar);
 				
-				JTextField textField_7 = new JTextField();
-				textField_7.setBounds(245, 63, 164, 20);
-				alteracaoEstoque.add(textField_7);
-				textField_7.setColumns(10);
-				
-				JTextField textField_8 = new JTextField();
-				textField_8.setColumns(10);
-				textField_8.setBounds(245, 114, 164, 20);
-				alteracaoEstoque.add(textField_8);
-				
 				JTextField textField_9 = new JTextField();
 				textField_9.setColumns(10);
-				textField_9.setBounds(245, 167, 164, 20);
+				textField_9.setBounds(245, 143, 164, 20);
 				alteracaoEstoque.add(textField_9);
 				
 				JTextField textField_10 = new JTextField();
 				textField_10.setColumns(10);
-				textField_10.setBounds(245, 219, 164, 20);
+				textField_10.setBounds(245, 202, 164, 20);
 				alteracaoEstoque.add(textField_10);
 				
 				JTextField textField_11 = new JTextField();
 				textField_11.setColumns(10);
-				textField_11.setBounds(449, 63, 164, 20);
+				textField_11.setBounds(449, 79, 164, 20);
 				alteracaoEstoque.add(textField_11);
 				
 				JTextField textField_12 = new JTextField();
 				textField_12.setColumns(10);
-				textField_12.setBounds(449, 114, 164, 20);
+				textField_12.setBounds(449, 143, 164, 20);
 				alteracaoEstoque.add(textField_12);
 				
-				JTextField textField_13 = new JTextField();
-				textField_13.setColumns(10);
-				textField_13.setBounds(449, 167, 164, 20);
-				alteracaoEstoque.add(textField_13);
-				
 				JButton btnAlterarEstoque = new JButton("Alterar");
-				btnAlterarEstoque.setBounds(475, 207, 89, 42);
+				btnAlterarEstoque.setBounds(475, 190, 89, 42);
 				alteracaoEstoque.add(btnAlterarEstoque);
 				
-				JLabel lblNovoNumeroDe = new JLabel("Novo numero de pedido:");
-				lblNovoNumeroDe.setBounds(245, 46, 164, 14);
-				alteracaoEstoque.add(lblNovoNumeroDe);
-				
-				JLabel lblNovoCdigoDe = new JLabel("Novo c\u00F3digo de produto:");
-				lblNovoCdigoDe.setBounds(245, 97, 164, 14);
+				JLabel lblNovoCdigoDe = new JLabel("Nome do produto:");
+				lblNovoCdigoDe.setBounds(245, 62, 164, 14);
 				alteracaoEstoque.add(lblNovoCdigoDe);
 				
 				JLabel lblNovoPreoDe = new JLabel("Novo pre\u00E7o de compra:");
-				lblNovoPreoDe.setBounds(245, 150, 164, 14);
+				lblNovoPreoDe.setBounds(245, 128, 164, 14);
 				alteracaoEstoque.add(lblNovoPreoDe);
 				
 				JLabel lblNovoPreoVenda = new JLabel("Novo pre\u00E7o venda:");
-				lblNovoPreoVenda.setBounds(245, 205, 164, 14);
+				lblNovoPreoVenda.setBounds(245, 186, 164, 14);
 				alteracaoEstoque.add(lblNovoPreoVenda);
 				
 				JLabel lblNovaQuantidadeDe = new JLabel("Nova quantidade de reposi\u00E7\u00E3o:");
-				lblNovaQuantidadeDe.setBounds(449, 46, 179, 14);
+				lblNovaQuantidadeDe.setBounds(449, 62, 179, 14);
 				alteracaoEstoque.add(lblNovaQuantidadeDe);
 				
 				JLabel lblNovaDataDe = new JLabel("Nova data de reposi\u00E7\u00E3o:");
-				lblNovaDataDe.setBounds(449, 97, 179, 14);
+				lblNovaDataDe.setBounds(449, 128, 179, 14);
 				alteracaoEstoque.add(lblNovaDataDe);
-				
-				JLabel lblQuantidade = new JLabel("Nova quantidade dispon\u00EDvel:");
-				lblQuantidade.setBounds(449, 150, 179, 14);
-				alteracaoEstoque.add(lblQuantidade);
 				
 				JLabel lblItemDeEstoque = new JLabel("Item de estoque a ser modificado:");
 				lblItemDeEstoque.setBounds(32, 116, 203, 14);
 				alteracaoEstoque.add(lblItemDeEstoque);
+				
+				JLabel lblNomeProduto_A = new JLabel("");
+				lblNomeProduto_A.setFont(new Font("Tahoma", Font.BOLD, 12));
+				lblNomeProduto_A.setBounds(245, 82, 164, 17);
+				alteracaoEstoque.add(lblNomeProduto_A);
 		
 		
 		//De Usuário
@@ -1015,7 +997,7 @@ public class Home {
 				btnRemover.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir ?") == JOptionPane.YES_OPTION) {
-							Usuario.delete((String)comboBox.getSelectedItem());
+							Usuario.delete((String)comboBoxRemocao_U.getSelectedItem());
 						}
 							
 					}
