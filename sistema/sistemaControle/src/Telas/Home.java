@@ -12,6 +12,7 @@ import back.Produto;
 import back.Usuario;
 import Telas.TelaConsulta;
 import panels.panelAlteracaoProduto;
+import panels.panelCadastroProduto;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -51,9 +52,6 @@ public class Home {
 	int tipo;
 	
 	
-	private JTextField textNomeProduto_C;
-	private JTextField textFieldDescricaoProduto_C;
-	private JTextField textFieldLucroProduto_C;
 	private JTextField textFieldNomeUsuario;
 	private JTextField textFieldRGUsuario;
 	private JTextField textFieldCPFUsuario;
@@ -63,10 +61,10 @@ public class Home {
 	private JTextField textFieldProduto;
 	private JTextField textFieldConfirmacaoProduto;
 	private JTable table;
-	private JPanel cadastroProduto;
-	private JScrollPane consultaProduto;
+	private JPanel cadastroProduto = new JPanel();
+	private JScrollPane consultaProduto = new JScrollPane();
 	private JPanel alteracaoProduto = new JPanel();
-	private JPanel remocaoProduto;
+	private JPanel remocaoProduto = new JPanel();
 	private JPanel cadastroVenda;
 	private JScrollPane consultaVenda;
 	private JPanel remocaoVenda;
@@ -216,119 +214,9 @@ public class Home {
 	
 
 		
-		//-----Panel de cadastro de produto-----
-		cadastroProduto = new JPanel();
-		cadastroProduto.setVisible(false);
-		cadastroProduto.setBounds(282, 129, 638, 284);
-		frame.getContentPane().add(cadastroProduto);
-		cadastroProduto.setLayout(null);
 		
-		textNomeProduto_C = new JTextField();
-		textNomeProduto_C.setToolTipText("Ex: HD Samsung 1TB");
-		textNomeProduto_C.setBounds(207, 69, 192, 20);
-		cadastroProduto.add(textNomeProduto_C);
-		textNomeProduto_C.setColumns(10);
 		
-		textFieldDescricaoProduto_C = new JTextField();
-		textFieldDescricaoProduto_C.setToolTipText("Ex: HD externo Samsung 1TB, 2 anos de garantia");
-		textFieldDescricaoProduto_C.setColumns(10);
-		textFieldDescricaoProduto_C.setBounds(207, 114, 192, 20);
-		cadastroProduto.add(textFieldDescricaoProduto_C);
-		
-		textFieldLucroProduto_C = new JTextField();
-		textFieldLucroProduto_C.setToolTipText("Ex: 120,00");
-		textFieldLucroProduto_C.setColumns(10);
-		textFieldLucroProduto_C.setBounds(207, 158, 192, 20);
-		cadastroProduto.add(textFieldLucroProduto_C);
-		
-		//Botão responsável pelo cadastro de um produto
-		JButton btnCadastrarProduto = new JButton("Cadastrar");
-		btnCadastrarProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String [] form_P = new String[3];
-				if(tipo == 1){
-					form_P[0] = textNomeProduto_C.getText();
-					form_P[1] = textFieldDescricaoProduto_C.getText();
-					form_P[2] = textFieldLucroProduto_C.getText();
-					System.out.println(form_P[0] + form_P[1] +form_P[2]);
-					Produto.cadastro(form_P);
-				}
-				
-				
-			}
-		});
-		btnCadastrarProduto.setBounds(246, 198, 118, 45);
-		cadastroProduto.add(btnCadastrarProduto);
-		
-		JLabel lblNomeProd_I = new JLabel("Nome :");
-		lblNomeProd_I.setBounds(286, 56, 78, 14);
-		cadastroProduto.add(lblNomeProd_I);
-		
-		JLabel lblDescricao_I = new JLabel("Descri\u00E7\u00E3o : ");
-		lblDescricao_I.setBounds(277, 100, 93, 14);
-		cadastroProduto.add(lblDescricao_I);
-		
-		JLabel lblLucroEsperado_I = new JLabel("Lucro esperado (R$):");
-		lblLucroEsperado_I.setBounds(252, 145, 147, 14);
-		cadastroProduto.add(lblLucroEsperado_I);
-		
-		JLabel lblTitulo_CadastroProduto = new JLabel("CADASTRO - PRODUTO");
-		lblTitulo_CadastroProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_CadastroProduto.setBounds(205, 0, 257, 45);
-		cadastroProduto.add(lblTitulo_CadastroProduto);
-		
-		//-----Panel de remoção de um produto-----
-		remocaoProduto = new JPanel();
-		remocaoProduto.setVisible(false);
-		remocaoProduto.setBounds(282, 129, 638, 281);
-		frame.getContentPane().add(remocaoProduto);
-		remocaoProduto.setLayout(null);
-		
-		textFieldProduto = new JTextField();
-		textFieldProduto.setBounds(38, 102, 280, 28);
-		remocaoProduto.add(textFieldProduto);
-		textFieldProduto.setColumns(10);
-		
-		textFieldConfirmacaoProduto = new JTextField();
-		textFieldConfirmacaoProduto.setBounds(38, 163, 280, 28);
-		remocaoProduto.add(textFieldConfirmacaoProduto);
-		textFieldConfirmacaoProduto.setColumns(10);
-		
-		//Botão que faz a ação de remover um produto
-		JButton btnRemover_P = new JButton("Remover");
-		btnRemover_P.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String [] form_P = new String[2];
-				if(tipo == 1){
-					form_P[0] = textFieldProduto.getText();
-					form_P[1] = textFieldConfirmacaoProduto.getText();
-					if(form_P[1].equals(form_P[0])){
-						Produto.delete(form_P[1]);	
-					}else{
-						JOptionPane.showMessageDialog(null, "Campos Diferentes !");
-					}
-					
-					//if(form_P[0].equals(form_P[1])) System.out.println(form_P[0] + " " +  form_P[1]);
-				}
-				
-				
-			}
-		});
-		btnRemover_P.setBounds(428, 114, 115, 46);
-		remocaoProduto.add(btnRemover_P);
-		
-		JLabel lblNomeDoProduto = new JLabel("Nome do produto a ser removido :");
-		lblNomeDoProduto.setBounds(38, 84, 280, 14);
-		remocaoProduto.add(lblNomeDoProduto);
-		
-		JLabel lblNewLabel = new JLabel("Confirme o nome do produto a ser removido:");
-		lblNewLabel.setBounds(38, 146, 280, 14);
-		remocaoProduto.add(lblNewLabel);
-		
-		JLabel lblTitulo_RemoçãoProduto = new JLabel("REMOÇÃO - PRODUTO");
-		lblTitulo_RemoçãoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_RemoçãoProduto.setBounds(209, 10, 257, 45);
-		remocaoProduto.add(lblTitulo_RemoçãoProduto);
+
 		
 		//Panel de Consulta de Produto
 		consultaProduto = new JScrollPane();
@@ -1075,7 +963,10 @@ public class Home {
 				resetaTudo();
 				btnInserir_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					cadastroProduto.setVisible(true);
+					cadastroProduto.removeAll();
+					cadastroProduto.revalidate();
+					cadastroProduto.repaint();
+					new panelCadastroProduto(frame,cadastroProduto);	
 				}
 				else if(tipo == 2) {
 					cadastroVenda.setVisible(true);
