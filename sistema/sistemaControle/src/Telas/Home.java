@@ -570,72 +570,57 @@ public class Home {
 				lblCadastroEstoque.setBounds(218, 11, 254, 14);
 				cadastroEstoque.add(lblCadastroEstoque);
 				
-				JTextField textField = new JTextField();
-				textField.setBounds(97, 74, 188, 20);
-				cadastroEstoque.add(textField);
-				textField.setColumns(10);
+				JTextField textFieldPrecoCompra = new JTextField();
+				textFieldPrecoCompra.setBounds(97, 131, 188, 20);
+				cadastroEstoque.add(textFieldPrecoCompra);
+				textFieldPrecoCompra.setColumns(10);
 				
-				JTextField textField_1 = new JTextField();
-				textField_1.setBounds(97, 119, 188, 20);
-				cadastroEstoque.add(textField_1);
-				textField_1.setColumns(10);
+				JTextField textFieldqtdReposicao = new JTextField();
+				textFieldqtdReposicao.setBounds(334, 76, 188, 20);
+				cadastroEstoque.add(textFieldqtdReposicao);
+				textFieldqtdReposicao.setColumns(10);
 				
-				JTextField textField_2 = new JTextField();
-				textField_2.setBounds(97, 162, 188, 20);
-				cadastroEstoque.add(textField_2);
-				textField_2.setColumns(10);
+				JTextField textFieldData = new JTextField();
+				textFieldData.setBounds(334, 131, 188, 20);
+				cadastroEstoque.add(textFieldData);
+				textFieldData.setColumns(10);
 				
-				JTextField textField_3 = new JTextField();
-				textField_3.setBounds(334, 74, 188, 20);
-				cadastroEstoque.add(textField_3);
-				textField_3.setColumns(10);
+				JTextField textFieldPrecoVenda = new JTextField();
+				textFieldPrecoVenda.setBounds(97, 189, 188, 20);
+				cadastroEstoque.add(textFieldPrecoVenda);
+				textFieldPrecoVenda.setColumns(10);
 				
-				JTextField textField_4 = new JTextField();
-				textField_4.setBounds(334, 119, 188, 20);
-				cadastroEstoque.add(textField_4);
-				textField_4.setColumns(10);
-				
-				JTextField textField_5 = new JTextField();
-				textField_5.setBounds(334, 162, 188, 20);
-				cadastroEstoque.add(textField_5);
-				textField_5.setColumns(10);
-				
-				JTextField textField_6 = new JTextField();
-				textField_6.setBounds(97, 208, 188, 20);
-				cadastroEstoque.add(textField_6);
-				textField_6.setColumns(10);
-				
-				JLabel lblNroPedidoE = new JLabel("Digite o n\u00FAmero do pedido:");
-				lblNroPedidoE.setBounds(117, 60, 178, 14);
-				cadastroEstoque.add(lblNroPedidoE);
-				
-				JLabel lblCodProdE = new JLabel("Digite o c\u00F3digo do produto:");
-				lblCodProdE.setBounds(117, 104, 178, 14);
+				JLabel lblCodProdE = new JLabel("Produto:");
+				lblCodProdE.setBounds(107, 61, 178, 14);
 				cadastroEstoque.add(lblCodProdE);
 				
 				JLabel lblPrecoCompraE = new JLabel("Digite o pre\u00E7o de compra:");
-				lblPrecoCompraE.setBounds(119, 149, 166, 14);
+				lblPrecoCompraE.setBounds(107, 119, 166, 14);
 				cadastroEstoque.add(lblPrecoCompraE);
 				
 				JLabel lblPrecoVendaE = new JLabel("Digite o pre\u00E7o de venda:");
-				lblPrecoVendaE.setBounds(119, 192, 166, 14);
+				lblPrecoVendaE.setBounds(107, 176, 166, 14);
 				cadastroEstoque.add(lblPrecoVendaE);
 				
 				JLabel lblQtdRepoE = new JLabel("Digite a quantidade de reposi\u00E7\u00E3o:");
-				lblQtdRepoE.setBounds(334, 60, 220, 14);
+				lblQtdRepoE.setBounds(334, 61, 220, 14);
 				cadastroEstoque.add(lblQtdRepoE);
 				
 				JLabel lblDataRepoE = new JLabel("Digite a data de reposi\u00E7\u00E3o:");
-				lblDataRepoE.setBounds(344, 104, 178, 14);
+				lblDataRepoE.setBounds(334, 119, 178, 14);
 				cadastroEstoque.add(lblDataRepoE);
 				
-				JLabel lblQtdDispE = new JLabel("Digite a quantidade dispon\u00EDvel:");
-				lblQtdDispE.setBounds(344, 149, 173, 14);
-				cadastroEstoque.add(lblQtdDispE);
-				
 				JButton btnAdicionarAoEstoque = new JButton("Inserir");
-				btnAdicionarAoEstoque.setBounds(366, 193, 108, 37);
+				btnAdicionarAoEstoque.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+					}
+				});
+				btnAdicionarAoEstoque.setBounds(364, 180, 108, 37);
 				cadastroEstoque.add(btnAdicionarAoEstoque);
+				
+				JComboBox comboBoxCodigoProduto = new JComboBox(Produto.getNames());
+				comboBoxCodigoProduto.setBounds(97, 75, 188, 21);
+				cadastroEstoque.add(comboBoxCodigoProduto);
 				
 				//-----Panel de consulta de estoque-----	
 				consultaEstoque = new JScrollPane();
