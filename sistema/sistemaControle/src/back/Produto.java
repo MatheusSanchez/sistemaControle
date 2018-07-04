@@ -91,6 +91,38 @@ public class Produto {
 		
 	}
 	
+	static public String getName(String cod){
+		Connection c = Conexao.getInstance();
+		
+		String result = "";
+
+		String sql = "SELECT NOME FROM PRODUTO WHERE COD_PRODUTO LIKE (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			
+			System.out.println("Executanto a query " + sql);
+			
+			pstm.setString(1, cod);
+			ResultSet rs = pstm.executeQuery();
+
+			if (rs.next()){
+				result = rs.getString(1);
+			}
+		
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Suceful get name");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null, "Erro no get name");
+		}
+		
+		return result;
+			
+	}
+	
 	static public String getCod(String name){
 		Connection c = Conexao.getInstance();
 		
