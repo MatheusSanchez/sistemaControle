@@ -3,6 +3,7 @@ package back;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
@@ -122,6 +123,77 @@ public class Estoque {
 		
 		return result;
 		
+	}
+	
+	/*
+	 * 
+	 * form[0] ->preco_compra
+	 * form[1] ->preco_venda
+	 * form[2] ->quantidade_preposicao
+	 * form[3] ->data reposicao         dd/mm/yyy
+
+	 * */
+	
+	/*nao esquecer de alterar na table do produto*/
+	
+	static public void update(String [] form, String numPed){
+		Connection c = Conexao.getInstance();
+		
+		String sql = "UPDATE ESTOQUE SET P_COMPRA = (?), P_VENDA = (?), QNTD_REPOSICAO = (?), DATA_REPOSICAO = (?) WHERE N_PEDIDO LIKE (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			
+		
+			for (int i = 0; i < 4; i++) {
+				pstm.setString(i + 1, form[i]);
+			}
+			pstm.setString(4, numPed);
+			
+			System.out.println("Executanto a query " + sql);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Estoque alterado com sucesso");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro ao alterar estoque");
+		}
+		
+	}
+	
+	static public Vector getNpedidos(){
+		Connection c = Conexao.getInstance();
+		
+		Vector result = new Vector();
+
+		String sql = "SELECT N_PEDIDO FROM ESTOQUE";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+
+			while (rs.next()){
+				result.add(rs.getString(1));
+			}
+	
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "gET N PEDIDO FUNCIONANDO");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "eRRO GET N PEDIDO");
+		}
+		
+		return result;
+			
 	}
 
 }
