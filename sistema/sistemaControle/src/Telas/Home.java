@@ -98,6 +98,7 @@ public class Home {
 	private JTextField textEmailUsuario_A;
 	private JTextField textSenhaUsuario_A;
 	private JTextField textConfirmacao_A;
+
 	
 	public Home(Container c, JFrame j) {
 		
@@ -221,7 +222,7 @@ public class Home {
 		consultaProduto.add(lblTitulo_ConsultaProduto);
 		
 		
-		//De Venda
+		//De Venda			
 		
 		//-----Panel de consulta de venda-----
 		consultaVenda = new JScrollPane();
