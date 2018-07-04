@@ -238,27 +238,6 @@ public class Home {
 		textFieldLucroProduto_A.setBounds(198, 237, 192, 20);
 		alteracaoProduto.add(textFieldLucroProduto_A);
 		
-		JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
-		comboBoxProduto.setBounds(196, 100, 194, 21);
-		alteracaoProduto.add(comboBoxProduto);
-		
-		//Botão responsável pela alteracao de um produto
-		JButton btnAlterarProduto = new JButton("Alterar");
-		btnAlterarProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String [] form_P = new String[3];
-				
-					form_P[0] = textNomeProduto_A.getText();
-					form_P[1] = textFieldDescricaoProduto_A.getText();
-					form_P[2] = textFieldLucroProduto_A.getText();
-				
-					Produto.update(form_P,(String)comboBoxProduto.getSelectedItem());
-				
-			}
-		});
-		btnAlterarProduto.setBounds(453, 166, 118, 45);
-		alteracaoProduto.add(btnAlterarProduto);
-		
 		JLabel lblNome_P = new JLabel("Nome do produto a ser alterado :");
 		lblNome_P.setBounds(201, 83, 190, 14);
 		alteracaoProduto.add(lblNome_P);
@@ -279,21 +258,6 @@ public class Home {
 		JLabel lblNovoNome = new JLabel("Novo nome :");
 		lblNovoNome.setBounds(263, 132, 91, 13);
 		alteracaoProduto.add(lblNovoNome);
-		
-		JButton btnConsultaBox = new JButton("Consulta");
-		btnConsultaBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 String nomeSelecionado = (String)comboBoxProduto.getSelectedItem(); // pega o item selecionado no comboBox
-				 String [] result =  Produto.getInfos(nomeSelecionado);
-				 if(result != null){
-					 textNomeProduto_A.setText(result[0]);
-					 textFieldDescricaoProduto_A.setText(result[1]);
-					 textFieldLucroProduto_A.setText(result[2]);
-				 }
-			}
-		});
-		btnConsultaBox.setBounds(464, 99, 89, 23);
-		alteracaoProduto.add(btnConsultaBox);
 
 		
 		//-----Panel de cadastro de produto-----
@@ -1246,8 +1210,49 @@ public class Home {
 			public void actionPerformed(ActionEvent arg0) {
 				resetaTudo();
 				btnAlteracao_P.setBackground(SystemColor.activeCaption);
-				if(tipo == 1) {
+				if(tipo == 1) {	
+					alteracaoProduto.removeAll();
+					alteracaoProduto.revalidate();
+					alteracaoProduto.repaint();
+					
+					JComboBox comboBoxProduto = new JComboBox(Produto.getNames()); // faz o comboBox com o nome dos produtos que vem do banco		
+					comboBoxProduto.setBounds(196, 100, 194, 21);
+					alteracaoProduto.add(comboBoxProduto);
+					
+					JButton btnConsultaBox = new JButton("Consulta");
+					btnConsultaBox.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							 String nomeSelecionado = (String)comboBoxProduto.getSelectedItem(); // pega o item selecionado no comboBox
+							 String [] result =  Produto.getInfos(nomeSelecionado);
+							 if(result != null){
+								 textNomeProduto_A.setText(result[0]);
+								 textFieldDescricaoProduto_A.setText(result[1]);
+								 textFieldLucroProduto_A.setText(result[2]);
+							 }
+						}
+					});
+					btnConsultaBox.setBounds(464, 99, 89, 23);
+					alteracaoProduto.add(btnConsultaBox);
+					
+					//Botão responsável pela alteracao de um produto
+					JButton btnAlterarProduto = new JButton("Alterar");
+					btnAlterarProduto.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							String [] form_P = new String[3];
+							
+								form_P[0] = textNomeProduto_A.getText();
+								form_P[1] = textFieldDescricaoProduto_A.getText();
+								form_P[2] = textFieldLucroProduto_A.getText();
+							
+								Produto.update(form_P,(String)comboBoxProduto.getSelectedItem());
+							
+						}
+					});
+					btnAlterarProduto.setBounds(453, 166, 118, 45);
+					alteracaoProduto.add(btnAlterarProduto);
+					
 					alteracaoProduto.setVisible(true);
+					
 				}
 				else if(tipo == 2) {
 					alteracaoVenda.setVisible(true);

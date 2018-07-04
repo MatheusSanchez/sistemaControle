@@ -51,7 +51,7 @@ public class TelaLogin {
 		//Logo Icmc
 		JLabel lblLogoIcmc = 	new JLabel("");
 		lblLogoIcmc.setBounds(816, 10, 131, 49);
-		ImageIcon instituicao= new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\LogoIcmc.png");
+		ImageIcon instituicao= new ImageIcon("images/LogoIcmc.png");
 		Image img1 = instituicao.getImage().getScaledInstance(lblLogoIcmc.getWidth(), lblLogoIcmc.getHeight(), Image.SCALE_DEFAULT);
 		
 		lblLogoIcmc.setIcon(new ImageIcon(img1));
@@ -60,7 +60,7 @@ public class TelaLogin {
 		//Logo Memp's
 		JLabel lblLogoMemps = 	new JLabel("");
 		lblLogoMemps.setBounds(285, 31, 333, 114);
-		ImageIcon empresa = new ImageIcon("C:\\Users\\eduar\\Documents\\USP\\sistemaControle\\sistema\\sistemaControle\\images\\Memps.png");
+		ImageIcon empresa = new ImageIcon("images/Memps.png");
 		Image img2 = empresa.getImage().getScaledInstance(lblLogoMemps.getWidth(), lblLogoMemps.getHeight(), Image.SCALE_DEFAULT);
 		
 		lblLogoMemps.setIcon(new ImageIcon(img2));
@@ -133,6 +133,7 @@ public class TelaLogin {
 		btnLogin.setBackground(Color.WHITE);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		btnLogin.setMnemonic(KeyEvent.VK_ENTER);
+		
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
