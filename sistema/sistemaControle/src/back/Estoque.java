@@ -109,7 +109,7 @@ public class Estoque {
 			}else{
 				result = null;
 			}
-			result[0] = Produto.getName(result[0]);
+			result[0] = Produto.getNames(result[0]);
 		
 			
 			System.out.println("Fim a query ");

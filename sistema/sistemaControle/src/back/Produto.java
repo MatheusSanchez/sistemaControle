@@ -91,7 +91,7 @@ public class Produto {
 		
 	}
 	
-	static public String getName(String cod){
+	static public String getNames(String cod){
 		Connection c = Conexao.getInstance();
 		
 		String result = "";
