@@ -23,7 +23,7 @@ public class Estoque {
 	static public void cadastro(String [] form){
 		Connection c = Conexao.getInstance();
 		
-		String sql = "INSERT INTO REPOSICAO (COD_PRODUTO,P_COMPRA,P_VENDA,QNTD_REPOSICAO,DATA_REPOSICAO,QNTD_DISPONIVEL) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO REPOSICAO (COD_PRODUTO,P_COMPRA,P_VENDA,QNTD_REPOSICAO,DATA_REPOSICAO,QNTD_DISPONIVEL) VALUES (?,?,?,?,to_date(?,'dd/mm/yyyy'),?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class Estoque {
 			updateProduto(form[0],form[3]); // da um update na tabela de produtos
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao inserir Estoque");
+			JOptionPane.showMessageDialog(null, e);
 		}
 		
 	}
@@ -92,7 +92,7 @@ public class Estoque {
 		
 		String[] result = new String[5];
 		Connection c = Conexao.getInstance();	
-		String sql = "SELECT COD_PRODUTO,P_COMPRA, P_VENDA, QTND_REPOSICAO,DATA_REPOSICAO FROM REPOSICAO WHERE N_PEDIDO LIKE (?) ";
+		String sql = "SELECT COD_PRODUTO,P_COMPRA, P_VENDA, QNTD_REPOSICAO,DATA_REPOSICAO FROM REPOSICAO WHERE N_PEDIDO LIKE (?) ";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
