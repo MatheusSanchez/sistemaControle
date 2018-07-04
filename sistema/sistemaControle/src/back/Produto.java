@@ -47,7 +47,7 @@ public class Produto {
 			JOptionPane.showMessageDialog(null, "Produto inserido com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao inserir Produto");
+			JOptionPane.showMessageDialog(null, "Erro ao inserir Produto " + e);
 		}
 		
 	}	
@@ -81,10 +81,10 @@ public class Produto {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Get Infos suce");
+			/*JOptionPane.showMessageDialog(null, "Get Infos suce");*/
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Get Infos deu ruim");
+			JOptionPane.showMessageDialog(null, "Erro no get Infos do Produto " + e);
 		}
 		
 		return result;
@@ -112,11 +112,11 @@ public class Produto {
 		
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Suceful get name");
+			/*JOptionPane.showMessageDialog(null, "Suceful get name");*/
 			
 		} catch (Exception e) {
 			System.out.println(e);
-			JOptionPane.showMessageDialog(null, "Erro no get name");
+			JOptionPane.showMessageDialog(null, "Erro no Get Name do Produt " + e);
 		}
 		
 		return result;
@@ -144,11 +144,11 @@ public class Produto {
 		
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Suceful get code");
+			/*JOptionPane.showMessageDialog(null, "Suceful get code");*/
 			
 		} catch (Exception e) {
 			System.out.println(e);
-			JOptionPane.showMessageDialog(null, "Erro no get Code");
+			JOptionPane.showMessageDialog(null, "Erro no Get Cod do Produto " + e);
 		}
 		
 		return result;
@@ -177,10 +177,10 @@ public class Produto {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso");
+			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso ");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto");
+			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto " + e);
 		}
 		
 	}
@@ -206,7 +206,7 @@ public class Produto {
 			JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao deletar Produto");
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Produto " + e);
 		}
 		
 	}
@@ -233,10 +233,10 @@ public class Produto {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Consulta Realizada com sucesso");
+			/*JOptionPane.showMessageDialog(null, "Consulta Realizada com sucesso");*/
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao realizar consulta");
+			JOptionPane.showMessageDialog(null, "Erro ao realizar consulta" + e);
 		}
 		
 		return result;
