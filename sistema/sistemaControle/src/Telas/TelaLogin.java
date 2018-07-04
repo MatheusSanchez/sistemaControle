@@ -142,7 +142,8 @@ public class TelaLogin {
 				
 				user = userField.getText();
 				pass = passwordField.getText();
-				
+				Home h = new Home(container,frame);
+				/*
 				if(user != "" && pass != "") {
 					if(Usuario.login(user, pass)) {
 						Main.novaTela(container);
@@ -151,7 +152,7 @@ public class TelaLogin {
 					}else {
 						lblResultado.setText("Login Incorreto !!!");
 					}
-				}
+				}*/
 				
 				
 			}

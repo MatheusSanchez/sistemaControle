@@ -92,7 +92,7 @@ public class Estoque {
 		
 		String[] result = new String[5];
 		Connection c = Conexao.getInstance();	
-		String sql = "SELECT COD_PRODUTO,P_COMPRA, P_VENDA, QNTD_REPOSICAO,DATA_REPOSICAO FROM REPOSICAO WHERE N_PEDIDO LIKE (?) ";
+		String sql = "SELECT COD_PRODUTO,P_COMPRA, P_VENDA, QNTD_REPOSICAO,to_date(DATA_REPOSICAO,'dd/mm/yyyy') AS DATA FROM REPOSICAO WHERE N_PEDIDO LIKE (?) ";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
@@ -118,7 +118,7 @@ public class Estoque {
 			JOptionPane.showMessageDialog(null, "Get Infos suce Estoque");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Get Infos deu ruim Estoque");
+			JOptionPane.showMessageDialog(null, e);
 		}
 		
 		return result;
@@ -139,7 +139,7 @@ public class Estoque {
 	static public void update(String [] form, String numPed){
 		Connection c = Conexao.getInstance();
 		
-		String sql = "UPDATE ESTOQUE SET P_COMPRA = (?), P_VENDA = (?), QNTD_REPOSICAO = (?), DATA_REPOSICAO = (?) WHERE N_PEDIDO LIKE (?)";
+		String sql = "UPDATE REPOSICAO SET P_COMPRA = (?), P_VENDA = (?), QNTD_REPOSICAO = (?),DATA_REPOSICAO =  to_date(?,'dd/mm/yyyy') WHERE N_PEDIDO = (?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
@@ -149,7 +149,7 @@ public class Estoque {
 			for (int i = 0; i < 4; i++) {
 				pstm.setString(i + 1, form[i]);
 			}
-			pstm.setString(4, numPed);
+			pstm.setString(5, numPed);
 			
 			System.out.println("Executanto a query " + sql);
 			pstm.execute();
@@ -159,7 +159,7 @@ public class Estoque {
 			JOptionPane.showMessageDialog(null, "Estoque alterado com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar estoque");
+			JOptionPane.showMessageDialog(null, e);
 		}
 		
 	}
