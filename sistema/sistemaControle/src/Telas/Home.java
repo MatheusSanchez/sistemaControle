@@ -643,8 +643,33 @@ public class Home {
 				consultaEstoque.setBounds(282, 149, 637, 227);
 				frame.getContentPane().add(consultaEstoque);
 				
-				JTable tableEstoque = new JTable();
-				consultaEstoque.setViewportView(tableEstoque);
+				table = new JTable();
+				table.setModel(new DefaultTableModel(
+					new Object[][] {
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+					},
+					new String[] {
+						"Nro Pedido", "C\u00F3digo", "Pre\u00E7o Compra", "Pre\u00E7o Venda", "Quantidade Repo", "Data Reposi\u00E7\u00E3o", "Quantidade Dispo"
+					}
+				));
+				table.getColumnModel().getColumn(0).setPreferredWidth(62);
+				table.getColumnModel().getColumn(1).setPreferredWidth(51);
+				table.getColumnModel().getColumn(2).setPreferredWidth(77);
+				table.getColumnModel().getColumn(3).setPreferredWidth(77);
+				table.getColumnModel().getColumn(4).setPreferredWidth(95);
+				table.getColumnModel().getColumn(5).setPreferredWidth(86);
+				table.getColumnModel().getColumn(6).setPreferredWidth(98);
+				consultaEstoque.setViewportView(table);
+				
+				//JLabel lblTitulo_ConsultaEstqoue = new JLabel("CONSULTA - ESTOQUE");
+				consultaEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				consultaEstoque.setBounds(282, 129, 638, 281);
+				//consultaEstoque.add(consultaEstoque);
 				 
 				//-----Panel de remocao de estoque-----
 				remocaoEstoque = new JPanel();
@@ -673,7 +698,7 @@ public class Home {
 				//-----Panel de alteracao de estoque-----
 				alteracaoEstoque = new JPanel();
 				alteracaoEstoque.setVisible(false);
-				alteracaoEstoque.setBounds(282, 149, 637, 227);
+				alteracaoEstoque.setBounds(282, 129, 638, 281);
 				frame.getContentPane().add(alteracaoEstoque);
 				alteracaoEstoque.setLayout(null);
 				
@@ -681,6 +706,85 @@ public class Home {
 				lblAlteraoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
 				lblAlteraoEstoque.setBounds(214, 11, 255, 14);
 				alteracaoEstoque.add(lblAlteraoEstoque);
+				
+				JComboBox comboBox = new JComboBox();
+				comboBox.setBounds(32, 136, 191, 20);
+				alteracaoEstoque.add(comboBox);
+				
+				JButton btnConsultar = new JButton("Consultar");
+				btnConsultar.setBounds(85, 166, 89, 23);
+				alteracaoEstoque.add(btnConsultar);
+				
+				JTextField textField_7 = new JTextField();
+				textField_7.setBounds(245, 63, 164, 20);
+				alteracaoEstoque.add(textField_7);
+				textField_7.setColumns(10);
+				
+				JTextField textField_8 = new JTextField();
+				textField_8.setColumns(10);
+				textField_8.setBounds(245, 114, 164, 20);
+				alteracaoEstoque.add(textField_8);
+				
+				JTextField textField_9 = new JTextField();
+				textField_9.setColumns(10);
+				textField_9.setBounds(245, 167, 164, 20);
+				alteracaoEstoque.add(textField_9);
+				
+				JTextField textField_10 = new JTextField();
+				textField_10.setColumns(10);
+				textField_10.setBounds(245, 219, 164, 20);
+				alteracaoEstoque.add(textField_10);
+				
+				JTextField textField_11 = new JTextField();
+				textField_11.setColumns(10);
+				textField_11.setBounds(449, 63, 164, 20);
+				alteracaoEstoque.add(textField_11);
+				
+				JTextField textField_12 = new JTextField();
+				textField_12.setColumns(10);
+				textField_12.setBounds(449, 114, 164, 20);
+				alteracaoEstoque.add(textField_12);
+				
+				JTextField textField_13 = new JTextField();
+				textField_13.setColumns(10);
+				textField_13.setBounds(449, 167, 164, 20);
+				alteracaoEstoque.add(textField_13);
+				
+				JButton btnAlterarEstoque = new JButton("Alterar");
+				btnAlterarEstoque.setBounds(475, 207, 89, 42);
+				alteracaoEstoque.add(btnAlterarEstoque);
+				
+				JLabel lblNovoNumeroDe = new JLabel("Novo numero de pedido:");
+				lblNovoNumeroDe.setBounds(245, 46, 164, 14);
+				alteracaoEstoque.add(lblNovoNumeroDe);
+				
+				JLabel lblNovoCdigoDe = new JLabel("Novo c\u00F3digo de produto:");
+				lblNovoCdigoDe.setBounds(245, 97, 164, 14);
+				alteracaoEstoque.add(lblNovoCdigoDe);
+				
+				JLabel lblNovoPreoDe = new JLabel("Novo pre\u00E7o de compra:");
+				lblNovoPreoDe.setBounds(245, 150, 164, 14);
+				alteracaoEstoque.add(lblNovoPreoDe);
+				
+				JLabel lblNovoPreoVenda = new JLabel("Novo pre\u00E7o venda:");
+				lblNovoPreoVenda.setBounds(245, 205, 164, 14);
+				alteracaoEstoque.add(lblNovoPreoVenda);
+				
+				JLabel lblNovaQuantidadeDe = new JLabel("Nova quantidade de reposi\u00E7\u00E3o:");
+				lblNovaQuantidadeDe.setBounds(449, 46, 179, 14);
+				alteracaoEstoque.add(lblNovaQuantidadeDe);
+				
+				JLabel lblNovaDataDe = new JLabel("Nova data de reposi\u00E7\u00E3o:");
+				lblNovaDataDe.setBounds(449, 97, 179, 14);
+				alteracaoEstoque.add(lblNovaDataDe);
+				
+				JLabel lblQuantidade = new JLabel("Nova quantidade dispon\u00EDvel:");
+				lblQuantidade.setBounds(449, 150, 179, 14);
+				alteracaoEstoque.add(lblQuantidade);
+				
+				JLabel lblItemDeEstoque = new JLabel("Item de estoque a ser modificado:");
+				lblItemDeEstoque.setBounds(32, 116, 203, 14);
+				alteracaoEstoque.add(lblItemDeEstoque);
 		
 		
 		//De Usuário
@@ -900,9 +1004,9 @@ public class Home {
 				lblRemooUsuarios.setBounds(208, 11, 264, 14);
 				remocaoUsuario.add(lblRemooUsuarios);
 				
-				JComboBox comboBox = new JComboBox(Usuario.getNames());
-				comboBox.setBounds(185, 116, 264, 20);
-				remocaoUsuario.add(comboBox);
+				JComboBox comboBoxRemocao_U = new JComboBox(Usuario.getNames());
+				comboBoxRemocao_U.setBounds(185, 116, 264, 20);
+				remocaoUsuario.add(comboBoxRemocao_U);
 				
 				JLabel lblEscolhaOUsurio = new JLabel("Escolha o usu\u00E1rio que deseja remover :");
 				lblEscolhaOUsurio.setBounds(205, 95, 257, 14);
