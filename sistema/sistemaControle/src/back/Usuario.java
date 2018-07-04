@@ -10,6 +10,7 @@ import conexao.Conexao;
 
 public class Usuario {
 	
+	
 	/*cadastro simples de usuario 
 	 * 
 	 *  posições do array
@@ -32,8 +33,6 @@ public class Usuario {
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
 			
-			System.out.println("Preparando Comando Sql");
-
 			for (int i = 0; i < 5; i++) {
 				pstm.setString(i + 1, form[i]);
 			}
@@ -42,10 +41,10 @@ public class Usuario {
 			System.out.println("Fim query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "USUARIO inserido com sucesso");
+			JOptionPane.showMessageDialog(null, "Usuario inserido com sucesso !");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao inserir USUARIO");
+			JOptionPane.showMessageDialog(null, "Erro ao inserir Usuario " + e);
 		}
 		
 	}
@@ -87,7 +86,7 @@ public class Usuario {
 			pstm.close();
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Get Tipo deu ruim Users");
+			JOptionPane.showMessageDialog(null, "Erro no Get Tipo User " + e);
 		}
 		
 		return result;
@@ -123,7 +122,7 @@ static public String[]  getInfos(String nomeUsuario){
 			pstm.close();
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Get Infos deu ruim Users");
+			JOptionPane.showMessageDialog(null, "Erro no get Infos User "  + e );
 		}
 		
 		return result;
@@ -152,10 +151,10 @@ static public String[]  getInfos(String nomeUsuario){
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Consulta Realizada com sucesso");
+			/*JOptionPane.showMessageDialog(null, "Consulta Realizada com sucesso");*/
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao realizar consulta");
+			JOptionPane.showMessageDialog(null, "Erro no get names do Usuario " + e);
 		}
 		
 		return result;
@@ -204,7 +203,7 @@ static public String[]  getInfos(String nomeUsuario){
 			}
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro no Banco Função Login");
+			//JOptionPane.showMessageDialog(null, "Erro no Banco Função Login");
 			return false;
 		}
 		
@@ -222,7 +221,7 @@ static public String[]  getInfos(String nomeUsuario){
 	
 	static public String getSenha(String user){
 		Connection c = Conexao.getInstance();
-		String s = "";
+		String s = null;
 		
 		String sql = "SELECT SENHA FROM USUARIO WHERE EMAIL LIKE ? OR CPF LIKE ?";
 		
@@ -239,7 +238,6 @@ static public String[]  getInfos(String nomeUsuario){
 				s = rs.getString(1);
 			}
 			
-			System.out.println("Fim query ");
 			pstm.close();
 			
 			if(s!= null) {
@@ -250,7 +248,7 @@ static public String[]  getInfos(String nomeUsuario){
 
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao usuario no Banco");
+			/*JOptionPane.showMessageDialog(null, "Erro ao usuario no Banco");*/
 		}
 		
 		return s;
@@ -280,7 +278,7 @@ static public String[]  getInfos(String nomeUsuario){
 			JOptionPane.showMessageDialog(null, "Usuario Alterado com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar Usuario");
+			JOptionPane.showMessageDialog(null, "Erro ao alterar Usuario " + e);
 		}
 		
 	}
@@ -304,7 +302,7 @@ static public String[]  getInfos(String nomeUsuario){
 			JOptionPane.showMessageDialog(null, "Usuario deletado com sucesso");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao deletar Usuario");
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Usuario " + e);
 		}
 		
 	}
