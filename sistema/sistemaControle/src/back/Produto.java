@@ -179,6 +179,36 @@ public class Produto {
 			
 	}
 	
+	static public String getCod(String name){
+		Connection c = Conexao.getInstance();
+		
+		String result = "";
+
+		String sql = "SELECT COD_PRODUTO FROM PRODUTO WHERE NOME LIKE (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+			result = rs.getString(1);
+
+	
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Get Cod Funcionou com sucesso");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro no get Cod");
+		}
+		
+		return result;
+			
+	}
+	
 }
 
 	
