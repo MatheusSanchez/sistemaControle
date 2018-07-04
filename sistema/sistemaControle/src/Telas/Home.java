@@ -15,12 +15,14 @@ import panels.panelAlteracaoEstoque;
 import panels.panelAlteracaoProduto;
 import panels.panelCadastroEstoque;
 import panels.panelCadastroProduto;
+import panels.panelCadastroUsuario;
 import panels.panelCadastroVenda;
 import panels.panelConsultaEstoque;
 import panels.panelConsultaProduto;
 import panels.panelConsultaVenda;
 import panels.panelRemocaoEstoque;
 import panels.panelRemocaoProduto;
+import panels.panelRemocaoUsuario;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -59,15 +61,6 @@ public class Home {
 	private static Container container;
 	int tipo;
 	
-	
-	private JTextField textFieldNomeUsuario;
-	private JTextField textFieldRGUsuario;
-	private JTextField textFieldCPFUsuario;
-	private JTextField textFieldEmailUsuario;
-	private JTextField textFieldSenhaUsuario;
-	private JTextField textFieldConfirmacaoUsuario;
-	private JTextField textFieldProduto;
-	private JTextField textFieldConfirmacaoProduto;
 	private JTable table;
 	private JPanel cadastroProduto = new JPanel();
 	private JScrollPane consultaProduto = new JScrollPane();
@@ -93,7 +86,6 @@ public class Home {
 	private JButton btnVendas;
 	private JButton btnEstoque;	
 	private JButton btnUsuarios;
-	private JComboBox boxTipoFuncionario;
 	private JTextField textNomeUsuario_A;
 	private JTextField textEmailUsuario_A;
 	private JTextField textSenhaUsuario_A;
@@ -281,121 +273,7 @@ public class Home {
 		
 		
 		//De Usuário
-		//-----Panel de cadastro de usuario-----
-			cadastroUsuario = new JPanel();
-			cadastroUsuario.setVisible(false);
-			cadastroUsuario.setBounds(282, 129, 638, 281);
-			frame.getContentPane().add(cadastroUsuario);
-			cadastroUsuario.setLayout(null);
-				
-			textFieldNomeUsuario = new JTextField();
-			textFieldNomeUsuario.setToolTipText("Ex: Matheus Sanchez");
-			textFieldNomeUsuario.setBounds(204, 33, 288, 20);
-			cadastroUsuario.add(textFieldNomeUsuario);
-			textFieldNomeUsuario.setColumns(10);
-				
-			textFieldRGUsuario = new JTextField();
-			textFieldRGUsuario.setToolTipText("12.345.678");
-			textFieldRGUsuario.setBounds(204, 64, 288, 20);
-			cadastroUsuario.add(textFieldRGUsuario);
-			textFieldRGUsuario.setColumns(10);
-				
-			textFieldCPFUsuario = new JTextField();
-			textFieldCPFUsuario.setToolTipText("123.456.789-10");
-			textFieldCPFUsuario.setBounds(204, 95, 288, 20);
-			cadastroUsuario.add(textFieldCPFUsuario);
-			textFieldCPFUsuario.setColumns(10);
-				
-			textFieldEmailUsuario = new JTextField();
-			textFieldEmailUsuario.setToolTipText("matheussanchez.gmail.com");
-			textFieldEmailUsuario.setBounds(204, 126, 288, 20);
-			cadastroUsuario.add(textFieldEmailUsuario);
-			textFieldEmailUsuario.setColumns(10);
-				
-			textFieldSenhaUsuario = new JTextField();
-			textFieldSenhaUsuario.setBounds(204, 157, 288, 20);
-			cadastroUsuario.add(textFieldSenhaUsuario);
-			textFieldSenhaUsuario.setColumns(10);
-				
-			textFieldConfirmacaoUsuario = new JTextField();
-			textFieldConfirmacaoUsuario.setBounds(204, 194, 288, 20);
-			cadastroUsuario.add(textFieldConfirmacaoUsuario);
-			textFieldConfirmacaoUsuario.setColumns(10);
-				
-			JLabel lblNome_U = new JLabel("Nome :");
-			lblNome_U.setBounds(72, 36, 46, 14);
-			cadastroUsuario.add(lblNome_U);
-				
-			JLabel lblRG = new JLabel("RG :");
-			lblRG.setBounds(72, 67, 46, 14);
-			cadastroUsuario.add(lblRG);
-				
-			JLabel lblCpf = new JLabel("CPF :");
-			lblCpf.setBounds(72, 98, 46, 14);
-			cadastroUsuario.add(lblCpf);
-				
-			JLabel lblEmail = new JLabel("Email :");
-			lblEmail.setBounds(72, 129, 46, 14);
-			cadastroUsuario.add(lblEmail);
-				
-			JLabel lblSenha = new JLabel("Senha :");
-			lblSenha.setBounds(72, 160, 46, 14);
-			cadastroUsuario.add(lblSenha);
-				
-			JLabel lblConfirmeASenha = new JLabel("Confirme a senha:");
-			lblConfirmeASenha.setBounds(72, 197, 122, 14);
-			cadastroUsuario.add(lblConfirmeASenha);
-				
-			JLabel lblTipoDeFuncionrio = new JLabel("Tipo de funcion\u00E1rio:");
-			lblTipoDeFuncionrio.setBounds(72, 232, 122, 14);
-			cadastroUsuario.add(lblTipoDeFuncionrio);
-				
-			JLabel lblTitulo_CadastroUsuario = new JLabel("CADASTRO - USUARIO");
-			lblTitulo_CadastroUsuario.setVerticalAlignment(SwingConstants.TOP);
-			lblTitulo_CadastroUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-			lblTitulo_CadastroUsuario.setBounds(209, 0, 257, 45);
-			cadastroUsuario.add(lblTitulo_CadastroUsuario);
-				
-			boxTipoFuncionario = new JComboBox();
-			boxTipoFuncionario.setModel(new DefaultComboBoxModel(new String[] {"Administrador", "Funcionario", "Outro"}));
-			boxTipoFuncionario.setToolTipText("");
-			boxTipoFuncionario.setBounds(204, 229, 288, 20);
-			cadastroUsuario.add(boxTipoFuncionario);
-				
-			//Botão responsavel pelo cadastro de usuario
-			JButton btnCadastrarUsuario = new JButton("Cadastrar");
-			btnCadastrarUsuario.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e){
-					String [] form_U = new String[7];
-					String aux = new String();
-					if(tipo == 4){
-						form_U[0] = textFieldCPFUsuario.getText();
-						form_U[1] = textFieldRGUsuario.getText();
-						form_U[2] = textFieldNomeUsuario.getText();
-						form_U[3] = textFieldEmailUsuario.getText();
-						form_U[4] = textFieldSenhaUsuario.getText();
-						form_U[5] = textFieldConfirmacaoUsuario.getText();
-						form_U[6] = boxTipoFuncionario.getToolTipText();
-						if(form_U[6].equals("Administrador")) {
-							aux = "A";
-						}
-						if(form_U[6].equals("Funcionario")) {
-							aux = "F";
-						}
-						if(form_U[6].equals("Outro")) {
-							aux = "O";
-						}
-						System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6] + " " + aux);
-						if(form_U[4].equals(form_U[5])){
-							Usuario.cadastro(form_U, form_U[6]);
-						}
-					}
-						
-						
-				}
-			});
-			btnCadastrarUsuario.setBounds(518, 114, 95, 45);
-			cadastroUsuario.add(btnCadastrarUsuario);
+		
 				
 				
 			//-----Panel de consulta de usuario-----	
@@ -485,42 +363,6 @@ public class Home {
 				consultaUsuario.add(btnVisualizar);
 
 		 
-				//-----Panel de remocao de usuario-----
-				remocaoUsuario = new JPanel();
-				remocaoUsuario.setVisible(false);
-				remocaoUsuario.setBounds(281, 129, 638, 281);
-				frame.getContentPane().add(remocaoUsuario);
-				remocaoUsuario.setLayout(null);
-				
-				JLabel lblRemooUsuarios = new JLabel("REMO\u00C7\u00C3O - USUARIOS");
-				lblRemooUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblRemooUsuarios.setBounds(208, 11, 264, 14);
-				remocaoUsuario.add(lblRemooUsuarios);
-				
-				JComboBox comboBoxRemocao_U = new JComboBox(Usuario.getNames());
-				comboBoxRemocao_U.setBounds(185, 116, 264, 20);
-				remocaoUsuario.add(comboBoxRemocao_U);
-				
-				JLabel lblEscolhaOUsurio = new JLabel("Escolha o usu\u00E1rio que deseja remover :");
-				lblEscolhaOUsurio.setBounds(205, 95, 257, 14);
-				remocaoUsuario.add(lblEscolhaOUsurio);
-				
-				JButton btnRemover = new JButton("Remover");
-				btnRemover.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir ?") == JOptionPane.YES_OPTION) {
-							Usuario.delete((String)comboBoxRemocao_U.getSelectedItem());
-						}
-							
-					}
-				});
-				btnRemover.setBounds(250, 147, 119, 30);
-				remocaoUsuario.add(btnRemover);
-				
-				JLabel lblRemocaoUsuarios = new JLabel("REMO\u00C7\u00C3O - USUARIOS");
-				lblRemocaoUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblRemocaoUsuarios.setBounds(208, 11, 264, 14);
-				remocaoUsuario.add(lblRemocaoUsuarios);
 				
 				
 				//-----Panel de alteracao de usuario-----
@@ -651,10 +493,12 @@ public class Home {
 					cadastroEstoque.revalidate();
 					cadastroEstoque.repaint();
 					new panelCadastroEstoque(frame,cadastroEstoque);
-					System.out.println("entrou no cadastro estoque");
 				}
 				else if(tipo == 4) {
-					cadastroUsuario.setVisible(true);
+					cadastroUsuario.removeAll();
+					cadastroUsuario.revalidate();
+					cadastroUsuario.repaint();
+					new panelCadastroUsuario(frame,cadastroUsuario);
 				}
 			}
 		});
@@ -704,6 +548,11 @@ public class Home {
 					consultaEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
+					/*consultaUsuario.removeAll();
+					consultaUsuario.revalidate();
+					consultaUsuario.repaint();
+					new panelConsultaUsuario(frame,consultaUsuario);*/
+					
 					consultaUsuario.setVisible(true);
 				}
 			}
@@ -725,9 +574,6 @@ public class Home {
 					remocaoProduto.repaint();
 					new panelRemocaoProduto(frame,remocaoProduto);
 				}
-				else if(tipo == 2) {
-					remocaoVenda.setVisible(true);
-				}
 				else if(tipo == 3) {
 					remocaoEstoque.removeAll();
 					remocaoEstoque.revalidate();
@@ -735,7 +581,10 @@ public class Home {
 					new panelRemocaoEstoque(frame,remocaoEstoque);
 				}
 				else if(tipo == 4) {
-					remocaoUsuario.setVisible(true);
+					remocaoUsuario.removeAll();
+					remocaoUsuario.revalidate();
+					remocaoUsuario.repaint();
+					new panelRemocaoUsuario(frame,remocaoUsuario);
 				}
 			}
 		});
@@ -756,9 +605,6 @@ public class Home {
 					alteracaoProduto.repaint();
 					new panelAlteracaoProduto(frame,alteracaoProduto);	
 					
-				}
-				else if(tipo == 2) {
-					alteracaoVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
 					alteracaoEstoque.removeAll();
