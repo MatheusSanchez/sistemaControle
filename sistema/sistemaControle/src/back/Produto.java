@@ -193,16 +193,18 @@ public class Produto {
 			ResultSet rs = pstm.executeQuery();
 			
 			
-			result = rs.getString(1);
 
+			if (rs.next()){
+				result = (rs.getString(1));
+			}
 	
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Get Cod Funcionou com sucesso");
+			JOptionPane.showMessageDialog(null, "Suceful get code");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro no get Cod");
+			JOptionPane.showMessageDialog(null, "Erro no get Code");
 		}
 		
 		return result;
