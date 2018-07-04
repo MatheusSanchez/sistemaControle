@@ -29,13 +29,13 @@ import conexao.Conexao;
 @SuppressWarnings("serial")
 public class TelaConsulta extends JFrame {
 
-	private JTable table;
+	public JTable table;
 	private Container container;
 
 	/* Construtor que faz uma consulta que seleciona todos os registros da tabela (tabela) */
-	public TelaConsulta(Container container, String tabela) {
+	public TelaConsulta(Container container, String tabela, String[] col) {
 		this.container = container;
-		telaConsulta(tabela, null, null, null);
+		telaConsulta(tabela, null, null, col);
 	}
 
 	/* Construtor que faz a consulta de titulo (consulta) com o comando SQL sqlConsulta e com nomes de coluna (nomeColunas) */
@@ -67,12 +67,15 @@ public class TelaConsulta extends JFrame {
 				return tip;
 			}
 		};
-		table.setBounds(10, 78, 732, 316);
-
+		table.setBounds(0,100, 637, 227);
+	
+		
 		container.add(table);
+
+		
 		final JScrollPane scrollPane = new JScrollPane(table);
 		container.add(scrollPane);
-		scrollPane.setBounds(10, 78, 732, 316);
+		scrollPane.setBounds(0, 0, 637, 227);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 		
@@ -143,13 +146,11 @@ public class TelaConsulta extends JFrame {
 	/* Realiza a consulta de nome (nomeConsulta) com o comando SQL (sqlConsulta)*/
 	private void realizarConsulta(String nomeConsulta, String sqlConsulta, String[] nomeColunas) {
 		
-		JLabel lblTitle_1 = new JLabel("<html><h2>"+ nomeConsulta + "</h2></html>");
-		lblTitle_1.setBounds(10, 25, 732, 42);
-		container.add(lblTitle_1);
+
 		String s = "";
 
 		Connection c = Conexao.getInstance();
-
+		
 
 		try {
 			PreparedStatement pstm = c.prepareStatement(sqlConsulta); // realiza a consulta
@@ -160,6 +161,8 @@ public class TelaConsulta extends JFrame {
 
 				for (String string : nomeColunas) {
 					s += rs.getString(string) + "\n";
+					System.out.println("ENTREI AQUI");
+
 				}
 				resultado.add(s);
 				s = "";

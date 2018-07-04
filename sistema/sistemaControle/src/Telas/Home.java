@@ -414,26 +414,7 @@ public class Home {
 		consultaProduto.setVisible(false);
 		consultaProduto.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaProduto);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-			},
-			new String[] {
-				"C\u00F3digo", "Nome", "Descri\u00E7\u00E3o", "Quantidade", "Lucro"
-			}
-		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(51);
-		table.getColumnModel().getColumn(1).setPreferredWidth(83);
-		table.getColumnModel().getColumn(2).setPreferredWidth(136);
-		table.getColumnModel().getColumn(4).setPreferredWidth(82);
-		consultaProduto.setViewportView(table);
+			
 		
 		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
 		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -1082,17 +1063,24 @@ public class Home {
 				resetaTudo();
 				btnConsulta_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					System.out.println("Consultando produtos cadastrados");
-					consultaProduto.setVisible(true);
-					String[] col = new String[10];
+			
+					String[] col = new String[5];
 					col[0] = "COD_PRODUTO";
 					col[1] = "NOME";
 					col[2] = "DESCRICAO";
 					col[3] = "LUCRO_ESPERADO";
 					col[4] = "QNTD_ESTOQUE";
 					String sql = "SELECT*FROM PRODUTO";
+					TelaConsulta t = new TelaConsulta(consultaProduto,"Produto","","SELECT*FROM PRODUTO",col);
+					consultaProduto.setVisible(true);
 					
-					new TelaConsulta(consultaProduto, null, "Produtos",sql,col);
+
+					
+					
+					consultaProduto.setViewportView(t.table);
+					
+					
+					
 				}
 				else if(tipo == 2) {
 					consultaVenda.setVisible(true);
