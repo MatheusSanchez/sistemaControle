@@ -282,6 +282,74 @@ public class Estoque {
 			
 	}
 	
+	static public Vector getNpedidos(String cod_produto){
+		Connection c = Conexao.getInstance();
+		
+		Vector result = new Vector();
+
+		String sql = "SELECT N_PEDIDO FROM REPOSICAO WHERE COD_PRODUTO = (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			pstm.setString(1, cod_produto);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+			while (rs.next()){
+				result.add(rs.getString(1));
+			}
+	
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Get n pedido with cod produto = "  + cod_produto);
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "ERROR Get n pedido with cod produto = "  + cod_produto);
+		}
+		
+		return result;
+			
+	}
+	
+	static public String getMax(String nPedido){
+		Connection c = Conexao.getInstance();
+		
+		String result = "";
+
+		String sql = "SELECT QNTD_DISPONIVEL FROM REPOSICAO WHERE N_PEDIDO = (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			pstm.setString(1, nPedido);
+			ResultSet rs = pstm.executeQuery();
+			
+			
+			if (rs.next()){
+				
+				result = (rs.getString(1));
+						
+			}else{
+				result = null;
+			}
+	
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "getMax RODOU");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "getMax DEU ERRO " + e);
+		}
+		
+		return result;
+			
+	}
+	
 	static public void delete(String numPed){
 		Connection c = Conexao.getInstance();
 		
@@ -307,5 +375,7 @@ public class Estoque {
 		}
 		
 	}
+	
+	
 
 }

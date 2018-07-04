@@ -100,6 +100,12 @@ public class panelCadastroVenda {
 		cadastroVenda.add(lblProduto);
 		
 		comboBoxNomeProduto = new JComboBox(Produto.getNames());
+		
+		comboBoxNomeProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				 System.out.println("Codigo " + Produto.getCod((String)comboBoxNomeProduto.getSelectedItem()));
+			}
+		});
 		comboBoxNomeProduto.setBounds(49, 68, 207, 20);
 		cadastroVenda.add(comboBoxNomeProduto);
 		
