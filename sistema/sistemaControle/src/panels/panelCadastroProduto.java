@@ -19,7 +19,7 @@ public class panelCadastroProduto {
 	public JTextField textFieldLucroProduto_C;
 	
 	public panelCadastroProduto(JFrame frame,JPanel cadastroProduto){
-	//-----Panel de cadastro de produto-----
+			//-----Panel de cadastro de produto-----
 			//cadastroProduto = new JPanel();
 			cadastroProduto.setVisible(false);
 			cadastroProduto.setBounds(282, 129, 638, 284);
