@@ -47,29 +47,32 @@ public class Estoque {
 		
 	}
 	
-	static public void atualizaProduto(String cod_produto){ // atualiza quantidade disponivel na tabela produto
+	
+	
+	static public void updateProduto(String cod_produto, String qntd){  // atualiza a quantidade disponivel na tabela de produto
 		Connection c = Conexao.getInstance();
 		
-		String sql = "SELECT QNTD_ESTOQUE FROM PRODUTO WHERE COD_PRODUTO = (?)";
+		String sql = "UPDATE PRODUTO SET QNTD_ESTOQUE = QNTD_ESTOQUE+(?) WHERE NOME LIKE (?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
-			
 			System.out.println("preparando");
-			pstm.setString(1, cod_produto);
-	
+			
+			pstm.setString(1, qntd);
+			pstm.setString(2, cod_produto);
+			
 			
 			System.out.println("Executanto a query " + sql);
 			pstm.execute();
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Estoque inserido com sucesso");
+			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao inserir Estoque");
+			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto (update quantidade)");
 		}
 		
-	}	
+	}
 
 }
