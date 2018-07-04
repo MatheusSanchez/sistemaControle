@@ -36,6 +36,7 @@ public class panelConsultaProduto {
 		String sql = "SELECT*FROM PRODUTO";
 		TelaConsulta t = new TelaConsulta(consultaProduto,"Produto","","SELECT*FROM PRODUTO",col);
 		consultaProduto.setViewportView(t.table);
+		
 		consultaProduto.setVisible(true);
 	}
 

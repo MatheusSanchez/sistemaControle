@@ -12,7 +12,14 @@ import back.Produto;
 import back.Usuario;
 import Telas.TelaConsulta;
 import panels.panelAlteracaoProduto;
+import panels.panelCadastroEstoque;
 import panels.panelCadastroProduto;
+import panels.panelCadastroVenda;
+import panels.panelConsultaEstoque;
+import panels.panelConsultaProduto;
+import panels.panelConsultaVenda;
+import panels.panelRemocaoEstoque;
+import panels.panelRemocaoProduto;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -65,18 +72,18 @@ public class Home {
 	private JScrollPane consultaProduto = new JScrollPane();
 	private JPanel alteracaoProduto = new JPanel();
 	private JPanel remocaoProduto = new JPanel();
-	private JPanel cadastroVenda;
-	private JScrollPane consultaVenda;
-	private JPanel remocaoVenda;
-	private JPanel alteracaoVenda;
-	private JPanel cadastroEstoque;
-	private JScrollPane consultaEstoque;
-	private JPanel remocaoEstoque;
-	private JPanel alteracaoEstoque;
-	private JPanel cadastroUsuario;
-	private JPanel remocaoUsuario;
-	private JPanel consultaUsuario;
-	private JPanel alteracaoUsuario;
+	private JPanel cadastroVenda = new JPanel();
+	private JScrollPane consultaVenda = new JScrollPane();
+	private JPanel remocaoVenda = new JPanel();
+	private JPanel alteracaoVenda = new JPanel();
+	private JPanel cadastroEstoque = new JPanel();
+	private JScrollPane consultaEstoque = new JScrollPane();
+	private JPanel remocaoEstoque = new JPanel();
+	private JPanel alteracaoEstoque = new JPanel();
+	private JPanel cadastroUsuario = new JPanel();
+	private JPanel remocaoUsuario = new JPanel();
+	private JPanel consultaUsuario = new JPanel();
+	private JPanel alteracaoUsuario = new JPanel();
 	private JButton btnInserir_P;
 	private JButton btnConsulta_P;
 	private JButton btnRemocao_P;
@@ -86,17 +93,6 @@ public class Home {
 	private JButton btnEstoque;	
 	private JButton btnUsuarios;
 	private JComboBox boxTipoFuncionario;
-	private JTextField textFieldCPF_V;
-	private JTextField textData_V;
-	private JTextField textCodigoProduto;
-	private JTextField textPrecoOriginal;
-	private JTextField textDescontoDado;
-	private JTextField textPrecoVenda;
-	private JTextField textLucro;
-	private JTextField textCodigoVenda;
-	private JLabel lblPrecoDeVenda;
-	private JLabel lblNewLabel_1;
-	private JLabel lblCodigoDeVenda;
 	private JTextField textNomeUsuario_A;
 	private JTextField textEmailUsuario_A;
 	private JTextField textSenhaUsuario_A;
@@ -210,14 +206,7 @@ public class Home {
 		//PAINEIS
 		
 		//De Produtos:
-		
-	
-
-		
-		
-		
-
-		
+			
 		//Panel de Consulta de Produto
 		consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
@@ -232,217 +221,30 @@ public class Home {
 		
 		
 		//De Venda
-		//-----Panel de cadastro de venda-----
-				cadastroVenda = new JPanel();
-				cadastroVenda.setVisible(false);
-				cadastroVenda.setBounds(282, 129, 638, 281);
-				frame.getContentPane().add(cadastroVenda);
-				cadastroVenda.setLayout(null);
-				
-				JLabel lblCadastroVenda = new JLabel("CADASTRO - VENDA");
-				lblCadastroVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblCadastroVenda.setBounds(235, 11, 283, 14);
-				cadastroVenda.add(lblCadastroVenda);
-				
-				textFieldCPF_V = new JTextField();
-				textFieldCPF_V.setBounds(49, 66, 207, 19);
-				cadastroVenda.add(textFieldCPF_V);
-				textFieldCPF_V.setColumns(10);
-				
-				textData_V = new JTextField();
-				textData_V.setBounds(49, 109, 207, 19);
-				cadastroVenda.add(textData_V);
-				textData_V.setColumns(10);
-				
-				textCodigoProduto = new JTextField();
-				textCodigoProduto.setBounds(49, 149, 207, 19);
-				cadastroVenda.add(textCodigoProduto);
-				textCodigoProduto.setColumns(10);
-				
-				textPrecoOriginal = new JTextField();
-				textPrecoOriginal.setBounds(49, 189, 207, 19);
-				cadastroVenda.add(textPrecoOriginal);
-				textPrecoOriginal.setColumns(10);
-				
-				textDescontoDado = new JTextField();
-				textDescontoDado.setBounds(49, 230, 207, 19);
-				cadastroVenda.add(textDescontoDado);
-				textDescontoDado.setColumns(10);
-				
-				textPrecoVenda = new JTextField();
-				textPrecoVenda.setBounds(376, 66, 207, 19);
-				cadastroVenda.add(textPrecoVenda);
-				textPrecoVenda.setColumns(10);
-				
-				textLucro = new JTextField();
-				textLucro.setBounds(376, 109, 207, 19);
-				cadastroVenda.add(textLucro);
-				textLucro.setColumns(10);
-				
-				textCodigoVenda = new JTextField();
-				textCodigoVenda.setBounds(376, 149, 207, 19);
-				cadastroVenda.add(textCodigoVenda);
-				textCodigoVenda.setColumns(10);
-				
-				JLabel lblCPF_V = new JLabel("CPF:");
-				lblCPF_V.setBounds(49, 52, 45, 13);
-				cadastroVenda.add(lblCPF_V);
-				
-				JLabel lblData = new JLabel("Data:");
-				lblData.setBounds(49, 96, 45, 13);
-				cadastroVenda.add(lblData);
-				
-				JLabel lblCodigoDoProduto = new JLabel("C\u00F3digo do produto:");
-				lblCodigoDoProduto.setBounds(49, 138, 154, 13);
-				cadastroVenda.add(lblCodigoDoProduto);
-				
-				JLabel lblPrecoOriginal = new JLabel("Pre\u00E7o original:");
-				lblPrecoOriginal.setBounds(49, 176, 84, 13);
-				cadastroVenda.add(lblPrecoOriginal);
-				
-				JLabel lblDescontoDado = new JLabel("Desconto dado:");
-				lblDescontoDado.setBounds(49, 218, 84, 13);
-				cadastroVenda.add(lblDescontoDado);
-				
-				lblPrecoDeVenda = new JLabel("Pre\u00E7o de venda:");
-				lblPrecoDeVenda.setBounds(376, 52, 142, 13);
-				cadastroVenda.add(lblPrecoDeVenda);
-				
-				lblNewLabel_1 = new JLabel("Lucro:");
-				lblNewLabel_1.setBounds(376, 95, 45, 13);
-				cadastroVenda.add(lblNewLabel_1);
-				
-				lblCodigoDeVenda = new JLabel("C\u00F3digo de venda:");
-				lblCodigoDeVenda.setBounds(376, 138, 142, 13);
-				cadastroVenda.add(lblCodigoDeVenda);
-				
-				JButton btnNewButton = new JButton("Adicionar");
-				btnNewButton.setBounds(406, 188, 142, 43);
-				cadastroVenda.add(btnNewButton);
-				
-				//-----Panel de consulta de venda-----
-				consultaVenda = new JScrollPane();
-				consultaVenda.setVisible(false);
-				consultaVenda.setBounds(282, 129, 638, 281);
-				frame.getContentPane().add(consultaVenda);
-				
-				JTable tableVenda = new JTable();
-				tableVenda.setModel(new DefaultTableModel(
-					new Object[][] {
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-					},
-					new String[] {
-						"Data", "CPF", "C\u00F3digo Venda", "C\u00F3digo Prod.", "Pre\u00E7o", "Pre\u00E7o Venda", "Lucro"
-					}
-				));
-				consultaVenda.setViewportView(tableVenda);
-				
-				//-----Panel de remocao de venda-----
-				remocaoVenda = new JPanel();
-				remocaoVenda.setVisible(false);
-				remocaoVenda.setBounds(282, 149, 637, 227);
-				frame.getContentPane().add(remocaoVenda);
-				remocaoVenda.setLayout(null);
-				
-				JLabel lblRemocaoVendas = new JLabel("REMO\u00C7\u00C3O - VENDAS");
-				lblRemocaoVendas.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblRemocaoVendas.setBounds(228, 11, 219, 14);
-				remocaoVenda.add(lblRemocaoVendas);
-				
-				//-----Panel de alteracao de venda-----
-				alteracaoVenda = new JPanel();
-				alteracaoVenda.setVisible(false);
-				alteracaoVenda.setBounds(282, 149, 637, 227);
-				frame.getContentPane().add(alteracaoVenda);
-				alteracaoVenda.setLayout(null);
-				
-				JLabel lblAlteraoVenda = new JLabel("ALTERA\u00C7\u00C3O - VENDA");
-				lblAlteraoVenda.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblAlteraoVenda.setBounds(249, 11, 213, 14);
-				alteracaoVenda.add(lblAlteraoVenda);
 		
+		//-----Panel de consulta de venda-----
+		consultaVenda = new JScrollPane();
+		consultaVenda.setVisible(false);
+		consultaVenda.setBounds(282, 129, 638, 281);
+		frame.getContentPane().add(consultaVenda);
 		
+		JTable tableVenda = new JTable();
+		tableVenda.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Data", "CPF", "C\u00F3digo Venda", "C\u00F3digo Prod.", "Pre\u00E7o", "Pre\u00E7o Venda", "Lucro"
+			}
+		));
+		consultaVenda.setViewportView(tableVenda);
+						
 				//De Estoque
-				//-----Panel de cadastro de estoque-----
-				cadastroEstoque = new JPanel();
-				cadastroEstoque.setVisible(false);
-				cadastroEstoque.setBounds(282, 129, 638, 281);
-				frame.getContentPane().add(cadastroEstoque);
-				cadastroEstoque.setLayout(null);
 				
-				JLabel lblCadastroEstoque = new JLabel("CADASTRO - ESTOQUE");
-				lblCadastroEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblCadastroEstoque.setBounds(218, 11, 254, 14);
-				cadastroEstoque.add(lblCadastroEstoque);
-				
-				JTextField textFieldPrecoCompra = new JTextField();
-				textFieldPrecoCompra.setBounds(97, 131, 188, 20);
-				cadastroEstoque.add(textFieldPrecoCompra);
-				textFieldPrecoCompra.setColumns(10);
-				
-				JTextField textFieldqtdReposicao = new JTextField();
-				textFieldqtdReposicao.setBounds(334, 76, 188, 20);
-				cadastroEstoque.add(textFieldqtdReposicao);
-				textFieldqtdReposicao.setColumns(10);
-				
-				JTextField textFieldData = new JTextField();
-				textFieldData.setBounds(334, 131, 188, 20);
-				cadastroEstoque.add(textFieldData);
-				textFieldData.setColumns(10);
-				
-				JTextField textFieldPrecoVenda = new JTextField();
-				textFieldPrecoVenda.setBounds(97, 189, 188, 20);
-				cadastroEstoque.add(textFieldPrecoVenda);
-				textFieldPrecoVenda.setColumns(10);
-				
-				JLabel lblCodProdE = new JLabel("Produto:");
-				lblCodProdE.setBounds(107, 61, 178, 14);
-				cadastroEstoque.add(lblCodProdE);
-				
-				JLabel lblPrecoCompraE = new JLabel("Digite o pre\u00E7o de compra:");
-				lblPrecoCompraE.setBounds(107, 119, 166, 14);
-				cadastroEstoque.add(lblPrecoCompraE);
-				
-				JLabel lblPrecoVendaE = new JLabel("Digite o pre\u00E7o de venda:");
-				lblPrecoVendaE.setBounds(107, 176, 166, 14);
-				cadastroEstoque.add(lblPrecoVendaE);
-				
-				JLabel lblQtdRepoE = new JLabel("Digite a quantidade de reposi\u00E7\u00E3o:");
-				lblQtdRepoE.setBounds(334, 61, 220, 14);
-				cadastroEstoque.add(lblQtdRepoE);
-				
-				JLabel lblDataRepoE = new JLabel("Digite a data de reposi\u00E7\u00E3o:");
-				lblDataRepoE.setBounds(334, 119, 178, 14);
-				cadastroEstoque.add(lblDataRepoE);
-				
-				JButton btnAdicionarAoEstoque = new JButton("Inserir");
-				btnAdicionarAoEstoque.setBounds(364, 180, 108, 37);
-				cadastroEstoque.add(btnAdicionarAoEstoque);
-				
-				JComboBox comboBoxCodigoProduto = new JComboBox(Produto.getNames());
-				comboBoxCodigoProduto.setBounds(97, 75, 188, 21);
-				cadastroEstoque.add(comboBoxCodigoProduto);
-				
-				btnAdicionarAoEstoque.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						String [] form = new String[5];
-						String nomeProduto = (String)comboBoxCodigoProduto.getSelectedItem();
-						System.out.println("nomeProduto = " + nomeProduto);
-						
-						form[0] = Produto.getCod(nomeProduto);
-						form[1] = textFieldPrecoCompra.getText();
-						form[2] = textFieldPrecoVenda.getText();
-						form[3] = textFieldqtdReposicao.getText();		
-						form[4] = textFieldData.getText();
-						
-						System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4]);
-						Estoque.cadastro(form);
-					}
-				});
 				
 				//-----Panel de consulta de estoque-----	
 				consultaEstoque = new JScrollPane();
@@ -472,35 +274,6 @@ public class Home {
 				table.getColumnModel().getColumn(5).setPreferredWidth(86);
 				table.getColumnModel().getColumn(6).setPreferredWidth(98);
 				consultaEstoque.setViewportView(table);
-				
-				//JLabel lblTitulo_ConsultaEstqoue = new JLabel("CONSULTA - ESTOQUE");
-				consultaEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				consultaEstoque.setBounds(282, 129, 638, 281);
-				//consultaEstoque.add(consultaEstoque);
-				 
-				//-----Panel de remocao de estoque-----
-				remocaoEstoque = new JPanel();
-				remocaoEstoque.setVisible(false);
-				remocaoEstoque.setBounds(282, 129, 638, 281);
-				frame.getContentPane().add(remocaoEstoque);
-				remocaoEstoque.setLayout(null);
-				
-				JLabel lblRemooEstoque = new JLabel("REMO\u00C7\u00C3O - ESTOQUE");
-				lblRemooEstoque.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblRemooEstoque.setBounds(220, 11, 215, 14);
-				remocaoEstoque.add(lblRemooEstoque);
-				
-				JComboBox comboBoxEstoque = new JComboBox(Estoque.getNpedidos());
-				comboBoxEstoque.setBounds(188, 97, 301, 20);
-				remocaoEstoque.add(comboBoxEstoque);
-				
-				JLabel lblSelecioneOCdigo = new JLabel("Selecione o c\u00F3digo do produto que deseja remover:");
-				lblSelecioneOCdigo.setBounds(188, 77, 301, 14);
-				remocaoEstoque.add(lblSelecioneOCdigo);
-				
-				JButton btnNRemoverEstoque = new JButton("Remover");
-				btnNRemoverEstoque.setBounds(288, 135, 89, 39);
-				remocaoEstoque.add(btnNRemoverEstoque);
 				
 				//-----Panel de alteracao de estoque-----
 				alteracaoEstoque = new JPanel();
@@ -969,10 +742,17 @@ public class Home {
 					new panelCadastroProduto(frame,cadastroProduto);	
 				}
 				else if(tipo == 2) {
-					cadastroVenda.setVisible(true);
+					cadastroVenda.removeAll();
+					cadastroVenda.revalidate();
+					cadastroVenda.repaint();
+					new panelCadastroVenda(frame,cadastroVenda);
 				}
 				else if(tipo == 3) {
-					cadastroEstoque.setVisible(true);
+					cadastroEstoque.removeAll();
+					cadastroEstoque.revalidate();
+					cadastroEstoque.repaint();
+					new panelCadastroEstoque(frame,cadastroEstoque);
+					System.out.println("entrou no cadastro estoque");
 				}
 				else if(tipo == 4) {
 					cadastroUsuario.setVisible(true);
@@ -991,7 +771,11 @@ public class Home {
 				resetaTudo();
 				btnConsulta_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-			
+					/*consultaProduto.removeAll();
+					consultaProduto.revalidate();
+					consultaProduto.repaint();
+					new panelConsultaProduto(frame,consultaProduto);*/
+					
 					String[] col = new String[5];
 					col[0] = "COD_PRODUTO";
 					col[1] = "NOME";
@@ -1002,18 +786,22 @@ public class Home {
 					TelaConsulta t = new TelaConsulta(consultaProduto,"Produto","","SELECT*FROM PRODUTO",col);
 					consultaProduto.setVisible(true);
 					
-
-					
-					
-					consultaProduto.setViewportView(t.table);
-					
-					
-					
+					consultaProduto.setViewportView(t.table);							
 				}
 				else if(tipo == 2) {
+					/*consultaVenda.removeAll();
+					consultaVenda.revalidate();
+					consultaVenda.repaint();
+					new panelConsultaVenda(frame,consultaVenda);*/
+					
 					consultaVenda.setVisible(true);
 				}
-				else if(tipo == 3) {
+				else if(tipo == 3) {		
+					/*consultaEstoque.removeAll();
+					consultaEstoque.revalidate();
+					consultaEstoque.repaint();
+					new panelConsultaEstoque(frame,consultaEstoque);*/
+					
 					consultaEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
@@ -1033,13 +821,19 @@ public class Home {
 				resetaTudo();
 				btnRemocao_P.setBackground(SystemColor.activeCaption);
 				if(tipo == 1) {
-					remocaoProduto.setVisible(true);
+					remocaoProduto.removeAll();
+					remocaoProduto.revalidate();
+					remocaoProduto.repaint();
+					new panelRemocaoProduto(frame,remocaoProduto);
 				}
 				else if(tipo == 2) {
 					remocaoVenda.setVisible(true);
 				}
 				else if(tipo == 3) {
-					remocaoEstoque.setVisible(true);
+					remocaoEstoque.removeAll();
+					remocaoEstoque.revalidate();
+					remocaoEstoque.repaint();
+					new panelRemocaoEstoque(frame,remocaoEstoque);
 				}
 				else if(tipo == 4) {
 					remocaoUsuario.setVisible(true);
@@ -1062,7 +856,6 @@ public class Home {
 					alteracaoProduto.revalidate();
 					alteracaoProduto.repaint();
 					new panelAlteracaoProduto(frame,alteracaoProduto);	
-				
 					
 				}
 				else if(tipo == 2) {

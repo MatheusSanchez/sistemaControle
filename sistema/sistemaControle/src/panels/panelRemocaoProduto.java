@@ -65,6 +65,7 @@ public class panelRemocaoProduto {
 		lblTitulo_RemoçãoProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblTitulo_RemoçãoProduto.setBounds(209, 10, 257, 45);
 		remocaoProduto.add(lblTitulo_RemoçãoProduto);
+		
 		remocaoProduto.setVisible(true);
 	}
 
