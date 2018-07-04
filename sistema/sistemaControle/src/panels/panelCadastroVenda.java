@@ -28,6 +28,8 @@ public class panelCadastroVenda {
 	public JLabel lblLucro;
 	public JComboBox comboBoxQtdVenda;
 	public JComboBox comboBoxNomeProduto;
+	private JLabel lblNroPedido;
+	private JComboBox comboBoxNroPedido;
 	
 	public panelCadastroVenda(JFrame frame,JPanel cadastroVenda){
 		//-----Panel de cadastro de venda-----
@@ -110,12 +112,20 @@ public class panelCadastroVenda {
 		cadastroVenda.add(comboBoxNomeProduto);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade a ser vendida:");
-		lblQuantidade.setBounds(378, 52, 207, 13);
+		lblQuantidade.setBounds(474, 52, 154, 13);
 		cadastroVenda.add(lblQuantidade);
 		
 		comboBoxQtdVenda = new JComboBox();
-		comboBoxQtdVenda.setBounds(378, 65, 84, 20);
+		comboBoxQtdVenda.setBounds(501, 68, 84, 20);
 		cadastroVenda.add(comboBoxQtdVenda);
+		
+		lblNroPedido = new JLabel("N\u00BA Pedido");
+		lblNroPedido.setBounds(378, 52, 86, 13);
+		cadastroVenda.add(lblNroPedido);
+		
+		comboBoxNroPedido = new JComboBox();
+		comboBoxNroPedido.setBounds(378, 68, 71, 20);
+		cadastroVenda.add(comboBoxNroPedido);
 		
 		cadastroVenda.setVisible(true);
 	}

@@ -16,7 +16,7 @@ import back.Usuario;
 
 public class panelConsultaUsuario {
 	
-	public panelConsultaUsuario(JFrame frame, JScrollPane consultaUsuario){
+	public panelConsultaUsuario(JFrame frame, JPanel consultaUsuario){
 		//-----Panel de consulta de usuario-----	
 		//consultaUsuario = new JPanel();
 		consultaUsuario.setVisible(false);
