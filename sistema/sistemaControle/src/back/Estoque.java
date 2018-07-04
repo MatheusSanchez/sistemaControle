@@ -113,6 +113,34 @@ public class Estoque {
 		
 	}
 	
+	static public void updateProduto(String n_pedido,String cod_produto){  // atualiza a quantidade disponivel na tabela de produto
+		Connection c = Conexao.getInstance();
+		
+
+		
+		String sql = "UPDATE PRODUTO SET QNTD_ESTOQUE = (SELECT SUM(QNTD_DISPONIVEL) FROM REPOSICAO WHERE COD_PRODUTO = "+cod_produto+") WHERE COD_PRODUTO = (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			
+			//pstm.setString(1, qntd);
+			pstm.setString(1, cod_produto);
+			
+			
+			System.out.println("Executanto a query " + sql);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			pstm.close();
+			
+			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto (update quantidade)");
+		}
+		
+	}
+	
 	/*
 	 * form[0] ->nome_produto
 	 * form[1] ->preco_compra
@@ -252,6 +280,32 @@ public class Estoque {
 		
 		return result;
 			
+	}
+	
+	static public void delete(String numPed){
+		Connection c = Conexao.getInstance();
+		
+		String cod_produto = getCodProduto(numPed);
+		
+		String sql = "DELETE FROM REPOSICAO WHERE N_PEDIDO = (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			
+			pstm.setString(1, numPed);
+			
+			System.out.println("Executanto a query " + sql);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			pstm.close();
+			updateProduto(numPed,cod_produto);
+			JOptionPane.showMessageDialog(null, "Estoque deletado");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		
 	}
 
 }
