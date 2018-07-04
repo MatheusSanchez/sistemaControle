@@ -682,7 +682,7 @@ public class Home {
 				lblRemooEstoque.setBounds(220, 11, 215, 14);
 				remocaoEstoque.add(lblRemooEstoque);
 				
-				JComboBox comboBoxEstoque = new JComboBox();
+				JComboBox comboBoxEstoque = new JComboBox(Estoque.getNpedidos());
 				comboBoxEstoque.setBounds(188, 97, 301, 20);
 				remocaoEstoque.add(comboBoxEstoque);
 				
@@ -714,25 +714,25 @@ public class Home {
 				btnConsultar.setBounds(85, 166, 89, 23);
 				alteracaoEstoque.add(btnConsultar);
 				
-				JTextField textField_9 = new JTextField();
-				textField_9.setColumns(10);
-				textField_9.setBounds(245, 143, 164, 20);
-				alteracaoEstoque.add(textField_9);
+				JTextField textFieldPrecoCompra_A = new JTextField();
+				textFieldPrecoCompra_A.setColumns(10);
+				textFieldPrecoCompra_A.setBounds(245, 143, 164, 20);
+				alteracaoEstoque.add(textFieldPrecoCompra_A);
 				
-				JTextField textField_10 = new JTextField();
-				textField_10.setColumns(10);
-				textField_10.setBounds(245, 202, 164, 20);
-				alteracaoEstoque.add(textField_10);
+				JTextField textFieldPrecoVenda_A = new JTextField();
+				textFieldPrecoVenda_A.setColumns(10);
+				textFieldPrecoVenda_A.setBounds(245, 202, 164, 20);
+				alteracaoEstoque.add(textFieldPrecoVenda_A);
 				
-				JTextField textField_11 = new JTextField();
-				textField_11.setColumns(10);
-				textField_11.setBounds(449, 79, 164, 20);
-				alteracaoEstoque.add(textField_11);
+				JTextField textFieldQtdReposicao_A = new JTextField();
+				textFieldQtdReposicao_A.setColumns(10);
+				textFieldQtdReposicao_A.setBounds(449, 79, 164, 20);
+				alteracaoEstoque.add(textFieldQtdReposicao_A);
 				
-				JTextField textField_12 = new JTextField();
-				textField_12.setColumns(10);
-				textField_12.setBounds(449, 143, 164, 20);
-				alteracaoEstoque.add(textField_12);
+				JTextField textFieldDataReposicao_A = new JTextField();
+				textFieldDataReposicao_A.setColumns(10);
+				textFieldDataReposicao_A.setBounds(449, 143, 164, 20);
+				alteracaoEstoque.add(textFieldDataReposicao_A);
 				
 				JButton btnAlterarEstoque = new JButton("Alterar");
 				btnAlterarEstoque.setBounds(475, 190, 89, 42);
@@ -770,16 +770,32 @@ public class Home {
 				btnConsultar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						String numPedido = (String)comboBoxAlteracaoEstoque.getSelectedItem();
-						String [] form = Estoque.getInfos(numPedido);
+						String[] form = Estoque.getInfos(numPedido);
 						System.out.println("numPedido = " + numPedido);
 						
 						lblNomeProduto_A.setText(form[0]);
-						textField_9.setText(form[1]);
-						textField_10.setText(form[2]);
-						textField_11.setText(form[3]);	
-						textField_12.setText(form[4]);
+						textFieldPrecoCompra_A.setText(form[1]);
+						textFieldPrecoVenda_A.setText(form[2]);
+						textFieldQtdReposicao_A.setText(form[3]);	
+						textFieldDataReposicao_A.setText(form[4]);
 						
 						System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4]);
+					}
+				});
+				
+				btnAlterarEstoque.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						String[] troca = new String[4];
+						String numPed = (String)comboBoxAlteracaoEstoque.getSelectedItem();
+						
+						troca[0] = textFieldPrecoCompra_A.getText();
+						troca[1] = textFieldPrecoVenda_A.getText();
+						troca[2] = textFieldQtdReposicao_A.getText();
+						troca[3] = textFieldDataReposicao_A.getText();
+						
+						System.out.println(troca[0] + " " + troca[1] + " " + troca[2] + " " + troca[3] + " " + numPed);
+						
+						Estoque.update(troca, numPed);
 					}
 				});
 		
