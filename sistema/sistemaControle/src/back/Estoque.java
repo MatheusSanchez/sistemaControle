@@ -43,27 +43,61 @@ public class Estoque {
 		
 			
 			JOptionPane.showMessageDialog(null, "Estoque inserido com sucesso");
-			updateProduto(form[0],form[3]); // da um update na tabela de produtos
+			updateProduto(form[0]); // da um update na tabela de produtos
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
 		
 	}
+	static public String getCodProduto (String numPed){
+		
+		String result = null;
+		Connection c = Conexao.getInstance();	
+		String sql = "SELECT COD_PRODUTO FROM REPOSICAO WHERE N_PEDIDO LIKE (?) ";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+			System.out.println("Executanto a query " + sql);
+			
+			pstm.setString(1, numPed);
+			ResultSet rs = pstm.executeQuery();
+			
+			if (rs.next()){
+					result = (rs.getString(1));			
+			}else{
+				result = null;
+			}
+		
+			
+			System.out.println("Fim a query ");
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Result " + result);
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		
+		return result;
+		
+	}
 	
 	
-	
-	static public void updateProduto(String cod_produto, String qntd){  // atualiza a quantidade disponivel na tabela de produto
+	static public void updateProduto(String n_pedido){  // atualiza a quantidade disponivel na tabela de produto
 		Connection c = Conexao.getInstance();
 		
-		String sql = "UPDATE PRODUTO SET QNTD_ESTOQUE = QNTD_ESTOQUE+(?) WHERE NOME LIKE (?)";
+		String cod_produto = getCodProduto(n_pedido);
+		
+		String sql = "UPDATE PRODUTO SET QNTD_ESTOQUE = (SELECT SUM(QNTD_DISPONIVEL) FROM REPOSICAO WHERE COD_PRODUTO = "+cod_produto+") WHERE COD_PRODUTO = (?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
 			System.out.println("preparando");
 			
-			pstm.setString(1, qntd);
-			pstm.setString(2, cod_produto);
+			//pstm.setString(1, qntd);
+			pstm.setString(1, cod_produto);
 			
 			
 			System.out.println("Executanto a query " + sql);
@@ -139,7 +173,29 @@ public class Estoque {
 	static public void update(String [] form, String numPed){
 		Connection c = Conexao.getInstance();
 		
+		// ATUALIZANDO O CAMPO DE QUANTIDADE DISPONIVEL
+		
+		String qntd_disponivel = "UPDATE REPOSICAO SET QNTD_DISPONIVEL = QNTD_DISPONIVEL + (SELECT "+form[2]+" - QNTD_REPOSICAO FROM REPOSICAO WHERE N_PEDIDO = "+numPed+")  WHERE N_PEDIDO = " +numPed;
+		System.out.println(qntd_disponivel);
+		
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(qntd_disponivel);
+			
+			System.out.println("Executanto a query " + qntd_disponivel);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			pstm.close();
+			updateProduto(numPed); // atualiza quantidade disponivel na tabela produto
+			JOptionPane.showMessageDialog(null, "foi");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		
+		
 		String sql = "UPDATE REPOSICAO SET P_COMPRA = (?), P_VENDA = (?), QNTD_REPOSICAO = (?),DATA_REPOSICAO =  to_date(?,'dd/mm/yyyy') WHERE N_PEDIDO = (?)";
+		
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
@@ -161,6 +217,8 @@ public class Estoque {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
+		
+
 		
 	}
 	
