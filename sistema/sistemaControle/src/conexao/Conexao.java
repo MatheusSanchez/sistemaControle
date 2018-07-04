@@ -36,9 +36,9 @@ public class Conexao {
 					System.out.print("Password: ");
 					String password = s.nextLine();*/
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@" + "192.168.183.15" + ":" + "1521" + ":orcl", "m9081453", "matxd96114974!!!");
-					System.out.println("Conexao estabelecida");
+					System.out.println("Conexao com banco estabelecida !");
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Nao foi possivel conectar ao banco 123");
+					JOptionPane.showMessageDialog(null, "Erro ao conectar com o Banco de dados, contate o administrador !");
 				}
 			}else{
 				try {
@@ -52,9 +52,9 @@ public class Conexao {
 					System.out.print("Password: ");
 					String password = s.nextLine();*/
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@" + "grad.icmc.usp.br" + ":" + "15215" + ":orcl", "m9081453", "matxd96114974!!!");
-					System.out.println("Conexao estabelecida");
+					System.out.println("Conexao com banco estabelecida !");
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Nao foi possivel conectar ao banco");
+					JOptionPane.showMessageDialog(null, "Erro ao conectar com o Banco de dados, contate o administrador !");
 				}
 			}
 			
