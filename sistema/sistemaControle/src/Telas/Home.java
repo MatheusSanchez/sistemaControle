@@ -20,6 +20,7 @@ import panels.panelCadastroUsuario;
 import panels.panelCadastroVenda;
 import panels.panelConsultaEstoque;
 import panels.panelConsultaProduto;
+import panels.panelConsultaUsuario;
 import panels.panelConsultaVenda;
 import panels.panelRemocaoEstoque;
 import panels.panelRemocaoProduto;
@@ -447,12 +448,12 @@ public class Home {
 					consultaEstoque.setVisible(true);
 				}
 				else if(tipo == 4) {
-					/*consultaUsuario.removeAll();
+					consultaUsuario.removeAll();
 					consultaUsuario.revalidate();
 					consultaUsuario.repaint();
-					new panelConsultaUsuario(frame,consultaUsuario);*/
+					new panelConsultaUsuario(frame,consultaUsuario);
 					
-					consultaUsuario.setVisible(true);
+					//consultaUsuario.setVisible(true);
 				}
 			}
 		});
