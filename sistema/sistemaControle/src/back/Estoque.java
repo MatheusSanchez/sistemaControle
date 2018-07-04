@@ -169,7 +169,7 @@ public class Estoque {
 		
 		Vector result = new Vector();
 
-		String sql = "SELECT N_PEDIDO FROM ESTOQUE";
+		String sql = "SELECT N_PEDIDO FROM REPOSICAO";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);

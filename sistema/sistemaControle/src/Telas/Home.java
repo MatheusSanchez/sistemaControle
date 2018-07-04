@@ -766,6 +766,22 @@ public class Home {
 				lblNomeProduto_A.setFont(new Font("Tahoma", Font.BOLD, 12));
 				lblNomeProduto_A.setBounds(245, 82, 164, 17);
 				alteracaoEstoque.add(lblNomeProduto_A);
+				
+				btnConsultar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						String numPedido = (String)comboBoxAlteracaoEstoque.getSelectedItem();
+						String [] form = Estoque.getInfos(numPedido);
+						System.out.println("numPedido = " + numPedido);
+						
+						lblNomeProduto_A.setText(form[0]);
+						textField_9.setText(form[1]);
+						textField_10.setText(form[2]);
+						textField_11.setText(form[3]);	
+						textField_12.setText(form[4]);
+						
+						System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4]);
+					}
+				});
 		
 		
 		//De Usuário
