@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import back.Estoque;
 import back.Produto;
 import back.Usuario;
 import Telas.TelaConsulta;
@@ -611,16 +612,29 @@ public class Home {
 				cadastroEstoque.add(lblDataRepoE);
 				
 				JButton btnAdicionarAoEstoque = new JButton("Inserir");
-				btnAdicionarAoEstoque.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-					}
-				});
 				btnAdicionarAoEstoque.setBounds(364, 180, 108, 37);
 				cadastroEstoque.add(btnAdicionarAoEstoque);
 				
 				JComboBox comboBoxCodigoProduto = new JComboBox(Produto.getNames());
 				comboBoxCodigoProduto.setBounds(97, 75, 188, 21);
 				cadastroEstoque.add(comboBoxCodigoProduto);
+				
+				btnAdicionarAoEstoque.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						String [] form = new String[5];
+						String nomeProduto = (String)comboBoxCodigoProduto.getSelectedItem();
+						System.out.println();
+						
+						form[0] = Produto.getCod(nomeProduto);
+						form[1] = textFieldPrecoCompra.getText();
+						form[2] = textFieldPrecoVenda.getText();
+						form[3] = textFieldqtdReposicao.getText();		
+						form[4] = textFieldData.getText();
+						
+						System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4]);
+						Estoque.cadastro(form);
+					}
+				});
 				
 				//-----Panel de consulta de estoque-----	
 				consultaEstoque = new JScrollPane();
