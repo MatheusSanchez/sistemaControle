@@ -38,7 +38,8 @@ public class Estoque {
 			pstm.execute();
 			System.out.println("Fim a query ");
 			pstm.close();
-
+			updateProduto(form[0],form[3]); // da um update na tabela de produtos
+			
 			JOptionPane.showMessageDialog(null, "Estoque inserido com sucesso");
 			
 		} catch (Exception e) {
@@ -66,7 +67,7 @@ public class Estoque {
 			pstm.execute();
 			System.out.println("Fim a query ");
 			pstm.close();
-
+			
 			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
 			
 		} catch (Exception e) {

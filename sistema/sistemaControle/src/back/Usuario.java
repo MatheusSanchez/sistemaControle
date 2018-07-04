@@ -197,11 +197,9 @@ static public String[]  getInfos(String nomeUsuario){
 
 		try {	
 			if(Usuario.getSenha(user).equals(pass)) {
-		
-				JOptionPane.showMessageDialog(null, "Logou com sucesso");
+				
 				return true;
 			}else {
-				JOptionPane.showMessageDialog(null, "Sem Login");
 				return false;
 			}
 			
@@ -231,13 +229,9 @@ static public String[]  getInfos(String nomeUsuario){
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
 			
-			System.out.println("Preparando Comando Sql");
-		
 			pstm.setString(1, user);
 			pstm.setString(2, user);
-		
-			System.out.println("Executanto a query " + sql);
-			//pstm.execute();
+
 			ResultSet rs = pstm.executeQuery();
 			
 			
@@ -249,14 +243,14 @@ static public String[]  getInfos(String nomeUsuario){
 			pstm.close();
 			
 			if(s!= null) {
-				JOptionPane.showMessageDialog(null, "Achei o Usuario " + user + " Sua senha " + s);
+				System.out.println("Achei o Usuario " + user + " Sua senha " + s);
 			}else {
-				JOptionPane.showMessageDialog(null, "NÃO Achei o Usuario " + user);
+				JOptionPane.showMessageDialog(null, "Usuário Inexistente !");
 			}
 
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro ao pesquisar no banco");
+			JOptionPane.showMessageDialog(null, "Erro ao usuario no Banco");
 		}
 		
 		return s;

@@ -91,6 +91,38 @@ public class Produto {
 		
 	}
 	
+	static public String getCod(String name){
+		Connection c = Conexao.getInstance();
+		
+		String result = "";
+
+		String sql = "SELECT COD_PRODUTO FROM PRODUTO WHERE NOME LIKE (?)";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			
+			System.out.println("Executanto a query " + sql);
+			
+			pstm.setString(1, name);
+			ResultSet rs = pstm.executeQuery();
+
+			if (rs.next()){
+				result = rs.getString(1);
+			}
+		
+			pstm.close();
+
+			JOptionPane.showMessageDialog(null, "Suceful get code");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null, "Erro no get Code");
+		}
+		
+		return result;
+			
+	}
+	
 	
 	/*Update de produto pelo nome, o array de string deve estar no mesmo formato do cadastro*/
 	static public void update(String [] form, String nomeAntigo){
@@ -179,37 +211,7 @@ public class Produto {
 			
 	}
 	
-	static public String getCod(String name){
-		Connection c = Conexao.getInstance();
-		
-		String result = "";
-
-		String sql = "SELECT COD_PRODUTO FROM PRODUTO WHERE NOME LIKE (?)";
-		
-		try {
-			PreparedStatement pstm = c.prepareStatement(sql);
-			System.out.println("preparando");
-			System.out.println("Executanto a query " + sql);
-			ResultSet rs = pstm.executeQuery();
-			
-			
-
-			if (rs.next()){
-				result = (rs.getString(1));
-			}
 	
-			System.out.println("Fim a query ");
-			pstm.close();
-
-			JOptionPane.showMessageDialog(null, "Suceful get code");
-			
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro no get Code");
-		}
-		
-		return result;
-			
-	}
 	
 }
 
