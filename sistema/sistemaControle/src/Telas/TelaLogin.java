@@ -28,8 +28,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Classe que possui a tela de Login
- *
+ * Classe que contém a tela de Login, primeira tela da aplicação.
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
  */
 public class TelaLogin {
 
@@ -40,7 +43,7 @@ public class TelaLogin {
 
 	
 	/**
-	 * Construtor da classe que inicializa a tela
+	 * Construtor da classe que inicializa a tela, chamando a função initialize().
 	 */
 	public TelaLogin() {
 		
@@ -48,6 +51,11 @@ public class TelaLogin {
 		this.frame.setResizable(false);
 	}
 	
+	/**
+	 * Método responsável por alocar as imagens na tela de login, recebendo como parâmetro os componentes GUI que conterão os logos.
+	 * @param panel - JPanel que conterá o logo do ICMC.
+	 * @param c - Container que conterá o logo da Memp's Solutions.
+	 */
 	public void img(JPanel panel, Container c) {
 		//Logo Icmc
 		JLabel lblLogoIcmc = 	new JLabel("");

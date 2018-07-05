@@ -7,9 +7,16 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
+/**
+ *Classe com os métodos referentes ao Tipo de Usuário
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class TipoUsuario {
 	
-	/*cadastro simples de TipoUsuario 
+	/**cadastro simples de TipoUsuario 
 	 * 
 	 *  posições do array
 	 *  
@@ -20,7 +27,6 @@ public class TipoUsuario {
 	 *  // tipo tem que ser 'A'(adm) ou 'O'(outros) ou 'F'(funcionarios)
 	 * 
 	 * */
-	
 	static public void cadastro(String Cpf, String Tipo){
 		Connection c = Conexao.getInstance();
 		

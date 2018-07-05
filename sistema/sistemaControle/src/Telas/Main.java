@@ -12,8 +12,11 @@ import back.Produto;
 import conexao.Conexao;
 
 /**
- * Classe main que comeca a aplicacao
- *
+ * Classe main que comeca a aplicacao.
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
  */
 public class Main {
 	
@@ -37,7 +40,7 @@ public class Main {
 	}
 	
 	/**
-	 * método main que comecara o programa
+	 *  Método main que começará o programa
 	 */
 	public static void main(String[] args) {
 			Conexao.getInstance("pc");

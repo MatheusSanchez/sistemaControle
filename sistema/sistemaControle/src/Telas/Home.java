@@ -55,8 +55,11 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 /**
- * Classe da janela pos login, onde existe a tela inicial com todas as funcionalidades
- *
+ * Classe da janela pos login, onde existe a tela inicial com todas as funcionalidades.
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
  */
 public class Home {
 
@@ -90,6 +93,11 @@ public class Home {
 	private JButton btnEstoque;	
 	private JButton btnUsuarios;
 	
+	/**
+	 * Construtor da classe que inicializa a tela, chamando a função initialize(c,j), sendo c e j parametros recebidos da função.
+	 * @param c - container, componente GUI da tela.
+	 * @param j - Jpanel, componente GUI da tela.
+	 */
 	public Home(Container c, JFrame j) {
 		
 		initialize(c,j);
@@ -97,6 +105,10 @@ public class Home {
 		this.frame.setResizable(false);
 	}
 	
+	/**
+	 * Método responsável por alocar as imagens na tela de login, recebendo como parâmetro o componente GUI que o conterá.
+	 * @param panel - JPanel , componente GUI da tela.
+	 */
 	public void img(JPanel panel) {
 		JLabel lblLogoIcmc = new JLabel("");
 		lblLogoIcmc.setBounds(816, 10, 131, 49);
@@ -143,6 +155,9 @@ public class Home {
 		btnAlteracao_P.setBackground(new Color(218, 232, 252));
 	}
 	
+	/**
+	 * Método para voltar as cores padrões dos botões que ficam dispostos em cima.
+	 */
 	private void resetaBotoesCima() {
 		btnProduto.setBackground(SystemColor.menu);
 		btnVendas.setBackground(SystemColor.menu);

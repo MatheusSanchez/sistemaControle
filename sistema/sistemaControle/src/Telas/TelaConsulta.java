@@ -22,31 +22,51 @@ import javax.swing.table.DefaultTableModel;
 
 import conexao.Conexao;
 
-/*
- * Janela que apresenta o resultado de uma consulta
- * 
+/**
+ * Janela que apresenta o resultado de uma consulta.
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando
  */
-
 @SuppressWarnings("serial")
 public class TelaConsulta extends JFrame {
 
 	public JTable table;
 	private Container container;
 
-	/* Construtor que faz uma consulta que seleciona todos os registros da tabela (tabela) */
+	/**
+	 *  Construtor que faz uma consulta que seleciona todos os registros da tabela (tabela).
+	 * @param container - Componente GUI (Container).
+	 * @param tabela - Tabela a ser tratada.
+	 * @param col - atributos da tabela.
+	 */
 	public TelaConsulta(Container container, String tabela) {
 		this.container = container;
 		telaConsulta(tabela, null, null, null);
 	}
 
-	/* Construtor que faz a consulta de titulo (consulta) com o comando SQL sqlConsulta e com nomes de coluna (nomeColunas) */
+	/**
+	 * Construtor que faz a consulta de titulo (consulta) com o comando SQL sqlConsulta e com nomes de coluna (nomeColunas) .
+	 * @param container - Componente GUI (Container).
+	 * @param tabela - Tabela a ser tratada.
+	 * @param consulta - Consulta de título.
+	 * @param sqlConsulta - Comando em sql.
+	 * @param nomeColunas - Nome de coluna.
+	 */
 	public TelaConsulta(Container container, String tabela, String consulta, String sqlConsulta, String[] nomeColunas) {
 		this.container = container;
 		telaConsulta(tabela, consulta, sqlConsulta, nomeColunas);
 	}
 
 	
-	// realiza e apresenta a consulta
+	/**
+	 * Método realiza e apresenta a consulta.
+	 * @param tabela - Tabela a ser tratada.
+	 * @param nomeConsulta - Nome da consulta.
+	 * @param sqlConsulta - Comando em sql.
+	 * @param nomeColunas - Nome de coluna.
+	 */
 	public void telaConsulta(String tabela, String nomeConsulta, String sqlConsulta, String[] nomeColunas) {
 		container.setLayout(null);
 
@@ -133,7 +153,12 @@ public class TelaConsulta extends JFrame {
 
 	}
 
-	/* Realiza a consulta de nome (nomeConsulta) com o comando SQL (sqlConsulta)*/
+	/**
+	 * Realiza a consulta de nome (nomeConsulta) com o comando SQL (sqlConsulta).
+	 * @param nomeConsulta - Nome de coluna.
+	 * @param sqlConsulta - Comando em sql.
+	 * @param nomeColunas - Nome de coluna.
+	 */
 	private void realizarConsulta(String nomeConsulta, String sqlConsulta, String[] nomeColunas) {
 		
 		JLabel lblTitle_1 = new JLabel("<html><h2>"+ nomeConsulta + "</h2></html>");

@@ -10,21 +10,31 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
+/**
+ *Classe com os métodos referentes ao Produto
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class Produto {
 	
-	/*cadastro simples de produto 
+	/**cadastro simples de produto 
 	 * 
 	 *  posições do array
 	 *  
-	 *  [0] nome
-	 *  [1] descricao
-	 *  [2] lucro esperado
+	 *  form[0] nome
+	 *  form[1] descricao
+	 *  form[2] lucro esperado
 	 *  
 	 * 	qntd_estoque sempre cadastrado com 0	
 	 * 
 	 * */
 	
-	
+	/**
+	 * Método estático que realiza o cadastro do produto
+	 * @param form - array, sendo as posiçoes referentes a um atributo de produto.
+	 */
 	static public void cadastro(String [] form){
 		Connection c = Conexao.getInstance();
 		
@@ -52,8 +62,11 @@ public class Produto {
 		
 	}	
 	
-	/*Retorna as informações do produto, consultando pelo nome*/
-	
+	/**
+	 * Método estático que pega as informações , com base no nome do produto. 
+	 * @param nomeProduto - Nome do Produto.
+	 * @return Retorna as informações do produto.
+	 */
 	static public String[]  getInfos(String nomeProduto){
 		
 		String[] result = new String[3];
@@ -91,6 +104,11 @@ public class Produto {
 		
 	}
 	
+	/**
+	 * Método estático responsável por pegar os nomes, com base no código do produto.
+	 * @param cod - código do produto.
+	 * @return Retorna o Nome.
+	 */
 	static public String getNames(String cod){
 		Connection c = Conexao.getInstance();
 		
@@ -123,6 +141,11 @@ public class Produto {
 			
 	}
 	
+	/**
+	 * Método estático responsável por pegar o códgi do produto, com base no nome do produto.
+	 * @param name - nome do produto.
+	 * @return Retorna o código do produto. 
+	 */
 	static public String getCod(String name){
 		Connection c = Conexao.getInstance();
 		
@@ -156,7 +179,11 @@ public class Produto {
 	}
 	
 	
-	/*Update de produto pelo nome, o array de string deve estar no mesmo formato do cadastro*/
+	/**
+	 * Método estático responsável por atualizar a tabela produto pelo nome. 
+	 * @param form - array, sendo as posiçoes referentes a um atributo de produto.
+	 * @param nomeAntigo -Nome antigo do produto.
+	 */	
 	static public void update(String [] form, String nomeAntigo){
 		Connection c = Conexao.getInstance();
 		
@@ -185,8 +212,10 @@ public class Produto {
 		
 	}
 	
-	/*deleta o produto do nome digitado*/
-	
+	/**
+	 * Método estático responsável por excluir, com base no nome do produto. 
+	 * @param nome - nome do produto.
+	 */
 	static public void delete(String nome){
 		Connection c = Conexao.getInstance();
 		
@@ -211,6 +240,10 @@ public class Produto {
 		
 	}
 	
+	/**
+	 *Método estático responsável por pegar os nomes. 
+	 * @return Retorna os nomes
+	 */
 	static public Vector getNames(){
 		Connection c = Conexao.getInstance();
 		
