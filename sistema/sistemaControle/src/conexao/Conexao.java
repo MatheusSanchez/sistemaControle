@@ -8,6 +8,13 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+/**
+ *Classe com os métodos referentes à Conexão
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class Conexao {
 	private static Connection conn;
 	
@@ -20,12 +27,22 @@ public class Conexao {
 	private Conexao() {
 	}
 	
+	/**
+	 * Método estático que verifica se há ou não a conexão como o banco de dados. 
+	 * @return
+	 */
 	public synchronized static Connection getInstance() {
 		if (conn == null) {
 			System.out.println("Conexão com o banco não estabelecida !");
 		}
 		return conn;
 	}
+	
+	/**
+	 * Método estático que realiza a conexão com o banco de dados, verificando ainda se ta sendo acessado nos lab do icmc ou não (pois o acesso é diferente).
+	 * @param conexao
+	 * @return
+	 */
 	public synchronized static Connection getInstance(String conexao) {
 		if (conn == null) {
 			
@@ -85,6 +102,9 @@ public class Conexao {
 		return conn;
 	}
 
+	/**
+	 * Método estático que acaba com essa conexão. 
+	 */
 	public synchronized static void fecharConnexao() {
 		try {
 			conn.close();

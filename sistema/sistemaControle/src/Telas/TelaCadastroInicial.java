@@ -22,6 +22,13 @@ import javax.swing.border.EmptyBorder;
 import back.Usuario;
 import javax.swing.SwingConstants;
 
+/**
+ * Classe da janela de cadastro inicial 
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class TelaCadastroInicial extends JFrame {
 	
 	JFrame frame;
@@ -34,13 +41,18 @@ public class TelaCadastroInicial extends JFrame {
 	private JPasswordField passwordFieldConfirmacao;
 	
 	/**
-	 * Create the frame.
+	 * Construtor da classe que inicializa a tela, chamando a função initialize().
 	 */
 	public TelaCadastroInicial() {
 		initialize();
 		this.frame.setResizable(false);
 	}
 	
+	/**
+	 * Método responsável por alocar as imagens na tela de login, recebendo como parâmetro os componentes GUI que conterão os logos.
+	 * @param panel - JPanel que conterá o logo do ICMC.
+	 * @param c - Container que conterá o logo da Memp's Solutions.
+	 */
 	public void img(JPanel panel, Container c) {
 		//Logo Icmc
 		JLabel lblLogoIcmc = 	new JLabel("");
@@ -63,7 +75,7 @@ public class TelaCadastroInicial extends JFrame {
 
 
 	/**
-	 * Metodo que inicializa a janela de login
+	 * Metodo que inicializa a janela de Cadastro, sem o usuário estar logado no sistema.
 	 */
 	private void initialize() {
 		frame = new JFrame();

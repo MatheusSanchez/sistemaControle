@@ -9,17 +9,29 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
+/**
+ * Classe com os métodos referentes ao Estoque
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class Estoque {
 	
-	/*
+	/**		Posições do array
+	 * 
 	 * form[0] ->cod_produto
 	 * form[1] ->preco_compra
 	 * form[2] ->preco_venda
-	 * form[3] ->quantidade_preposicao
+	 * form[3] ->quantidade_reposicao
 	 * form[4] ->data reposicao         dd/mm/yyy
 
-	 * */
+	 */
 	
+	/**
+	 * Método estático responsável pelo cadastro.
+	 * @param form - array, sendo as posiçoes referentes a um atributo de estoque.
+	 */
 	static public void cadastro(String [] form){
 		Connection c = Conexao.getInstance();
 		
@@ -50,6 +62,12 @@ public class Estoque {
 		}
 		
 	}
+	
+	/**
+	 * Método estático responsável por pegar o codigo do produto.
+	 * @param numPed -  numero do pedido.
+	 * @return retorna o código do produto
+	 */
 	static public String getCodProduto (String numPed){
 		
 		String result = null;
@@ -84,7 +102,11 @@ public class Estoque {
 		
 	}
 	
-	
+	/**
+	 * Método estático responsável por atualizar o produto, só com o número do pedido.
+	 * @param n_pedido - Número do produto.
+	 */
+
 	static public void updateProduto(String n_pedido){  // atualiza a quantidade disponivel na tabela de produto
 		Connection c = Conexao.getInstance();
 		
@@ -113,6 +135,11 @@ public class Estoque {
 		
 	}
 	
+	/**
+	 * Método estático responsável por atualizar o produto, com base no número do pedido e do cod_produto
+	 * @param n_pedido - Número do pedido.
+	 * @param cod_produto - Código do produto.
+	 */
 	static public void updateProduto(String n_pedido,String cod_produto){  // atualiza a quantidade disponivel na tabela de produto
 		Connection c = Conexao.getInstance();
 		
@@ -141,6 +168,11 @@ public class Estoque {
 		
 	}
 	
+	/**
+	 * Método estático responsável por Atualizar Estoque
+	 * @param form - array, sendo as posiçoes referentes a um atributo de estoque.
+	 * @param numPed - Número do pedido.
+	 */
 	static public void update(String n_pedido,String qntdRetirada){  // atualiza a quantidade disponivel na tabela de produto
 		Connection c = Conexao.getInstance();
 		
@@ -167,15 +199,11 @@ public class Estoque {
 		
 	}
 	
-	/*
-	 * form[0] ->nome_produto
-	 * form[1] ->preco_compra
-	 * form[2] ->preco_venda
-	 * form[3] ->quantidade_preposicao
-	 * form[4] ->data reposicao         dd/mm/yyy
-
-	 * */
-	
+	/**
+	 * Método estático responsável por Atualizar Estoque
+	 * @param form - array, sendo as posiçoes referentes a um atributo de estoque.
+	 * @param numPed - Número do pedido.
+	 */
 	static public String[]  getInfos(String numPed){
 		
 		String[] result = new String[5];
@@ -276,6 +304,10 @@ public class Estoque {
 		
 	}
 	
+	/**
+	 * Método estático que pega o número de pedidos.
+	 * @return retorna o número de pedidos.
+	 */
 	static public Vector getNpedidos(){
 		Connection c = Conexao.getInstance();
 		
@@ -308,6 +340,11 @@ public class Estoque {
 			
 	}
 	
+	/**
+	 * Método estático que pega o número de pedidos, com base no código do produto.
+	 * @param cod_produto - Código do produto.
+	 * @return retorna o número de pedidos
+	 */
 	static public Vector getNpedidos(String cod_produto){
 		Connection c = Conexao.getInstance();
 		
@@ -340,6 +377,12 @@ public class Estoque {
 			
 	}
 	
+	/**
+	 * Método estático que pega o a quantidade disponível no estoque, com base no número
+	 * @param nPedido - número do pedido.
+	 * @return retorna a quantidade disponivel no estoque.
+	 */
+
 	static public String getMax(String nPedido){
 		Connection c = Conexao.getInstance();
 		
@@ -376,6 +419,10 @@ public class Estoque {
 			
 	}
 	
+	/**
+	 * Método estático responsável por excluir do estoque, com base no número do pedido.
+	 * @param numPed - número do pedido.
+	 */
 	static public void delete(String numPed){
 		Connection c = Conexao.getInstance();
 		

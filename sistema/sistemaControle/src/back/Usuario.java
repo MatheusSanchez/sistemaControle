@@ -9,21 +9,14 @@ import javax.swing.JOptionPane;
 import conexao.Conexao;
 
 public class Usuario {
-	
-	
-	/*cadastro simples de usuario 
-	 * 
-	 *  posições do array
-	 *  
-	 *  [0] cpf // 111.111.111-11 // unico
-	 *  [1] rg	// 11.111.111-1
-	 *  [2] nome (max 30 caracteres)
-	 *  [3] email (max 45 caracteres)
-	 *  [4] senha	(max 20 caracteres)
-	 * 
-	 * */
-	
 
+		/**
+	 *Classe com os métodos referentes ao Usuário
+	 *@author Eduardo Baratela
+	 *@author Mateus Virginio
+	 *@author Matheus Sanchez
+	 *@author Pedro Brando 
+	 */
 	static public void cadastro(String [] form){
 		
 		Connection c = Conexao.getInstance();
@@ -58,6 +51,11 @@ public class Usuario {
 	 *  [4] senha	(max 20 caracteres)
 	 * */
 	
+	/**
+	 * Método estático responsável por pegar o Tipo de Usuário, com base no CPF
+	 * @param CPF - String do CPF
+	 * @return Retorna o tipo de Usuário,
+	 */
 	static public String  getTipo(String CPF){
 		
 		Connection c = Conexao.getInstance();	
@@ -93,7 +91,12 @@ public class Usuario {
 		
 		
 	}
-	
+
+	/**
+	 * Método estático responsável por pegar as informaçoes do usuário, com base no nome de usuário.
+	 * @param nomeUsuario - Nome do usuário.
+	 * @return Retorna as informações do usuário.
+	 */
 static public String[]  getInfos(String nomeUsuario){
 		
 		String[] result = new String[5];
@@ -129,6 +132,10 @@ static public String[]  getInfos(String nomeUsuario){
 		
 	}
 	
+	/**
+	 * Método estático responsável por pegar os nomes
+	 * @return Retorna os nomes, que estão na tabela de usuário
+	 */
 	static public Vector getNames(){
 		Connection c = Conexao.getInstance();
 		
@@ -161,12 +168,11 @@ static public String[]  getInfos(String nomeUsuario){
 			
 	}
 	
-	/*cadastro simples de usuario ja com tipo incluso, insere na tabela de tipos tambem 
-	 * 
-	 *  posições do array são as mesmas do cadastro de usuario
-	 *   
-	 * */
-	
+	/**
+	 * Método estático que realiza o cadastro de usuario, com base no tipo de usuário, além de inserir na tabela de tipos. 
+	 * @param form - array, sendo as posiçoes referentes a um atributo de usuários.
+	 * @param Tipo - Tipo de usuário.
+	 */
 	static public void cadastro(String [] form, String Tipo){
 
 		try {
@@ -181,17 +187,12 @@ static public String[]  getInfos(String nomeUsuario){
 	}
 	
 
-/**
- 	Login Retorna true ou false
-	  
-	 posições do array
-	   
-	 [0] Email
-	 [1] Senha
-	
- * @param form
- * @return
- */
+	/**
+	 * Método estático responsável pelo login
+	 * @param user - Campo do login, pode ser CPF ou Email.
+	 * @param pass - Campo do login, destinado a senha.
+	 * @return Retorna true (se o login estiver correto) ou false (se o login estiver incorreto).
+	 */
 	static public boolean login(String user, String pass){
 
 		try {	
@@ -210,15 +211,10 @@ static public String[]  getInfos(String nomeUsuario){
 	}
 	
 	/**
-	 * Retorna a senha do usuario "user"
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param user
-	 * @return
+	 * Método estático responsável por pegar a senha, com base no campo USER do login.
+	 * @param user - Campo do login, pode ser CPF ou Email.
+	 * @return Retorna a senha do usuario.
 	 */
-	
 	static public String getSenha(String user){
 		Connection c = Conexao.getInstance();
 		String s = null;
@@ -255,6 +251,11 @@ static public String[]  getInfos(String nomeUsuario){
 		
 	}
 	
+	/**
+	 * Método estático responsável por atualizar os Usuários.
+	 * @param form - array, sendo as posiçoes referentes a um atributo de usuários.
+	 * @param nomeAntigo - Nome antigo de usuário.
+	 */
 	static public void update(String [] form, String nomeAntigo){
 		Connection c = Conexao.getInstance();
 		
@@ -283,6 +284,10 @@ static public String[]  getInfos(String nomeUsuario){
 		
 	}
 	
+	/**
+	 * Método estático responsável por excluir um usuário, com base no nome do usuário.
+	 * @param nome - Nome do usuário.
+	 */
 	static public void delete(String nome){
 		Connection c = Conexao.getInstance();
 		

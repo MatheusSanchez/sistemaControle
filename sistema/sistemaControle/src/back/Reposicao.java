@@ -7,7 +7,29 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
+/**
+ *Classe com os métodos referentes à Reposição
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class Reposicao {
+	
+	/**		Posições do array
+	 * 
+	 * form[0] ->cod_produto
+	 * form[1] ->preco_compra
+	 * form[2] ->preco_venda
+	 * form[3] ->quantidade_reposicao
+	 * form[4] ->data reposicao         dd/mm/yyy
+	 * form[5] ->quantidade_disponível
+	 */
+	
+	/**
+	 * Método estático responsável pelo cadastro na reposição.
+	 * @param form - array, sendo as posiçoes referentes a reposição
+	 */
 	static public void cadastro(String [] form){
 		Connection c = Conexao.getInstance();
 		

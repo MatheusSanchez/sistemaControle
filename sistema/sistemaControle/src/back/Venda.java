@@ -7,9 +7,16 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
+/**
+ *Classe com os métodos referentes à Venda
+ *@author Eduardo Baratela
+ *@author Mateus Virginio
+ *@author Matheus Sanchez
+ *@author Pedro Brando 
+ */
 public class Venda {
 	
-	/*
+	/**
 	 *  posições do array
 	 *  
 	 *  [0] cpf_vendedor
@@ -21,12 +28,11 @@ public class Venda {
 	 *  [6] t_pagamento	
 	 *   
 	 * 
-	 * */
-	
-	/*
+	 * 
+	 *
 	 *  FORM2
 	 *  
-	*	[0] COD_PRODUTO
+	 *	[0] COD_PRODUTO
 	 *  [1] QNTD_PRODUTO
 	 *  [2] PRECO_REPOSICAO
 	 *  [3] PRECO_VENDA
@@ -35,7 +41,12 @@ public class Venda {
 	 * 
 	 * */
 	
-	
+	/**
+	 * Método estático responsável pelo cadastro
+	 * @param form - array, sendo as posiçoes referentes a reposição
+	 * @param form2 - array, sendo as posiçoes referentes a tabela de itens venda
+	 * @param n_pedido - numero do pedido
+	 */
 	static public void cadastro(String [] form,String [] form2, String n_pedido){
 		Connection c = Conexao.getInstance();
 		
