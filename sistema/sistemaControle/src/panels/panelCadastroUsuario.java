@@ -121,7 +121,8 @@ public class panelCadastroUsuario {
 					form_U[3] = textFieldEmailUsuario.getText();
 					form_U[4] = textFieldSenhaUsuario.getText();
 					form_U[5] = textFieldConfirmacaoUsuario.getText();
-					form_U[6] = boxTipoFuncionario.getToolTipText();
+					form_U[6] = (String)boxTipoFuncionario.getSelectedItem();
+					
 					if(form_U[6].equals("Administrador")) {
 						aux = "A";
 					}
@@ -133,7 +134,7 @@ public class panelCadastroUsuario {
 					}
 					System.out.println(form_U[0] + " " + form_U[1] + " " + form_U[2] + " " + form_U[3] + " " + form_U[4] + " " + form_U[5] + " " + form_U[6] + " " + aux);
 					if(form_U[4].equals(form_U[5])){
-						Usuario.cadastro(form_U, form_U[6]);
+						Usuario.cadastro(form_U,aux);
 					}
 			}
 		});
