@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,8 +29,10 @@ public class panelCadastroVenda {
 	public JLabel lblPrecoDeVenda;
 	public JLabel lblCodigoDeVenda;
 	public JLabel lblLucro;
+	public JLabel lblFormaDePagamento;
 	public JComboBox<Integer> comboBoxQtdVenda;
 	public JComboBox comboBoxNomeProduto;
+	public JComboBox comboBoxFormaPagamento;
 	private JLabel lblNroPedido;
 	private JComboBox comboBoxNroPedido;
 	private int max = 0;
@@ -67,7 +70,7 @@ public class panelCadastroVenda {
 		cadastroVenda.add(textPrecoOriginal);
 		textPrecoOriginal.setColumns(10);
 		
-		textDescontoDado = new JTextField("0");
+		textDescontoDado = new JTextField("0,00");
 		textDescontoDado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				qtd = (int)comboBoxQtdVenda.getSelectedItem();
@@ -114,6 +117,21 @@ public class panelCadastroVenda {
 		JButton btnNewButton = new JButton("Adicionar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String [] form1 = new String[7];
+				form1[0] = "111.111.111-11";
+				form1[1] = textData_V.getText();
+				form1[2] = textDescontoDado.getText();
+				form1[3] = textPrecoOriginal.getText();
+				form1[4] = textPrecoVenda.getText();
+				form1[5] = textLucro.getText();
+				form1[6] = (String)comboBoxFormaPagamento.getSelectedItem();
+				
+				String [] form2 = new String[5];
+				//form2[0] = 
+				//form2[1]
+				//form2[2]
+				//form2[3]
+				//form2[4]
 			}
 		});
 		btnNewButton.setBounds(75, 192, 142, 43);
@@ -181,6 +199,15 @@ public class panelCadastroVenda {
 		lblNroPedido = new JLabel("N\u00BA Pedido");
 		lblNroPedido.setBounds(378, 52, 86, 13);
 		cadastroVenda.add(lblNroPedido);
+		
+		comboBoxFormaPagamento = new JComboBox();
+		comboBoxFormaPagamento.setModel(new DefaultComboBoxModel(new String[] {"D", "C"}));
+		comboBoxFormaPagamento.setBounds(378, 245, 207, 21);
+		cadastroVenda.add(comboBoxFormaPagamento);
+		
+		lblFormaDePagamento = new JLabel("Forma de pagamento:");
+		lblFormaDePagamento.setBounds(378, 230, 207, 13);
+		cadastroVenda.add(lblFormaDePagamento);
 		
 		cadastroVenda.setVisible(true);
 	}
