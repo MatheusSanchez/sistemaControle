@@ -141,6 +141,32 @@ public class Estoque {
 		
 	}
 	
+	static public void update(String n_pedido,String qntdRetirada){  // atualiza a quantidade disponivel na tabela de produto
+		Connection c = Conexao.getInstance();
+		
+
+		
+		String sql = "UPDATE REPOSICAO SET QNTD_DISPONIVEL = QNTD_DISPONIVEL - "+qntdRetirada+" WHERE N_PEDIDO = "+n_pedido+ "";
+		
+		try {
+			PreparedStatement pstm = c.prepareStatement(sql);
+			System.out.println("preparando");
+					
+			
+			System.out.println("Executanto a query " + sql);
+			pstm.execute();
+			System.out.println("Fim a query ");
+			updateProduto(n_pedido); 
+			pstm.close();
+			
+			JOptionPane.showMessageDialog(null, "aTUALIZACAO DE ESTOQUE (SANCHEZ)");
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "EROU SANCHITOS "+ e);
+		}
+		
+	}
+	
 	/*
 	 * form[0] ->nome_produto
 	 * form[1] ->preco_compra

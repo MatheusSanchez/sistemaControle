@@ -9,8 +9,7 @@ import conexao.Conexao;
 
 public class Venda {
 	
-	/*cadastro simples de produto 
-	 * 
+	/*
 	 *  posições do array
 	 *  
 	 *  [0] cpf_vendedor
@@ -20,12 +19,24 @@ public class Venda {
 	 *  [4] Preco_venda
 	 *  [5] Lucro_t
 	 *  [6] t_pagamento	
-	 *  
-	 * 	qntd_estoque sempre cadastrado com 0	
+	 *   
 	 * 
 	 * */
 	
-	static public void cadastro(String [] form){
+	/*
+	 *  FORM2
+	 *  
+	*	[0] COD_PRODUTO
+	 *  [1] QNTD_PRODUTO
+	 *  [2] PRECO_REPOSICAO
+	 *  [3] PRECO_VENDA
+	 *  [4] LUCRO
+	 *   
+	 * 
+	 * */
+	
+	
+	static public void cadastro(String [] form,String [] form2, String n_pedido){
 		Connection c = Conexao.getInstance();
 		
 		String sql = "INSERT INTO VENDA (CPF_USUARIO,DATA_VENDA,DESCONTO,CUSTO_TOTAL,PRECO_VENDA,LUCRO,T_PAGAMENTO) VALUES (?,to_date(?,'dd/mm/yyyy'),?,?,?,?,?)";
@@ -42,6 +53,9 @@ public class Venda {
 			System.out.println("Executanto a query " + sql);
 			pstm.execute();
 			System.out.println("Fim a query ");
+			
+			ItensVenda.cadastro(form2);
+			Estoque.update(n_pedido, form2[1]);
 			pstm.close();
 
 			JOptionPane.showMessageDialog(null, "Venda Inserida com sucesso");
