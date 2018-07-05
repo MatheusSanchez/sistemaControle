@@ -3,6 +3,7 @@ package panels;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -25,10 +26,8 @@ public class panelAlteracaoEstoque {
 	JLabel lblNovaDataDe;
 	JTextField textFieldDataReposicao_A;
 	JButton btnAlterarEstoque;
+	DecimalFormat df = new DecimalFormat("0.00");
 
-	
-	
-	
 	
 	public void exibeBotoes() {
 		
@@ -196,9 +195,10 @@ public void someBotoes() {
 			public void actionPerformed(ActionEvent arg0) {
 				String[] troca = new String[4];
 				String numPed = (String)comboBoxAlteracaoEstoque.getSelectedItem();
-				
-				troca[0] = textFieldPrecoCompra_A.getText();
-				troca[1] = textFieldPrecoVenda_A.getText();
+				float precoCompra = Float.parseFloat(textFieldPrecoCompra_A.getText());
+				float precoVenda = Float.parseFloat(textFieldPrecoVenda_A.getText());
+				troca[0] = df.format(precoCompra);
+				troca[1] = df.format(precoVenda);
 				troca[2] = textFieldQtdReposicao_A.getText();
 				troca[3] = textFieldDataReposicao_A.getText();
 				
