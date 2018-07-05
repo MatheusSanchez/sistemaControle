@@ -3,6 +3,7 @@ package panels;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,11 +28,21 @@ public class panelCadastroVenda {
 	public JLabel lblPrecoDeVenda;
 	public JLabel lblCodigoDeVenda;
 	public JLabel lblLucro;
-	public JComboBox comboBoxQtdVenda;
+	public JComboBox<Integer> comboBoxQtdVenda;
 	public JComboBox comboBoxNomeProduto;
 	private JLabel lblNroPedido;
 	private JComboBox comboBoxNroPedido;
 	private int max = 0;
+	private String numPed;
+	private float precoCompra_Uni;
+	private float precoCompra_Total;
+	private float precoVenda_Uni;
+	private float precoVenda_Total;
+	private int qtd;
+	private float lucro;
+	private float desconto = 0;
+	private String[] form = new String[5];
+	DecimalFormat df = new DecimalFormat("0.00");
 	
 	public panelCadastroVenda(JFrame frame,JPanel cadastroVenda){
 		//-----Panel de cadastro de venda-----
@@ -56,7 +67,16 @@ public class panelCadastroVenda {
 		cadastroVenda.add(textPrecoOriginal);
 		textPrecoOriginal.setColumns(10);
 		
-		textDescontoDado = new JTextField();
+		textDescontoDado = new JTextField("0");
+		textDescontoDado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				qtd = (int)comboBoxQtdVenda.getSelectedItem();
+				
+				desconto = Float.parseFloat(textDescontoDado.getText());
+				lucro = precoVenda_Total - precoCompra_Total - desconto;
+				textLucro.setText(Float.toString(lucro));
+			}
+		});
 		textDescontoDado.setBounds(49, 153, 207, 19);
 		cadastroVenda.add(textDescontoDado);
 		textDescontoDado.setColumns(10);
@@ -75,7 +95,7 @@ public class panelCadastroVenda {
 		lblData.setBounds(378, 186, 163, 13);
 		cadastroVenda.add(lblData);
 		
-		JLabel lblPrecoOriginal = new JLabel("Pre\u00E7o original:");
+		JLabel lblPrecoOriginal = new JLabel("Pre\u00E7o de compra:");
 		lblPrecoOriginal.setBounds(49, 96, 207, 13);
 		cadastroVenda.add(lblPrecoOriginal);
 		
@@ -105,9 +125,18 @@ public class panelCadastroVenda {
 		
 		comboBoxQtdVenda = new JComboBox();
 		comboBoxQtdVenda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
+			public void actionPerformed(ActionEvent e) {
+				qtd = (int)comboBoxQtdVenda.getSelectedItem();
+				
+				precoCompra_Total = precoCompra_Uni * qtd;
+				precoVenda_Total = precoVenda_Uni * qtd;
+				desconto = Float.parseFloat(textDescontoDado.getText());
+				lucro = precoVenda_Total - precoCompra_Total - desconto;
+				textPrecoOriginal.setText(Float.toString(precoCompra_Total));
+				textPrecoVenda.setText(Float.toString(precoVenda_Total));
+				textLucro.setText(Float.toString(lucro));
 			}
-	});
+		});
 		comboBoxQtdVenda.setBounds(501, 68, 84, 20);
 		cadastroVenda.add(comboBoxQtdVenda);
 		
@@ -123,11 +152,19 @@ public class panelCadastroVenda {
 				 cadastroVenda.remove(comboBoxNroPedido);
 				 comboBoxNroPedido = new JComboBox(Estoque.getNpedidos(Produto.getCod((String)comboBoxNomeProduto.getSelectedItem())));
 				 comboBoxNroPedido.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {			
-							 max = Integer.parseInt(Estoque.getMax((String)comboBoxNroPedido.getSelectedItem()));
-							 for(int i = 1; i <= max; i++) {
+
+						public void actionPerformed(ActionEvent e) {
+							numPed = (String)comboBoxNroPedido.getSelectedItem();
+							max = Integer.parseInt(Estoque.getMax(numPed));
+							for(int i = 1; i <= max; i++) {
 								comboBoxQtdVenda.addItem(i);
-							 }
+							}
+							form = Estoque.getInfos(numPed);
+							System.out.println(form[0] + " " + form[1] + " " + form[2] + " " + form[3] + " " + form[4]);
+							
+							precoCompra_Uni = Float.parseFloat(form[1]);
+							precoVenda_Uni = Float.parseFloat(form[2]);
+							textData_V.setText(form[4]);
 						}
 				});
 				comboBoxNroPedido.setBounds(378, 68, 71, 20);
