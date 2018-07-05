@@ -66,6 +66,7 @@ public class TelaCadastroInicial extends JFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Tahoma", Font.BOLD, 11));
 		frame.getContentPane().setBackground(new Color(145,170,157));
 		container = frame.getContentPane();
 
@@ -108,35 +109,41 @@ public class TelaCadastroInicial extends JFrame {
 		lblTitulo.setBounds(136, 10, 156, 26);
 		panel_2.add(lblTitulo);		
 		
-		JLabel lblNome = new JLabel("Nome :");
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNome.setBounds(62, 68, 45, 13);
+		lblNome.setBounds(68, 69, 45, 13);
 		panel_2.add(lblNome);
 		
-		JLabel lblRG = new JLabel("RG :");
+		JLabel lblRG = new JLabel("RG:");
+		lblRG.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblRG.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblRG.setBounds(62, 120, 45, 13);
+		lblRG.setBounds(68, 121, 45, 13);
 		panel_2.add(lblRG);
 		
-		JLabel lblCpf = new JLabel("CPF :");
+		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCpf.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCpf.setBounds(62, 165, 45, 13);
+		lblCpf.setBounds(68, 166, 45, 13);
 		panel_2.add(lblCpf);
 		
-		JLabel lblEmail = new JLabel("Email :");
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblEmail.setBounds(62, 213, 45, 13);
+		lblEmail.setBounds(68, 214, 45, 13);
 		panel_2.add(lblEmail);
 		
-		JLabel lblSenha = new JLabel("Senha :");
+		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblSenha.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSenha.setBounds(62, 263, 45, 13);
+		lblSenha.setBounds(68, 264, 45, 13);
 		panel_2.add(lblSenha);
 		
-		JLabel lblConfirmeASenha = new JLabel("Confirme\r\n a senha :");
+		JLabel lblConfirmeASenha = new JLabel("Confirme\r\n a senha:");
+		lblConfirmeASenha.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblConfirmeASenha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblConfirmeASenha.setVerticalAlignment(SwingConstants.TOP);
-		lblConfirmeASenha.setBounds(10, 316, 97, 34);
+		lblConfirmeASenha.setBounds(0, 316, 113, 34);
 		panel_2.add(lblConfirmeASenha);
 		
 		textFieldNome = new JTextField();
@@ -164,6 +171,7 @@ public class TelaCadastroInicial extends JFrame {
 		panel_2.add(passwordFieldSenha);
 		
 		passwordFieldConfirmacao = new JPasswordField();
+		passwordFieldConfirmacao.setBackground(UIManager.getColor("Button.background"));
 		passwordFieldConfirmacao.setBounds(123, 313, 196, 19);
 		panel_2.add(passwordFieldConfirmacao);
 		
@@ -195,9 +203,9 @@ public class TelaCadastroInicial extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		button.setBackground(new Color(62, 96, 111));
+		button.setBackground(UIManager.getColor("Button.background"));
 		button.setBorderPainted(false);
-		button.setBounds(10, 15, 85, 21);
+		button.setBounds(10, 15, 90, 21);
 		panel_2.add(button);
 	}
 }	
