@@ -80,9 +80,6 @@ public class panelAlteracaoUsuario {
 		alteracaoUsuario.add(textConfirmacao_A);
 		textConfirmacao_A.setColumns(10);
 		
-		JComboBox comboBoxTipoUsuario_A = new JComboBox();
-		comboBoxTipoUsuario_A.setBounds(269, 234, 209, 19);
-		alteracaoUsuario.add(comboBoxTipoUsuario_A);
 		
 		JLabel lblNome_A = new JLabel("Nome:");
 		lblNome_A.setBounds(269, 54, 209, 13);
@@ -100,9 +97,6 @@ public class panelAlteracaoUsuario {
 		lblConfirmeASenha_A.setBounds(269, 181, 209, 13);
 		alteracaoUsuario.add(lblConfirmeASenha_A);
 		
-		JLabel lblTipo_A = new JLabel("Tipo:");
-		lblTipo_A.setBounds(269, 219, 45, 13);
-		alteracaoUsuario.add(lblTipo_A);
 		
 		JButton btnConsultaAlteracao_U = new JButton("Consulta");
 		btnConsultaAlteracao_U.addActionListener(new ActionListener() {

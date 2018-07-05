@@ -238,17 +238,18 @@ public class Home {
 		consultaVenda.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaVenda);
 		
+		
 		JTable tableVenda = new JTable();
 		tableVenda.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"Data", "CPF", "C\u00F3digo Venda", "C\u00F3digo Prod.", "Pre\u00E7o", "Pre\u00E7o Venda", "Lucro"
+				"COD_VENDA", "CPF_USUARIO", "DATA_VENDA", "DESCONTO", "CUSTO_TOTAL", "PRECO_VENDA", "LUCRO","T_PAGAMENTO"
 			}
 		));
 		consultaVenda.setViewportView(tableVenda);
@@ -458,6 +459,24 @@ public class Home {
 					consultaVenda.revalidate();
 					consultaVenda.repaint();
 					new panelConsultaVenda(frame,consultaVenda);*/
+					
+					
+					String[] col = new String[8];
+					col[0] = "COD_VENDA";
+					col[1] = "CPF_USUARIO";
+					col[2] = "DATA_VENDA";
+					col[3] = "DESCONTO";
+					col[4] = "CUSTO_TOTAL";
+					col[5] = "PRECO_VENDA";
+					col[6] = "LUCRO";
+					col[7] = "T_PAGAMENTO";
+					String sql = "SELECT*FROM VENDA";
+					TelaConsulta t = new TelaConsulta(consultaProduto,"VENDA","MAOE","SELECT*FROM VENDA",col);
+					consultaVenda.setVisible(true);
+					
+					consultaVenda.setViewportView(t.table);
+					
+					consultaVenda.setVisible(true);
 					
 					consultaVenda.setVisible(true);
 				}
