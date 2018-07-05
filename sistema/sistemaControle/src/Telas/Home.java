@@ -200,16 +200,34 @@ public class Home {
 		//De Produtos:
 			
 		//Panel de Consulta de Produto
+		
+		
+		
 		consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
-		consultaProduto.setBounds(282, 129, 638, 281);
+		consultaProduto.setBounds(282, 149, 637, 227);
 		frame.getContentPane().add(consultaProduto);
-			
 		
-		JLabel lblTitulo_ConsultaProduto = new JLabel("CONSULTA - PRODUTO");
-		lblTitulo_ConsultaProduto.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblTitulo_ConsultaProduto.setBounds(209, 10, 257, 45);
-		consultaProduto.add(lblTitulo_ConsultaProduto);
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"COD_PRODUTO", "NOME", "DESCRICAO", "LUCRO ESPERADO", "Quantidade DISPONIVEL"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(1).setPreferredWidth(51);
+		table.getColumnModel().getColumn(2).setPreferredWidth(77);
+		table.getColumnModel().getColumn(3).setPreferredWidth(77);
+		table.getColumnModel().getColumn(4).setPreferredWidth(95);
+		consultaProduto.setViewportView(table);
 		
 		
 		//De Venda			
@@ -419,6 +437,8 @@ public class Home {
 					consultaProduto.repaint();
 					new panelConsultaProduto(frame,consultaProduto);*/
 					
+					
+					
 					String[] col = new String[5];
 					col[0] = "COD_PRODUTO";
 					col[1] = "NOME";
@@ -426,10 +446,12 @@ public class Home {
 					col[3] = "LUCRO_ESPERADO";
 					col[4] = "QNTD_ESTOQUE";
 					String sql = "SELECT*FROM PRODUTO";
-					TelaConsulta t = new TelaConsulta(consultaProduto,"Produto","","SELECT*FROM PRODUTO",col);
+					TelaConsulta t = new TelaConsulta(consultaProduto,"PRODUTO","MAOE","SELECT*FROM PRODUTO",col);
 					consultaProduto.setVisible(true);
 					
-					consultaProduto.setViewportView(t.table);							
+					consultaProduto.setViewportView(t.table);
+					
+					consultaProduto.setVisible(true);
 				}
 				else if(tipo == 2) {
 					/*consultaVenda.removeAll();
@@ -444,6 +466,21 @@ public class Home {
 					consultaEstoque.revalidate();
 					consultaEstoque.repaint();
 					new panelConsultaEstoque(frame,consultaEstoque);*/
+					
+
+					String[] col = new String[7];
+					col[0] = "N_PEDIDO";
+					col[1] = "COD_PRODUTO";
+					col[2] = "P_COMPRA";
+					col[3] = "P_VENDA";
+					col[4] = "QNTD_REPOSICAO";
+					col[5] = "DATA_REPOSICAO";
+					col[6] = "QNTD_DISPONIVEL";
+					String sql = "SELECT*FROM REPOSICAO";
+					TelaConsulta t = new TelaConsulta(consultaEstoque,"REPOSICAO","MAOE","SELECT*FROM REPOSICAO",col);
+					consultaEstoque.setVisible(true);
+					
+					consultaEstoque.setViewportView(t.table);
 					
 					consultaEstoque.setVisible(true);
 				}

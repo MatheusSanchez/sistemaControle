@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import conexao.Conexao;
 
@@ -33,9 +34,9 @@ public class TelaConsulta extends JFrame {
 	private Container container;
 
 	/* Construtor que faz uma consulta que seleciona todos os registros da tabela (tabela) */
-	public TelaConsulta(Container container, String tabela, String[] col) {
+	public TelaConsulta(Container container, String tabela) {
 		this.container = container;
-		telaConsulta(tabela, null, null, col);
+		telaConsulta(tabela, null, null, null);
 	}
 
 	/* Construtor que faz a consulta de titulo (consulta) com o comando SQL sqlConsulta e com nomes de coluna (nomeColunas) */
@@ -67,15 +68,12 @@ public class TelaConsulta extends JFrame {
 				return tip;
 			}
 		};
-		table.setBounds(0,100, 637, 227);
-	
-		
-		container.add(table);
+		table.setBounds(10, 78, 732, 316);
 
-		
+		container.add(table);
 		final JScrollPane scrollPane = new JScrollPane(table);
 		container.add(scrollPane);
-		scrollPane.setBounds(0, 0, 637, 227);
+		scrollPane.setBounds(10, 78, 732, 316);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 		
@@ -132,42 +130,49 @@ public class TelaConsulta extends JFrame {
 			e.printStackTrace();
 		}
 
-		JButton button = new JButton("<");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Main.novaTela(container);
-				//TelaInicio.consultaBanco();
-			}
-		});
-		button.setBounds(12, 12, 44, 25);
-		container.add(button);
+
 	}
 
 	/* Realiza a consulta de nome (nomeConsulta) com o comando SQL (sqlConsulta)*/
 	private void realizarConsulta(String nomeConsulta, String sqlConsulta, String[] nomeColunas) {
 		
-
+		JLabel lblTitle_1 = new JLabel("<html><h2>"+ nomeConsulta + "</h2></html>");
+		lblTitle_1.setBounds(10, 25, 732, 42);
+		container.add(lblTitle_1);
 		String s = "";
 
 		Connection c = Conexao.getInstance();
-		
+
 
 		try {
 			PreparedStatement pstm = c.prepareStatement(sqlConsulta); // realiza a consulta
 			ResultSet rs = pstm.executeQuery();
 
 			List<String> resultado = new ArrayList<String>();
+			/*for (int i = 0; i < nomeColunas.length; i++) {
+				s += nomeColunas[i] + "\n";
+			}
+			resultado.add(s);
+			s = "";*/
 			while (rs.next()) {
 
 				for (String string : nomeColunas) {
 					s += rs.getString(string) + "\n";
-					System.out.println("ENTREI AQUI");
-
+					System.out.println(string);
 				}
 				resultado.add(s);
 				s = "";
 			}
-
+			/*table.setModel(new DefaultTableModel(
+					new Object[][] {
+						{"Eae", null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+						{null, null, null, null, null, null, null},
+					},
+					nomeColunas
+				));*/
 			TableModel model = new TableModel(nomeColunas, resultado);
 			table.setModel(model); // apresenta o resultado
 
