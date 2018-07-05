@@ -105,7 +105,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 			
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
+			/*JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto (update quantidade)");
@@ -159,10 +159,10 @@ public class Estoque {
 			updateProduto(n_pedido); 
 			pstm.close();
 			
-			JOptionPane.showMessageDialog(null, "aTUALIZACAO DE ESTOQUE (SANCHEZ)");
+			
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "EROU SANCHITOS "+ e);
+			JOptionPane.showMessageDialog(null, "Erro no Banco "+ e);
 		}
 		
 	}
@@ -203,7 +203,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Get Infos suce Estoque");
+			/*JOptionPane.showMessageDialog(null, "Get Infos suce Estoque");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -241,7 +241,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 			updateProduto(numPed); // atualiza quantidade disponivel na tabela produto
-			JOptionPane.showMessageDialog(null, "foi");
+		/*	JOptionPane.showMessageDialog(null, "foi");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -394,7 +394,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 			updateProduto(numPed,cod_produto);
-			JOptionPane.showMessageDialog(null, "Estoque deletado");
+			/*JOptionPane.showMessageDialog(null, "Estoque deletado");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
