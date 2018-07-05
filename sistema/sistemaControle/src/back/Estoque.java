@@ -298,10 +298,10 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "gET N PEDIDO FUNCIONANDO");
+			/*JOptionPane.showMessageDialog(null, "gET N PEDIDO FUNCIONANDO");*/
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "eRRO GET N PEDIDO");
+			JOptionPane.showMessageDialog(null, "Erro  get n pedido de Estoque !");
 		}
 		
 		return result;
