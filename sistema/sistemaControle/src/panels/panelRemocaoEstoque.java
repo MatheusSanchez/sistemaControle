@@ -1,6 +1,8 @@
 package panels;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -36,6 +38,12 @@ public class panelRemocaoEstoque {
 		JButton btnNRemoverEstoque = new JButton("Remover");
 		btnNRemoverEstoque.setBounds(288, 135, 89, 39);
 		remocaoEstoque.add(btnNRemoverEstoque);
+		
+		btnNRemoverEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+					 Estoque.delete((String)comboBoxEstoque.getSelectedItem());	
+			}
+		});
 		
 		remocaoEstoque.setVisible(true);
 	}

@@ -11,6 +11,11 @@ import javax.swing.JOptionPane;
 public class Conexao {
 	private static Connection conn;
 	
+	private static String host;
+	private static String port;
+	private static String user;
+	private static String password;
+	
 
 	private Conexao() {
 	}
@@ -26,15 +31,30 @@ public class Conexao {
 			
 			if(conexao.equals("lab")){
 				try {
-					/*Scanner s = new Scanner(System.in);	// trocar para pedir user e senha
-					System.out.print("Host: ");
-					String host = s.nextLine(); 
-					System.out.print("Port: ");
-					String port = s.nextLine();
-					System.out.print("User: ");
-					String user = s.nextLine();
-					System.out.print("Password: ");
-					String password = s.nextLine();*/
+					//recebendo dados de conexao do ususario
+					/*if (host == null) {
+						host = JOptionPane.showInputDialog(null, "Host: ");
+						if (host == null) {
+							System.exit(0);
+						}
+						port = JOptionPane.showInputDialog(null, "Port: ");
+						if (port == null) {
+							System.exit(0);
+						}
+						user = JOptionPane.showInputDialog(null, "User: ");
+						if (user == null) {
+							System.exit(0);
+						}
+						password = JOptionPane.showInputDialog(null, "Password: ");
+						if (password == null) {
+							System.exit(0);
+						}
+					}
+					
+					conn = DriverManager.getConnection("jdbc:oracle:thin:@" + host + ":" + port + ":orcl", user, password); //conecta com o banco
+					conn.setAutoCommit(false);
+					System.out.println("Conexao estabelecida");*/
+					
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@" + "192.168.183.15" + ":" + "1521" + ":orcl", "m9081453", "matxd96114974!!!");
 					System.out.println("Conexao com banco estabelecida !");
 				} catch (Exception e) {

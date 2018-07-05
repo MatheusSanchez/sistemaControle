@@ -448,7 +448,7 @@ public class Home {
 					col[3] = "LUCRO_ESPERADO";
 					col[4] = "QNTD_ESTOQUE";
 					String sql = "SELECT*FROM PRODUTO";
-					TelaConsulta t = new TelaConsulta(consultaProduto,"PRODUTO","MAOE","SELECT*FROM PRODUTO",col);
+					TelaConsulta t = new TelaConsulta(consultaProduto,"PRODUTO","MAOE","SELECT*FROM PRODUTO ORDER BY COD_PRODUTO",col);
 					consultaProduto.setVisible(true);
 					
 					consultaProduto.setViewportView(t.table);
@@ -472,7 +472,7 @@ public class Home {
 					col[6] = "LUCRO";
 					col[7] = "T_PAGAMENTO";
 					String sql = "SELECT*FROM VENDA";
-					TelaConsulta t = new TelaConsulta(consultaProduto,"VENDA","MAOE","SELECT*FROM VENDA",col);
+					TelaConsulta t = new TelaConsulta(consultaProduto,"VENDA","MAOE","SELECT*FROM VENDA ORDER BY COD_VENDA",col);
 					consultaVenda.setVisible(true);
 					
 					consultaVenda.setViewportView(t.table);
@@ -497,7 +497,7 @@ public class Home {
 					col[5] = "DATA_REPOSICAO";
 					col[6] = "QNTD_DISPONIVEL";
 					String sql = "SELECT*FROM REPOSICAO";
-					TelaConsulta t = new TelaConsulta(consultaEstoque,"REPOSICAO","MAOE","SELECT*FROM REPOSICAO",col);
+					TelaConsulta t = new TelaConsulta(consultaEstoque,"REPOSICAO","MAOE","SELECT*FROM REPOSICAO ORDER BY N_PEDIDO",col);
 					consultaEstoque.setVisible(true);
 					
 					consultaEstoque.setViewportView(t.table);

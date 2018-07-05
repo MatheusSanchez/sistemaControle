@@ -149,30 +149,17 @@ public class TelaConsulta extends JFrame {
 			ResultSet rs = pstm.executeQuery();
 
 			List<String> resultado = new ArrayList<String>();
-			/*for (int i = 0; i < nomeColunas.length; i++) {
-				s += nomeColunas[i] + "\n";
-			}
-			resultado.add(s);
-			s = "";*/
+		
 			while (rs.next()) {
 
 				for (String string : nomeColunas) {
 					s += rs.getString(string) + "\n";
-					System.out.println(string);
+				
 				}
 				resultado.add(s);
 				s = "";
 			}
-			/*table.setModel(new DefaultTableModel(
-					new Object[][] {
-						{"Eae", null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-						{null, null, null, null, null, null, null},
-					},
-					nomeColunas
-				));*/
+			
 			TableModel model = new TableModel(nomeColunas, resultado);
 			table.setModel(model); // apresenta o resultado
 

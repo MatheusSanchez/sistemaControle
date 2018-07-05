@@ -20,6 +20,36 @@ public class panelAlteracaoUsuario {
 	private JTextField textEmailUsuario_A;
 	private JTextField textSenhaUsuario_A;
 	private JTextField textConfirmacao_A;
+	private JLabel lblNome_A;
+	private JLabel lblEmail_A;
+	private JLabel lblSenha_A;
+	private JLabel lblConfirmeASenha_A;
+	private JButton btnAlterarUsuario;
+	
+	public void someBotoes() {
+		textNomeUsuario_A.setVisible(false);
+		textEmailUsuario_A.setVisible(false);
+		textSenhaUsuario_A.setVisible(false);
+		textConfirmacao_A.setVisible(false);
+		lblNome_A.setVisible(false);
+		lblEmail_A.setVisible(false);
+		lblSenha_A.setVisible(false);
+		lblConfirmeASenha_A.setVisible(false);
+		btnAlterarUsuario.setVisible(false);
+	}
+	
+	public void exibeBotoes() {
+		textNomeUsuario_A.setVisible(true);
+		textEmailUsuario_A.setVisible(true);
+		textSenhaUsuario_A.setVisible(true);
+		textConfirmacao_A.setVisible(true);
+		lblNome_A.setVisible(true);
+		lblEmail_A.setVisible(true);
+		lblSenha_A.setVisible(true);
+		lblConfirmeASenha_A.setVisible(true);
+		btnAlterarUsuario.setVisible(true);
+		
+	}
 
 	public panelAlteracaoUsuario(JFrame frame, JPanel alteracaoUsuario){
 		//-----Panel de alteracao de usuario-----
@@ -35,10 +65,16 @@ public class panelAlteracaoUsuario {
 		alteracaoUsuario.add(lblAlteraoUsuarios);
 		
 		JComboBox comboBoxUsuario_A = new JComboBox(Usuario.getNames());
+		comboBoxUsuario_A.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+					 someBotoes();	
+			}
+		});
+		
 		comboBoxUsuario_A.setBounds(23, 133, 209, 19);
 		alteracaoUsuario.add(comboBoxUsuario_A);
 		
-		JButton btnAlterarUsuario = new JButton("Alterar");
+		btnAlterarUsuario = new JButton("Alterar");
 		btnAlterarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String [] form = new String[4];
@@ -53,10 +89,12 @@ public class panelAlteracaoUsuario {
 				}else{
 					JOptionPane.showMessageDialog(null, "As senhas estão diferetes !");
 				}
-			
+				
 				
 			}
 		});
+		
+		
 		btnAlterarUsuario.setBounds(519, 125, 85, 46);
 		alteracaoUsuario.add(btnAlterarUsuario);
 		
@@ -80,33 +118,51 @@ public class panelAlteracaoUsuario {
 		alteracaoUsuario.add(textConfirmacao_A);
 		textConfirmacao_A.setColumns(10);
 		
+		/*JComboBox comboBoxTipoUsuario_A = new JComboBox(Usuario.get);
+		comboBoxTipoUsuario_A.setBounds(269, 234, 209, 19);
+		alteracaoUsuario.add(comboBoxTipoUsuario_A);*/
 		
-		JLabel lblNome_A = new JLabel("Nome:");
+		lblNome_A = new JLabel("Nome:");
 		lblNome_A.setBounds(269, 54, 209, 13);
 		alteracaoUsuario.add(lblNome_A);
 		
-		JLabel lblEmail_A = new JLabel("Email:");
+		lblEmail_A = new JLabel("Email:");
 		lblEmail_A.setBounds(269, 95, 209, 13);
 		alteracaoUsuario.add(lblEmail_A);
 		
-		JLabel lblSenha_A = new JLabel("Senha:");
+		lblSenha_A = new JLabel("Senha:");
 		lblSenha_A.setBounds(269, 141, 45, 13);
 		alteracaoUsuario.add(lblSenha_A);
 		
-		JLabel lblConfirmeASenha_A = new JLabel("Confirme a Senha:");
+		lblConfirmeASenha_A = new JLabel("Confirme a Senha:");
 		lblConfirmeASenha_A.setBounds(269, 181, 209, 13);
 		alteracaoUsuario.add(lblConfirmeASenha_A);
 		
+		/*JLabel lblTipo_A = new JLabel("Tipo:");
+		lblTipo_A.setBounds(269, 219, 45, 13);
+		alteracaoUsuario.add(lblTipo_A);*/
+		
+		textNomeUsuario_A.setVisible(false);
+		textEmailUsuario_A.setVisible(false);
+		textSenhaUsuario_A.setVisible(false);
+		textConfirmacao_A.setVisible(false);
+		lblNome_A.setVisible(false);
+		lblEmail_A.setVisible(false);
+		lblSenha_A.setVisible(false);
+		lblConfirmeASenha_A.setVisible(false);
+		btnAlterarUsuario.setVisible(false);
 		
 		JButton btnConsultaAlteracao_U = new JButton("Consulta");
 		btnConsultaAlteracao_U.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nomeSelecionado = (String)comboBoxUsuario_A.getSelectedItem();
 				String []result = Usuario.getInfos(nomeSelecionado);
-				textNomeUsuario_A.setText(result[2]);
-				textEmailUsuario_A.setText(result[3]);
-				textSenhaUsuario_A.setText(result[4]);
-				
+				if(result != null){
+					textNomeUsuario_A.setText(result[2]);
+					textEmailUsuario_A.setText(result[3]);
+					textSenhaUsuario_A.setText(result[4]);
+					exibeBotoes();
+				}
 			}
 		});
 		btnConsultaAlteracao_U.setBounds(82, 163, 89, 23);

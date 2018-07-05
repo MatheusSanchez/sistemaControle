@@ -74,7 +74,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Result " + result);
+			/*JOptionPane.showMessageDialog(null, "Result " + result);*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -133,7 +133,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 			
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
+			//JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso (update quantidade)");
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao alterar Produto (update quantidade)");
@@ -330,7 +330,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Get n pedido with cod produto = "  + cod_produto);
+			/*JOptionPane.showMessageDialog(null, "Get n pedido with cod produto = "  + cod_produto);*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERROR Get n pedido with cod produto = "  + cod_produto);
@@ -366,7 +366,7 @@ public class Estoque {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "getMax RODOU");
+			/*JOptionPane.showMessageDialog(null, "getMax RODOU");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "getMax DEU ERRO " + e);
