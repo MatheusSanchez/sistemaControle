@@ -14,7 +14,7 @@ public class panelConsultaEstoque {
 		//-----Panel de consulta de estoque-----	
 		//consultaEstoque = new JScrollPane();
 		consultaEstoque.setVisible(false);
-		consultaEstoque.setBounds(282, 149, 637, 227);
+		consultaEstoque.setBounds(282, 129, 638, 281);
 		frame.getContentPane().add(consultaEstoque);
 		
 		table = new JTable();

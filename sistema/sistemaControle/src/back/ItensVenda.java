@@ -7,35 +7,32 @@ import javax.swing.JOptionPane;
 
 import conexao.Conexao;
 
-public class Venda {
+public class ItensVenda {
 	
 	/*cadastro simples de produto 
 	 * 
 	 *  posições do array
 	 *  
-	 *  [0] cpf_vendedor
-	 *  [1] data_venda
-	 *  [2] Desconto
-	 *  [3] Custo_total
-	 *  [4] Preco_venda
-	 *  [5] Lucro_t
-	 *  [6] t_pagamento	
-	 *  
-	 * 	qntd_estoque sempre cadastrado com 0	
+	 *  [0] COD_PRODUTO
+	 *  [1] QNTD_PRODUTO
+	 *  [2] PRECO_REPOSICAO
+	 *  [3] PRECO_VENDA
+	 *  [4] LUCRO
+	 *  	
 	 * 
 	 * */
 	
 	static public void cadastro(String [] form){
 		Connection c = Conexao.getInstance();
 		
-		String sql = "INSERT INTO VENDA (CPF_USUARIO,DATA_VENDA,DESCONTO,CUSTO_TOTAL,PRECO_VENDA,LUCRO,T_PAGAMENTO) VALUES (?,to_date(?,'dd/mm/yyyy'),?,?,?,?,?)";
+		String sql = "INSERT INTO ITENS_VENDA (COD_VENDA,COD_PRODUTO,QNTD_PRODUTO,PRECO_REPOSICAO,PRECO_VENDA,LUCRO) VALUES ((SELECT MAX(COD_VENDA) FROM VENDA),?,?,?,?,?)";
 		
 		try {
 			PreparedStatement pstm = c.prepareStatement(sql);
 			System.out.println("preparando");
 			
 		
-			for (int i = 0; i < 7; i++) {
+			for (int i = 0; i < 5; i++) {
 				pstm.setString(i + 1, form[i]);
 			}
 			
@@ -44,12 +41,13 @@ public class Venda {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "Venda Inserida com sucesso");
+			JOptionPane.showMessageDialog(null, "iTENS Venda Inserida com sucesso");
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro  " + e);
 		}
 		
 	}	
+
 
 }
