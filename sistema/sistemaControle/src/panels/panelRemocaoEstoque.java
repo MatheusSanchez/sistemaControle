@@ -29,7 +29,7 @@ public class panelRemocaoEstoque {
 		comboBoxEstoque.setBounds(188, 97, 301, 20);
 		remocaoEstoque.add(comboBoxEstoque);
 		
-		JLabel lblSelecioneOCdigo = new JLabel("Selecione o c\u00F3digo do produto que deseja remover:");
+		JLabel lblSelecioneOCdigo = new JLabel("Selecione o numero do Pedido para Remover: ");
 		lblSelecioneOCdigo.setBounds(188, 77, 301, 14);
 		remocaoEstoque.add(lblSelecioneOCdigo);
 		

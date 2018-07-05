@@ -45,6 +45,7 @@ public class TelaLogin {
 	public TelaLogin() {
 		
 		initialize();
+		this.frame.setResizable(false);
 	}
 	
 	public void img(JPanel panel, Container c) {
@@ -91,7 +92,7 @@ public class TelaLogin {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(62,96,111));
-		panel_1.setBounds(0, 421, 957, 60);
+		panel_1.setBounds(0, 429, 973, 62);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		img(panel_1,container);
