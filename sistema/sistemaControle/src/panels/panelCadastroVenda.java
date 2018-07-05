@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import back.Estoque;
 import back.Produto;
+import back.Venda;
 
 public class panelCadastroVenda {
 	
@@ -70,7 +71,7 @@ public class panelCadastroVenda {
 		cadastroVenda.add(textPrecoOriginal);
 		textPrecoOriginal.setColumns(10);
 		
-		textDescontoDado = new JTextField("0,00");
+		textDescontoDado = new JTextField("0.00");
 		textDescontoDado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				qtd = (int)comboBoxQtdVenda.getSelectedItem();
@@ -120,18 +121,23 @@ public class panelCadastroVenda {
 				String [] form1 = new String[7];
 				form1[0] = "111.111.111-11";
 				form1[1] = textData_V.getText();
-				form1[2] = textDescontoDado.getText();
-				form1[3] = textPrecoOriginal.getText();
-				form1[4] = textPrecoVenda.getText();
-				form1[5] = textLucro.getText();
+				form1[2] = df.format(desconto);
+				form1[3] = df.format(precoCompra_Total);
+				form1[4] = df.format(precoVenda_Total);
+				form1[5] = df.format(lucro);
 				form1[6] = (String)comboBoxFormaPagamento.getSelectedItem();
+				System.out.println("form1 = " + form1[0] + " " + form1[1] + " " + form1[2] + " " + form1[3] + " " + form1[4] + " " + form1[5] + " " + form1[6]);
 				
 				String [] form2 = new String[5];
-				//form2[0] = 
-				//form2[1]
-				//form2[2]
-				//form2[3]
-				//form2[4]
+				form2[0] = Produto.getCod((String)comboBoxNomeProduto.getSelectedItem());
+				form2[1] = Integer.toString(qtd);
+				form2[2] = df.format(precoCompra_Uni);
+				form2[3] = df.format(precoVenda_Uni);
+				float lucro_uni = precoVenda_Uni - precoCompra_Uni;
+				form2[4] = df.format(lucro_uni);
+				System.out.println("form2 = " + form2[0] + " " + form2[1] + " " + form2[2] + " " + form2[3] + " " + form2[4]);
+
+				Venda.cadastro(form1, form2, numPed);
 			}
 		});
 		btnNewButton.setBounds(75, 192, 142, 43);
