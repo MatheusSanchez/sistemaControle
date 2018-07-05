@@ -38,6 +38,7 @@ public class TelaCadastroInicial extends JFrame {
 	 */
 	public TelaCadastroInicial() {
 		initialize();
+		this.frame.setResizable(false);
 	}
 	
 	public void img(JPanel panel, Container c) {
