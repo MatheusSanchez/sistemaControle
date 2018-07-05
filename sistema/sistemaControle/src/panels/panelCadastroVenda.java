@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import back.Estoque;
 import back.Produto;
 
 public class panelCadastroVenda {
@@ -30,6 +31,7 @@ public class panelCadastroVenda {
 	public JComboBox comboBoxNomeProduto;
 	private JLabel lblNroPedido;
 	private JComboBox comboBoxNroPedido;
+	private int max = 0;
 	
 	public panelCadastroVenda(JFrame frame,JPanel cadastroVenda){
 		//-----Panel de cadastro de venda-----
@@ -101,11 +103,35 @@ public class panelCadastroVenda {
 		lblProduto.setBounds(49, 52, 196, 13);
 		cadastroVenda.add(lblProduto);
 		
+		comboBoxQtdVenda = new JComboBox();
+		comboBoxQtdVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+			}
+	});
+		comboBoxQtdVenda.setBounds(501, 68, 84, 20);
+		cadastroVenda.add(comboBoxQtdVenda);
+		
+		comboBoxNroPedido = new JComboBox();
+		comboBoxNroPedido.setBounds(378, 68, 71, 20);
+		cadastroVenda.add(comboBoxNroPedido);
+		
 		comboBoxNomeProduto = new JComboBox(Produto.getNames());
 		
 		comboBoxNomeProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				 System.out.println("Codigo " + Produto.getCod((String)comboBoxNomeProduto.getSelectedItem()));
+				 cadastroVenda.remove(comboBoxNroPedido);
+				 comboBoxNroPedido = new JComboBox(Estoque.getNpedidos(Produto.getCod((String)comboBoxNomeProduto.getSelectedItem())));
+				 comboBoxNroPedido.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {			
+							 max = Integer.parseInt(Estoque.getMax((String)comboBoxNroPedido.getSelectedItem()));
+							 for(int i = 1; i <= max; i++) {
+								comboBoxQtdVenda.addItem(i);
+							 }
+						}
+				});
+				comboBoxNroPedido.setBounds(378, 68, 71, 20);
+				cadastroVenda.add(comboBoxNroPedido);
 			}
 		});
 		comboBoxNomeProduto.setBounds(49, 68, 207, 20);
@@ -115,17 +141,9 @@ public class panelCadastroVenda {
 		lblQuantidade.setBounds(474, 52, 154, 13);
 		cadastroVenda.add(lblQuantidade);
 		
-		comboBoxQtdVenda = new JComboBox();
-		comboBoxQtdVenda.setBounds(501, 68, 84, 20);
-		cadastroVenda.add(comboBoxQtdVenda);
-		
 		lblNroPedido = new JLabel("N\u00BA Pedido");
 		lblNroPedido.setBounds(378, 52, 86, 13);
 		cadastroVenda.add(lblNroPedido);
-		
-		comboBoxNroPedido = new JComboBox();
-		comboBoxNroPedido.setBounds(378, 68, 71, 20);
-		cadastroVenda.add(comboBoxNroPedido);
 		
 		cadastroVenda.setVisible(true);
 	}
