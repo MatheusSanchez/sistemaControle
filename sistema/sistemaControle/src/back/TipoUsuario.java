@@ -45,7 +45,7 @@ public class TipoUsuario {
 			System.out.println("Fim query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "TIPO do usuario "+Cpf+" inserido com sucesso");
+			/*JOptionPane.showMessageDialog(null, "TIPO do usuario "+Cpf+" inserido com sucesso");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao inserir USUARIO TIPO do usuario "+Cpf);

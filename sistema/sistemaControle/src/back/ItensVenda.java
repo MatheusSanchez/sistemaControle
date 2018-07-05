@@ -41,7 +41,7 @@ public class ItensVenda {
 			System.out.println("Fim a query ");
 			pstm.close();
 
-			JOptionPane.showMessageDialog(null, "iTENS Venda Inserida com sucesso");
+			/*JOptionPane.showMessageDialog(null, "iTENS Venda Inserida com sucesso");*/
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro  " + e);
