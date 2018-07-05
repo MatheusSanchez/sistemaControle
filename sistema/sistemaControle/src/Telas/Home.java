@@ -31,6 +31,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Container;
@@ -88,7 +89,6 @@ public class Home {
 	private JButton btnVendas;
 	private JButton btnEstoque;	
 	private JButton btnUsuarios;
-
 	
 	public Home(Container c, JFrame j) {
 		
@@ -192,16 +192,12 @@ public class Home {
 		lblTodosOsDireitos.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblTodosOsDireitos.setBounds(23, 20, 513, 29);
 		panel_1.add(lblTodosOsDireitos);
-		
-		
-		
+			
 		//PAINEIS
 		
 		//De Produtos:
 			
 		//Panel de Consulta de Produto
-		
-		
 		
 		consultaProduto = new JScrollPane();
 		consultaProduto.setVisible(false);
@@ -378,13 +374,6 @@ public class Home {
 				});
 				btnVisualizar.setBounds(100, 154, 133, 36);
 				consultaUsuario.add(btnVisualizar);
-
-		 
-				
-				
-				
-		
-				
 				
 		//BOTOES LATERAIS
 		
